@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '../components/ui/Button';
+import NetworkBackground from '../components/NetworkBackground';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -241,12 +242,10 @@ export default function Home() {
       {/* AI Network Banner */}
       <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-[#040914] rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
         {/* Intricate network background */}
-        <div className="absolute inset-0 z-0 bg-[#040914]"></div>
-        <div className="absolute inset-0 z-0 opacity-60" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'150\' height=\'150\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 30 L90 70 M90 70 L140 40 M90 70 L110 130 M30 30 L50 110 M50 110 L110 130 M110 130 L140 40 M110 130 L160 170 M90 190 L50 110 M-20 60 L30 30 M140 40 L180 10 M170 110 L110 130\' stroke=\'%23ffffff\' stroke-width=\'0.5\' opacity=\'0.15\' /%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'90\' cy=\'70\' r=\'2\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3Ccircle cx=\'140\' cy=\'40\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.4\'/%3E%3Ccircle cx=\'50\' cy=\'110\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'110\' cy=\'130\' r=\'2\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3C/svg%3E")', backgroundSize: '150px 150px' }}></div>
-        <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'250\' height=\'250\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M50 50 L120 90 M120 90 L200 60 M120 90 L160 180 M50 50 L80 160 M80 160 L160 180 M160 180 L200 60 M-30 80 L50 50 M200 60 L240 20 M220 150 L160 180\' stroke=\'%23ffffff\' stroke-width=\'0.5\' opacity=\'0.15\' /%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'120\' cy=\'90\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3Ccircle cx=\'200\' cy=\'60\' r=\'3.5\' fill=\'%23ffffff\' opacity=\'0.4\'/%3E%3Ccircle cx=\'80\' cy=\'160\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'160\' cy=\'180\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3C/svg%3E")', backgroundSize: '250px 250px' }}></div>
+        <NetworkBackground />
         
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[60%] z-0 bg-gradient-to-r from-[#040914] via-[#040914]/90 to-transparent"></div>
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[60%] z-0 bg-gradient-to-r from-[#040914] via-[#040914]/90 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 max-w-4xl px-8 lg:px-16 text-left">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight max-w-2xl">
@@ -255,7 +254,7 @@ export default function Home() {
           <p className="text-slate-300 text-sm md:text-base font-medium mb-10 leading-relaxed max-w-2xl">
             Unlock growth opportunities with AI-driven travel software that enhances customer engagement, boosts direct sales, and fosters loyalty through hyper-relevant experiences. Powered by Rapid's proprietary 'Sense' data center, our AI product suite delivers cutting-edge solutions for tangible results.
           </p>
-          <Button variant="primary" className="px-8 py-3 text-sm font-bold shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)] transition-all rounded-full border-0">
+          <Button variant="primary" className="px-8 py-3 text-sm font-bold transition-all rounded-full border-0">
             Explore
           </Button>
         </div>

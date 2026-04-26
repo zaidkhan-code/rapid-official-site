@@ -673,7 +673,7 @@ export default function Layout() {
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <div className="flex flex-col p-3 min-h-[250px] max-h-[60vh] overflow-y-auto custom-scrollbar">
+              <div className="flex flex-col p-3 min-h-[250px] max-h-[60vh] overflow-y-auto overflow-x-hidden custom-scrollbar">
                 <AnimatePresence mode="wait">
                   {!selectedRegion ? (
                     <motion.div
@@ -700,7 +700,7 @@ export default function Layout() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 20 }}
-                      className="flex flex-col gap-1"
+                      className="flex  flex-col gap-1"
                     >
                       {regionData[selectedRegion].map((lang, i) => (
                         <button 
