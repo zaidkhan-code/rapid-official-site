@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, ReactNode } from 'react';
 import { Button } from '../components/ui/Button';
+import NetworkBackground from '../components/NetworkBackground';
 
 // Using exact icons or near equivalents for the Hiring Process
 import { Settings, CheckSquare, Users, Handshake } from 'lucide-react';
@@ -76,17 +77,11 @@ export default function Career() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Dark Theme Header */}
       <section className="relative pt-32 pb-48 lg:pt-40 lg:pb-56 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full text-left">
           <motion.div 
@@ -114,7 +109,7 @@ export default function Career() {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-[#111624] rounded-2xl shadow-sm border border-white/5 flex flex-col hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
+              className="bg-surface-light rounded-2xl shadow-sm border border-white/5 flex flex-col hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
             >
               <div className="p-8 pb-10 flex flex-col items-start flex-grow">
                  <span className="text-[11px] font-bold tracking-widest text-slate-400 mb-4">{job.location}</span>
@@ -144,7 +139,7 @@ export default function Career() {
                whileInView={{ y: 0, opacity: 1 }}
                viewport={{ once: true }}
                transition={{ delay: idx * 0.1 }}
-               className="bg-[#111624] p-8 rounded-2xl shadow-sm border border-white/5 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
+               className="bg-surface-light p-8 rounded-2xl shadow-sm border border-white/5 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
             >
                <div className={`w-14 h-14 rounded-xl ${step.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                  <step.icon className={`w-7 h-7 ${step.color}`} strokeWidth={1.5} />
@@ -177,7 +172,7 @@ export default function Career() {
              return (
                <div 
                  key={idx} 
-                 className={`w-full bg-[#111624] rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-primary shadow-sm shadow-brand-primary/10' : 'border-white/5 hover:border-white/20'}`}
+                 className={`w-full bg-surface-light rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-primary shadow-sm shadow-brand-primary/10' : 'border-white/5 hover:border-white/20'}`}
                >
                  <button 
                    onClick={() => {

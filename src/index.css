@@ -6,6 +6,11 @@
   --color-brand-primary: #28a8e0;
   --color-brand-secondary: #1e7fac;
   --color-brand-dark: #061121;
+  --color-base-dark: #060D1A;
+  --color-base-darker: #040914;
+  --color-surface-dark: #0A101C;
+  --color-surface-light: #0B1120;
+  --color-surface-lighter: #0F1420;
 }
 
 @layer components {
@@ -61,5 +66,20 @@ body {
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 0px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(40, 168, 224, 0.3);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(40, 168, 224, 0.6);
   }
 }

@@ -1,6 +1,7 @@
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import NetworkBackground from '../components/NetworkBackground';
 
 export default function Blog() {
   const posts = [
@@ -68,29 +69,9 @@ export default function Blog() {
       className="flex flex-col bg-slate-50 min-h-screen"
     >
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-brand-dark">
-        {/* Background Gradients & Effects */}
-        <div className="absolute inset-0 z-0 overflow-hidden text-white">
-           {/* Primary Brand Glows */}
-           <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-brand-primary/20 blur-[120px] rounded-full animate-pulse transition-opacity duration-1000"></div>
-           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-brand-primary/10 blur-[100px] rounded-full transition-opacity duration-1000"></div>
-           
-           {/* Slanted Geometric Shapes (Matching Image) */}
-           <div className="absolute inset-0 z-0 flex justify-center opacity-40">
-              <div className="relative w-full h-full max-w-[1800px]">
-                 <div className="absolute top-0 left-[-10%] w-1/4 h-full bg-brand-primary/10 -skew-x-12 translate-x-[-20%]"></div>
-                 <div className="absolute top-0 left-[15%] w-1/3 h-full bg-brand-primary/5 -skew-x-12"></div>
-                 <div className="absolute top-0 left-[50%] w-1/4 h-full bg-brand-primary/10 -skew-x-12 translate-x-[20%]"></div>
-                 <div className="absolute top-0 right-[-10%] w-1/3 h-full bg-brand-primary/15 -skew-x-12 translate-x-[40%]"></div>
-              </div>
-           </div>
-
-           {/* Center Atmospheric Glow */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,_var(--color-brand-primary)_0%,_transparent_70%)] opacity-10"></div>
-           
-           {/* Subtle Grid Pattern Overlay */}
-           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay"></div>
-        </div>
+      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden flex items-center justify-center">
+        <NetworkBackground />
+        
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}

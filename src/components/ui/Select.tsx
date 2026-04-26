@@ -12,7 +12,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <div className="relative w-full group">
         <select
           className={cn(
-            "flex h-12 w-full appearance-none border-b border-white/20 bg-transparent px-0 py-2 text-sm text-white focus:outline-none transition-all duration-300 cursor-pointer [&>option]:bg-[#1A2234] [&>option]:text-white",
+            "flex h-12 w-full appearance-none border-b border-white/20 bg-transparent px-0 py-2 text-sm text-white focus:outline-none transition-all duration-300 cursor-pointer [&>option]:bg-surface-lighter [&>option]:text-white",
             className
           )}
           ref={ref}

@@ -12,7 +12,7 @@ const Logo = () => (
     <img 
       src="/RAPID.png" 
       alt="Rapid Logo" 
-      className="h-8 w-auto object-contain"
+      className="w-30 object-contain"
       onError={(e) => {
         (e.target as HTMLImageElement).src = '/logo.svg';
       }}
@@ -20,7 +20,7 @@ const Logo = () => (
   </div>
 );
 
-const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, maxWidth = "max-w-[1800px]", align = "center" }: { children: ReactNode, activeMenu: string | null, menuName: string, onClose: () => void, maxWidth?: string, align?: 'left' | 'center' | 'right' }) => {
+const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, width = "w-[400px]", align = "center" }: { children: ReactNode, activeMenu: string | null, menuName: string, onClose: () => void, width?: string, align?: 'left' | 'center' | 'right' }) => {
   if (activeMenu !== menuName) return null;
 
   return (
@@ -30,15 +30,14 @@ const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, maxWidth =
       exit={{ opacity: 0, y: 15, scale: 0.98 }}
       transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
       className={cn(
-        "absolute top-0 pt-3 z-50 w-full",
+        "absolute top-full pt-2 z-50",
         align === 'center' && 'left-1/2 -translate-x-1/2',
-        align === 'left' && 'left-4 lg:left-8 xl:left-12 2xl:left-16',
-        align === 'right' && 'right-4 lg:right-8 xl:right-12 2xl:right-16',
-        maxWidth
+        align === 'left' && 'left-0',
+        align === 'right' && 'right-0',
+        width
       )}
     >
-      <div className="bg-[#0A101C]/95 backdrop-blur-3xl rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden p-8 md:p-12 relative">
-  
+      <div className="bg-surface-dark/95 backdrop-blur-3xl rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden p-8 md:p-12 relative w-full">
         {children}
       </div>
     </motion.div>
@@ -68,15 +67,15 @@ const MegaMenuItem = ({ icon: Icon, name, desc, path, isNew, onClose }: { icon: 
 
 const ProductsMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; onClose: () => void }) => {
   const items = [
-    { name: 'Rapid ERP Core', desc: 'Enterprise Resource Planning for mid to large organizations.', path: '/services', icon: Database },
-    { name: 'POS Solutions', desc: 'Cloud-native Point of Sale systems for modern retail.', path: '/services', icon: LayoutIcon },
-    { name: 'Supply Chain Pro', desc: 'End-to-end logistics and inventory visibility.', path: '/services', icon: Warehouse },
-    { name: 'Fintech Suite', desc: 'Secure financial management and automated reporting.', path: '/services', icon: ShieldCheck },
+    { name: 'Rapid ERP Core', desc: 'Enterprise Resource Planning for mid to large organizations.', path: '/products', icon: Database },
+    { name: 'POS Solutions', desc: 'Cloud-native Point of Sale systems for modern retail.', path: '/products', icon: LayoutIcon },
+    { name: 'Supply Chain Pro', desc: 'End-to-end logistics and inventory visibility.', path: '/products', icon: Warehouse },
+    { name: 'Fintech Suite', desc: 'Secure financial management and automated reporting.', path: '/products', icon: ShieldCheck },
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Products" onClose={onClose} maxWidth="max-w-4xl" align="left">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Products" onClose={onClose} width="w-[800px]" align="left">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -94,19 +93,19 @@ const ProductsMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; 
 
 const SolutionsMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; onClose: () => void }) => {
   const items = [
-    { name: 'Enterprise Digitization', desc: 'Accelerate your digital journey with modern stacks.', path: '/services', icon: Zap },
-    { name: 'Cloud Transformation', desc: 'Migrate and scale on secure cloud infrastructures.', path: '/services', icon: Cloud },
-    { name: 'Supply Chain Optimization', desc: 'Streamline procurement to delivery workflows.', path: '/services', icon: Warehouse },
-    { name: 'Financial Automation', desc: 'Automate accounting, payroll and compliance.', path: '/services', icon: ShieldCheck },
-    { name: 'AI-Powered Analytics', desc: 'Predictive intelligence for better decision making.', path: '/services', icon: BrainCircuit, isNew: true },
-    { name: 'Customer Experience', desc: 'Unified CRM and engagement across channels.', path: '/services', icon: Users },
-    { name: 'Security & Compliance', desc: 'Robust data protection and global standards.', path: '/services', icon: Fingerprint },
-    { name: 'IoT Integration', desc: 'Connect assets for real-time sensor monitoring.', path: '/services', icon: Cpu, isNew: true },
+    { name: 'Enterprise Digitization', desc: 'Accelerate your digital journey with modern stacks.', path: '/solutions', icon: Zap },
+    { name: 'Cloud Transformation', desc: 'Migrate and scale on secure cloud infrastructures.', path: '/solutions', icon: Cloud },
+    { name: 'Supply Chain Optimization', desc: 'Streamline procurement to delivery workflows.', path: '/solutions', icon: Warehouse },
+    { name: 'Financial Automation', desc: 'Automate accounting, payroll and compliance.', path: '/solutions', icon: ShieldCheck },
+    { name: 'AI-Powered Analytics', desc: 'Predictive intelligence for better decision making.', path: '/solutions', icon: BrainCircuit, isNew: true },
+    { name: 'Customer Experience', desc: 'Unified CRM and engagement across channels.', path: '/solutions', icon: Users },
+    { name: 'Security & Compliance', desc: 'Robust data protection and global standards.', path: '/solutions', icon: Fingerprint },
+    { name: 'IoT Integration', desc: 'Connect assets for real-time sensor monitoring.', path: '/solutions', icon: Cpu, isNew: true },
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Solutions" onClose={onClose} maxWidth="max-w-4xl" align="center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Solutions" onClose={onClose} width="w-[800px]" align="center">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -146,8 +145,8 @@ const ServicesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; 
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Services" onClose={onClose} maxWidth="max-w-6xl" align="center">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Services" onClose={onClose} width="w-[1100px]" align="center">
+      <div className="grid grid-cols-3 gap-x-12 gap-y-10">
         {serviceColumns.map((col, colIdx) => (
           <div key={colIdx} className="flex flex-col gap-10">
             {col.map((item, idx) => (
@@ -185,8 +184,8 @@ const IndustriesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Industries" onClose={onClose} maxWidth="max-w-4xl" align="center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Industries" onClose={onClose} width="w-[800px]" align="center">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-10">
         {industries.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -204,16 +203,16 @@ const IndustriesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null
 
 const ResourcesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; onClose: () => void }) => {
   const items = [
-    { name: 'Blogs', desc: 'Latest insights and industry updates.', icon: BookOpen, path: '/about' },
-    { name: 'Case Studies', desc: 'Real-world success stories.', icon: FileText, path: '/about' },
-    { name: 'e-Book', desc: 'Downloadable deep-dives.', icon: Book, path: '/about' },
-    { name: 'Video Library', desc: 'Watch and learn our platforms.', icon: PlayCircle, path: '/about' },
-    { name: 'Press Releases', desc: 'Latest official company announcements.', icon: Newspaper, path: '/about' },
-    { name: 'FAQs', desc: 'Commonly asked questions.', icon: HelpCircle, path: '/about' },
+    { name: 'Blogs', desc: 'Latest insights and industry updates.', icon: BookOpen, path: '/blog' },
+    { name: 'Case Studies', desc: 'Real-world success stories.', icon: FileText, path: '/case-studies' },
+    { name: 'e-Book', desc: 'Downloadable deep-dives.', icon: Book, path: '/ebooks' },
+    { name: 'Video Library', desc: 'Watch and learn our platforms.', icon: PlayCircle, path: '/video-library' },
+    { name: 'Press Releases', desc: 'Latest official company announcements.', icon: Newspaper, path: '/press-releases' },
+    { name: 'FAQs', desc: 'Commonly asked questions.', icon: HelpCircle, path: '/faq' },
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Resources" onClose={onClose} maxWidth="max-w-md" align="right">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Resources" onClose={onClose} width="w-[400px]" align="right">
       <div className="grid grid-cols-1 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
@@ -235,13 +234,13 @@ const CompanyMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; o
     { name: 'About Us', desc: 'Our vision and global journey.', icon: Info, path: '/about' },
     { name: 'Contact', desc: 'Get in touch with our experts.', icon: Mail, path: '/contact' },
     { name: 'Careers', desc: 'Join our world-class team.', icon: Briefcase, path: '/career' },
-    { name: 'Leadership', desc: 'The visionaries behind Rapid.', icon: Users, path: '/about' },
-    { name: 'Partners', desc: 'Our global strategic ecosystem.', icon: Handshake, path: '/about' },
-    { name: 'FAQs', desc: 'Find quick answers to common queries.', icon: HelpCircle, path: '/about' },
+    { name: 'Leadership', desc: 'The visionaries behind Rapid.', icon: Users, path: '/leadership' },
+    { name: 'Partners', desc: 'Our global strategic ecosystem.', icon: Handshake, path: '/partners' },
+    { name: 'FAQs', desc: 'Find quick answers to common queries.', icon: HelpCircle, path: '/faq' },
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Company" onClose={onClose} maxWidth="max-w-md" align="right">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Company" onClose={onClose} width="w-[400px]" align="right">
       <div className="grid grid-cols-1 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
@@ -365,7 +364,7 @@ export default function Layout() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1 h-full">
               {navLinks.map((link) => (
                 <div 
                   key={link.name} 
@@ -373,15 +372,30 @@ export default function Layout() {
                 >
                   <button
                     onClick={() => setActiveMenu(activeMenu === link.name ? null : link.name)}
-                
                     className={cn(
                       "px-4 py-2 text-[14px] font-bold flex items-center cursor-pointer gap-1 transition-all duration-200",
                       activeMenu === link.name ? "text-brand-primary" : "text-white/80 hover:text-white"
                     )}
                   >
                     {link.name}
-                    <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 opacity-50", activeMenu === link.name && "rotate-180 opacity-100")} />
+                    {link.hasItems && (
+                      <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200 opacity-50", activeMenu === link.name && "rotate-180 opacity-100")} />
+                    )}
                   </button>
+
+                  {/* Mega Menus Rendered Relative to Nav Item */}
+                  <AnimatePresence>
+                    {activeMenu === link.name && (
+                      <>
+                        {link.name === 'Products' && <ProductsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                        {link.name === 'Solutions' && <SolutionsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                        {link.name === 'Services' && <ServicesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                        {link.name === 'Industries' && <IndustriesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                        {link.name === 'Resources' && <ResourcesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                        {link.name === 'Company' && <CompanyMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />}
+                      </>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </nav>
@@ -452,20 +466,6 @@ export default function Layout() {
           </div>
         </div>
 
-        {/* Mega Menu Overlay */}
-        <AnimatePresence>
-          <div className="absolute top-full left-0 w-full flex justify-center">
-            <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative" onMouseLeave={() => setActiveMenu(null)}>
-              <ProductsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-              <SolutionsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-              <ServicesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-              <IndustriesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-              <ResourcesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-              <CompanyMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            </div>
-          </div>
-        </AnimatePresence>
-
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMobileMenuOpen && (
@@ -507,7 +507,7 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#111624] text-slate-300 py-16 border-t border-brand-primary/10">
+      <footer className="bg-surface-light text-slate-300 py-16 border-t border-brand-primary/10">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             
@@ -553,75 +553,59 @@ export default function Layout() {
               </div>
             </div>
             
-            {/* Column 2: Quick Links */}
+            {/* Column 2: Platform */}
             <div>
               <div className="mb-6">
                 <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
-                  QUICK LINKS
+                  PLATFORM
                 </h3>
               </div>
               <ul className="space-y-3 font-medium text-slate-400 text-sm">
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/brands" className="hover:text-white transition-colors">Brands</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/contact" className="hover:text-white transition-colors">Book Appointment</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-white transition-colors">Digital ERP Core</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-white transition-colors">POS Ecosystem</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-white transition-colors">Cloud Transformation</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-white transition-colors">Financial Automation</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/industries" className="hover:text-white transition-colors">Industry Verticals</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/technology" className="hover:text-white transition-colors">Our Technology</Link></li>
               </ul>
             </div>
 
-            {/* Column 3: Opening Hours & Support */}
+            {/* Column 3: Resources */}
             <div>
               <div className="mb-6">
                 <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
-                  OPENING HOURS
+                  RESOURCES
+                </h3>
+              </div>
+              <ul className="space-y-3 font-medium text-slate-400 text-sm">
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/blog" className="hover:text-white transition-colors">Insights Blog</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/ebooks" className="hover:text-white transition-colors">Whitepapers</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/video-library" className="hover:text-white transition-colors">Video Library</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/press-releases" className="hover:text-white transition-colors">Press Releases</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/faq" className="hover:text-white transition-colors">FAQ Center</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4: Company */}
+            <div>
+              <div className="mb-6">
+                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
+                  COMPANY
                 </h3>
               </div>
               <ul className="space-y-3 font-medium text-slate-400 text-sm mb-8">
-                <li>Monday-Friday 8:00 am-6:00 pm</li>
-                <li>Break : 1:00 pm-2:00 pm</li>
-                <li>Sunday : Closed</li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/about" className="hover:text-white transition-colors">About Rapid</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/leadership" className="hover:text-white transition-colors">Leadership Team</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/partners" className="hover:text-white transition-colors">Partner Ecosystem</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/career" className="hover:text-white transition-colors">Global Careers</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link></li>
               </ul>
 
-              <div className="mb-6">
-                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
-                  SUPPORT
-                </h3>
+              <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white/5 border border-white/5">
+                <span className="text-[10px] font-black uppercase text-brand-primary">Global Support</span>
+                <span className="text-white font-bold text-sm tracking-tight">+1 (800) RAPID-ERP</span>
               </div>
-              <ul className="space-y-3 font-medium text-slate-400 text-sm">
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/terms" className="hover:text-white transition-colors">Terms & Condition</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 4: Contact Info */}
-            <div>
-              <div className="mb-6">
-                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
-                  CONTACT INFO
-                </h3>
-              </div>
-              <ul className="space-y-6 text-slate-400 font-medium text-sm">
-                <li className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">123 Tech Boulevard,<br/>Innovation District, CA 94043</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <Phone className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
-                  <div className="flex flex-col gap-1">
-                    <span>+1 (555) 123-4567</span>
-                    <span>+1 (555) 987-6543</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <Mail className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
-                  <div className="flex flex-col gap-1">
-                    <span>info@rapid-erp.com</span>
-                    <span>support@rapid-erp.com</span>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
           
@@ -648,14 +632,14 @@ export default function Layout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeLangModal}
-              className="absolute inset-0 bg-[#030812]/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-base-darker/90 backdrop-blur-sm"
             ></motion.div>
             
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative w-full max-w-md bg-[#0A101C] border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-full max-w-md bg-surface-dark border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
                 <div className="flex items-center gap-3">
@@ -715,7 +699,7 @@ export default function Layout() {
                   )}
                 </AnimatePresence>
               </div>
-              <div className="px-6 py-5 bg-[#060D1A] border-t border-white/5 text-center">
+              <div className="px-6 py-5 bg-base-dark border-t border-white/5 text-center">
                 <span className="text-[13px] font-medium text-slate-500">
                   {selectedRegion ? 'Select your language to continue.' : 'Choose your country to view localized content.'}
                 </span>
@@ -734,14 +718,14 @@ export default function Layout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeUserModal}
-              className="absolute inset-0 bg-[#030812]/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-base-darker/90 backdrop-blur-sm"
             ></motion.div>
             
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative w-full max-w-sm bg-[#0A101C] border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-full max-w-sm bg-surface-dark border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
               <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
                 <div className="flex items-center gap-3">

@@ -6,6 +6,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import NetworkBackground from '../components/NetworkBackground';
 
 // Maps each of our 12 services to its dedicated visual styling
 const serviceVisuals: Record<string, any> = {
@@ -285,17 +286,11 @@ export default function Services() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Animated Organic Blob Hero Section */}
       <section className="relative w-full overflow-hidden pt-20 pb-20 sm:pt-28 sm:pb-32 border-b border-white/5">
-        {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
 
         {/* Floating Abstract Blobs Container */}
         <div className="relative z-10 w-full max-w-[1800px] mx-auto h-[500px] sm:h-[600px] flex items-center justify-center">
@@ -403,7 +398,7 @@ export default function Services() {
                 placeholder="Find a service..." 
                 className="w-full pl-11 pr-12 py-3.5 bg-white/5 border border-white/10 rounded-2xl text-[14px] text-white focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary outline-none transition-all duration-300 placeholder:text-slate-500 hover:bg-white/10 hover:border-white/20 shadow-sm" 
               />
-              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-[#1A2234] border border-white/10 rounded-xl p-1.5 shadow-sm hover:bg-[#232D45] cursor-pointer transition-colors">
+              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-surface-lighter border border-white/10 rounded-xl p-1.5 shadow-sm hover:bg-[#232D45] cursor-pointer transition-colors">
                  <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
               </div>
             </div>
@@ -425,7 +420,7 @@ export default function Services() {
                       "text-left px-4 py-3.5 rounded-xl text-[14px] transition-all relative group flex items-center gap-3 w-full",
                       isActive 
                         ? "text-brand-primary font-semibold bg-brand-primary/10 shadow-sm ring-1 ring-brand-primary/40" 
-                        : "text-slate-400 font-medium hover:text-white hover:bg-[#111624]"
+                        : "text-slate-400 font-medium hover:text-white hover:bg-surface-light"
                     )}
                   >
                     {isActive && (
@@ -456,7 +451,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Overview' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-[#111624] text-slate-400 hover:bg-[#1A2234] hover:text-white border border-white/5"
+                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
                 )}
               >
                 Overview
@@ -467,7 +462,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Portfolio' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-[#111624] text-slate-400 hover:bg-[#1A2234] hover:text-white border border-white/5"
+                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
                 )}
               >
                 Portfolio
@@ -478,7 +473,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Videos' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-[#111624] text-slate-400 hover:bg-[#1A2234] hover:text-white border border-white/5"
+                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
                 )}
               >
                 Videos
@@ -513,7 +508,7 @@ export default function Services() {
                     </p>
 
                     {/* Re-added Stats Section inline */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-8 py-10 px-4 sm:px-12 bg-[#111624] rounded-3xl border border-white/5 mb-10 shadow-lg shadow-black/20">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-8 py-10 px-4 sm:px-12 bg-surface-light rounded-3xl border border-white/5 mb-10 shadow-lg shadow-black/20">
                       {activeData.stats.map((stat, idx) => (
                         <div key={idx} className="flex flex-col items-center flex-1 text-center group">
                           <div className="text-[48px] sm:text-[56px] font-bold text-[#5AB2E8] mb-2 tracking-tighter leading-none group-hover:scale-105 transition-transform duration-300">
@@ -560,8 +555,8 @@ export default function Services() {
 
                 {activeSection === 'Portfolio' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-[#111624] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
-                       <div className="h-56 overflow-hidden relative bg-[#0B1120]">
+                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
+                       <div className="h-56 overflow-hidden relative bg-surface-light">
                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Portfolio 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                             <span className="text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
@@ -578,8 +573,8 @@ export default function Services() {
                        </div>
                      </div>
 
-                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-[#111624] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
-                       <div className="h-56 overflow-hidden relative bg-[#0B1120]">
+                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
+                       <div className="h-56 overflow-hidden relative bg-surface-light">
                          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Portfolio 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                             <span className="text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
@@ -596,9 +591,9 @@ export default function Services() {
                        </div>
                      </div>
                      
-                     <div className="col-span-1 md:col-span-2 group rounded-2xl overflow-hidden border border-white/5 bg-[#111624] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 mt-2">
+                     <div className="col-span-1 md:col-span-2 group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 mt-2">
                         <div className="flex flex-col md:flex-row">
-                          <div className="md:w-2/5 h-48 md:h-auto overflow-hidden relative bg-[#0B1120]">
+                          <div className="md:w-2/5 h-48 md:h-auto overflow-hidden relative bg-surface-light">
                              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80" alt="Portfolio 3" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                           </div>
                           <div className="p-6 md:p-8 md:w-3/5 flex flex-col justify-center">
@@ -618,7 +613,7 @@ export default function Services() {
                 {activeSection === 'Videos' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
                      <div className="group">
-                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-[#111624] aspect-video">
+                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-surface-light aspect-video">
                          <iframe 
                            className="absolute inset-0 w-full h-full"
                            src="https://www.youtube.com/embed/LXb3EKWsInQ?rel=0" 
@@ -635,7 +630,7 @@ export default function Services() {
                      </div>
 
                      <div className="group">
-                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-[#111624] aspect-video">
+                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-surface-light aspect-video">
                          <iframe 
                            className="absolute inset-0 w-full h-full"
                            src="https://www.youtube.com/embed/bON-KPiiNCk?rel=0" 

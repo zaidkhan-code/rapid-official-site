@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
+import NetworkBackground from '../components/NetworkBackground';
 
 export default function Industries() {
   const [activeIndustry, setActiveIndustry] = useState('Retail');
@@ -131,17 +132,11 @@ export default function Industries() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
           <motion.div 
@@ -175,7 +170,7 @@ export default function Industries() {
         
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Sidebar */}
-          <div className="w-full lg:w-72 flex-shrink-0 bg-[#111624] border border-white/5 rounded-3xl p-4 shadow-sm relative z-20 lg:sticky lg:top-32">
+          <div className="w-full lg:w-72 flex-shrink-0 bg-surface-light border border-white/5 rounded-3xl p-4 shadow-sm relative z-20 lg:sticky lg:top-32">
             <div className="flex flex-col space-y-1">
               {industriesList.map((ind) => {
                 const isActive = activeIndustry === ind.id;
@@ -186,7 +181,7 @@ export default function Industries() {
                     className={`flex items-center gap-3 px-4 py-4 rounded-2xl text-sm font-bold transition-all text-left relative ${
                       isActive 
                         ? 'text-brand-primary bg-brand-primary/10 shadow-sm ring-1 ring-brand-primary/40' 
-                        : 'text-slate-400 hover:text-white hover:bg-[#1A2234]'
+                        : 'text-slate-400 hover:text-white hover:bg-surface-lighter'
                     }`}
                   >
                     {isActive && (
@@ -215,7 +210,7 @@ export default function Industries() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-[#111624] rounded-3xl border border-white/5 p-8 lg:p-12 shadow-xl shadow-black/20"
+                className="bg-surface-light rounded-3xl border border-white/5 p-8 lg:p-12 shadow-xl shadow-black/20"
               >
                 <div className="flex items-center gap-6 mb-8">
                   <div className="p-4 bg-brand-primary/10 text-brand-primary rounded-2xl">
@@ -229,7 +224,7 @@ export default function Industries() {
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-12">
-                  <div className="bg-[#0B1120] rounded-3xl p-8 border border-white/5">
+                  <div className="bg-surface-light rounded-3xl p-8 border border-white/5">
                     <h4 className="font-bold text-white mb-6 flex items-center gap-2">Key Capabilities</h4>
                     <ul className="space-y-4">
                       {activeData.features.map((feature, idx) => (

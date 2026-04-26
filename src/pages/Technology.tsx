@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useEffect, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import NetworkBackground from '../components/NetworkBackground';
 import { 
   ArrowRight, 
   Database, 
@@ -16,7 +17,7 @@ const ExpertiseCard = ({ title, desc, icon: Icon, color }: { title: string, desc
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="bg-[#111624] border border-white/5 rounded-2xl p-6 md:p-8 flex items-start gap-6 hover:shadow-lg hover:shadow-brand-primary/10 hover:border-brand-primary/40 transition-all duration-300 group"
+    className="bg-surface-light border border-white/5 rounded-2xl p-6 md:p-8 flex items-start gap-6 hover:shadow-lg hover:shadow-brand-primary/10 hover:border-brand-primary/40 transition-all duration-300 group"
   >
     <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-opacity-10 bg-white/5 group-hover:bg-opacity-20 transition-all ${color}`}>
        <Icon className="w-7 h-7" />
@@ -41,7 +42,7 @@ const TechGroup = ({ title, technologies }: { title: string, technologies: { nam
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-[#111624] border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/10 transition-all"
+          className="bg-surface-light border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/10 transition-all"
         >
           <div className="h-12 flex items-center justify-center grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
              {tech.icon}
@@ -72,17 +73,11 @@ export default function Technology() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-32 lg:pt-40 lg:pb-40 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
         
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full text-left">
           <motion.div 

@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Award, Trophy, Medal, Star, Crown, ShieldCheck } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useEffect, ReactNode } from 'react';
+import NetworkBackground from '../components/NetworkBackground';
 
 // Reusable Section Header with vertical bar
 const SectionHeader = ({ title }: { title: string }) => (
@@ -20,7 +21,7 @@ const LogoGrid = ({ children }: { children: ReactNode }) => (
 
 // Reusable Card for Logos
 const LogoCard = ({ children }: { children: ReactNode }) => (
-  <div className="bg-[#111624] border border-white/5 rounded-2xl p-6 sm:p-8 flex items-center justify-center hover:border-brand-primary/40 hover:bg-[#1A2234] transition-all duration-300 shadow-xl shadow-black/20 group min-h-[140px]">
+  <div className="bg-surface-light border border-white/5 rounded-2xl p-6 sm:p-8 flex items-center justify-center hover:border-brand-primary/40 hover:bg-surface-lighter transition-all duration-300 shadow-xl shadow-black/20 group min-h-[140px]">
     <div className="group-hover:scale-110 transition-transform duration-500 flex items-center justify-center w-full h-full">
       {children}
     </div>
@@ -41,17 +42,11 @@ export default function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
           <motion.div 
@@ -257,7 +252,7 @@ export default function About() {
              </LogoCard>
              {/* PHP */}
              <LogoCard>
-               <div className="bg-[#787CB5] text-[#111624] px-5 py-2.5 rounded-full text-2xl font-bold italic tracking-wider leading-none">
+               <div className="bg-[#787CB5] text-surface-light px-5 py-2.5 rounded-full text-2xl font-bold italic tracking-wider leading-none">
                   php
                </div>
              </LogoCard>

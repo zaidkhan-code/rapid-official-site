@@ -16,6 +16,16 @@ import BlogPost from './pages/BlogPost';
 import JobApplication from './pages/JobApplication';
 import Technology from './pages/Technology';
 import Dashboard from './pages/Dashboard';
+import Products from './pages/Products';
+import Solutions from './pages/Solutions';
+import Resources from './pages/Resources';
+import Leadership from './pages/Leadership';
+import CaseStudies from './pages/CaseStudies';
+import EBooks from './pages/EBooks';
+import VideoLibrary from './pages/VideoLibrary';
+import PressReleases from './pages/PressReleases';
+import FAQ from './pages/FAQ';
+import Partners from './pages/Partners';
 import { AuthProvider } from './contexts/AuthContext';
 
 export default function App() {
@@ -25,6 +35,16 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="products" element={<Products />} />
+            <Route path="solutions" element={<Solutions />} />
+            <Route path="resources" element={<Resources />} />
+            <Route path="leadership" element={<Leadership />} />
+            <Route path="case-studies" element={<CaseStudies />} />
+            <Route path="ebooks" element={<EBooks />} />
+            <Route path="video-library" element={<VideoLibrary />} />
+            <Route path="press-releases" element={<PressReleases />} />
+            <Route path="faq" element={<FAQ />} />
+            <Route path="partners" element={<Partners />} />
             <Route path="industries" element={<Industries />} />
             <Route path="services" element={<Services />} />
             <Route path="technology" element={<Technology />} />

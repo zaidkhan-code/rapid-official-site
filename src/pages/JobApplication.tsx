@@ -4,6 +4,7 @@ import { useLocation, Link, Navigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
+import NetworkBackground from '../components/NetworkBackground';
 
 export default function JobApplication() {
   const { state } = useLocation();
@@ -45,12 +46,14 @@ export default function JobApplication() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[#0B1120] min-h-screen pt-24 pb-24 font-sans"
+      className="relative bg-brand-dark min-h-screen pt-24 pb-24 font-sans"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <NetworkBackground />
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Dark Theme Window Style Container */}
-        <div className="bg-[#111624] rounded-2xl shadow-2xl shadow-brand-primary/5 overflow-hidden border border-white/5 flex flex-col">
+        <div className="bg-surface-light rounded-2xl shadow-2xl shadow-brand-primary/5 overflow-hidden border border-white/5 flex flex-col">
           
           {/* Header Bar */}
           <div className="bg-brand-dark border-b border-white/5 px-6 py-6 flex justify-between items-center text-white relative">
@@ -105,7 +108,7 @@ export default function JobApplication() {
 
             {/* Right Side: Application Form Box */}
             <div className="md:w-1/2">
-                <div className="bg-[#0B1120] border rounded-2xl border-white/5 shadow-inner p-8 lg:p-10">
+                <div className="bg-surface-light border rounded-2xl border-white/5 shadow-inner p-8 lg:p-10">
                    <div className="flex items-center gap-3 mb-8">
                      <div className="w-1.5 h-6 bg-brand-primary rounded-full"></div>
                      <h2 className="text-lg font-bold text-white">Fill the form to apply now</h2>

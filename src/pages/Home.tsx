@@ -66,17 +66,11 @@ export default function Home() {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#050C1A] font-sans selection:bg-brand-primary/30 selection:text-white min-h-screen"
+      className="flex flex-col bg-base-darker font-sans selection:bg-brand-primary/30 selection:text-white min-h-screen"
     >
       {/* Hyper-Clean Elegance Hero */}
       <section className="relative min-h-screen pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
         
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -147,7 +141,7 @@ export default function Home() {
               <motion.div 
                 animate={{y: [-10, 10, -10]}} 
                 transition={{duration: 7, ease: "easeInOut", repeat: Infinity}} 
-                className="absolute right-0 top-12 w-[85%] bg-[#080D1A]/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-8 z-10"
+                className="absolute right-0 top-12 w-[85%] bg-base-dark/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-8 z-10"
               >
                 <div className="flex justify-between items-center mb-10">
                   <div>
@@ -171,7 +165,7 @@ export default function Home() {
               <motion.div 
                 animate={{y: [10, -10, 10]}} 
                 transition={{duration: 6, ease: "easeInOut", repeat: Infinity}} 
-                className="absolute left-[-5%] top-[280px] w-[60%] bg-[#0B1221]/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] p-8 z-20"
+                className="absolute left-[-5%] top-[280px] w-[60%] bg-surface-light/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] p-8 z-20"
               >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
@@ -187,12 +181,12 @@ export default function Home() {
                 <div className="space-y-5">
                   {[1, 2, 3].map((_, i) => (
                     <div key={i} className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#111A2D] border border-white/5 flex items-center justify-center text-xs font-bold text-slate-500">0{i+1}</div>
+                      <div className="w-10 h-10 rounded-full bg-surface-lighter border border-white/5 flex items-center justify-center text-xs font-bold text-slate-500">0{i+1}</div>
                       <div className="flex-1">
-                        <div className="w-full h-2.5 bg-[#111A2D] rounded-full mb-2 overflow-hidden border border-white/5">
+                        <div className="w-full h-2.5 bg-surface-lighter rounded-full mb-2 overflow-hidden border border-white/5">
                            <div className="h-full bg-slate-600 rounded-full" style={{width: `${Math.max(40, 100 - i * 20)}%`}}></div>
                         </div>
-                        <div className="w-1/2 h-2.5 bg-[#111A2D] rounded-full border border-white/5"></div>
+                        <div className="w-1/2 h-2.5 bg-surface-lighter rounded-full border border-white/5"></div>
                       </div>
                     </div>
                   ))}
@@ -229,7 +223,7 @@ export default function Home() {
 
       {/* Floating Trust & Stats Bar */}
       <section className="relative z-20 -mt-20 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="bg-[#111827]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
+          <div className="bg-surface-light/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
            {stats.map((stat, idx) => (
              <div key={idx} className="flex-1 min-w-[200px] text-center md:text-left">
                <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-lg">{stat.value}</div>
@@ -240,7 +234,7 @@ export default function Home() {
       </section>
 
       {/* AI Network Banner */}
-      <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-[#040914] rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+      <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-base-darker rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
         {/* Intricate network background */}
         <NetworkBackground />
         
@@ -278,7 +272,7 @@ export default function Home() {
             <motion.div 
               whileHover={{ y: -8 }}
               key={idx} 
-              className="bg-[#0B1221] border border-white/5 hover:border-brand-primary/30 rounded-3xl p-8 relative overflow-hidden group transition-all duration-300 shadow-xl"
+              className="bg-surface-light border border-white/5 hover:border-brand-primary/30 rounded-3xl p-8 relative overflow-hidden group transition-all duration-300 shadow-xl"
             >
               {/* Subtle top inner glow */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -296,7 +290,7 @@ export default function Home() {
       </section>
 
       {/* Enterprise Suite Solutions */}
-      <section className="py-24 bg-[#0A101C] relative border-t border-white/5 overflow-hidden">
+      <section className="py-24 bg-surface-dark relative border-t border-white/5 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="mb-12">
@@ -317,7 +311,7 @@ export default function Home() {
             ].map((sol, i) => (
               <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 px-5 py-4 rounded-xl flex items-center justify-between cursor-pointer hover:bg-white/10 hover:border-brand-primary/40 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-4">
-                  <div className="bg-[#111A2D] p-2.5 rounded-lg border border-white/5 group-hover:scale-110 transition-transform">
+                  <div className="bg-surface-lighter p-2.5 rounded-lg border border-white/5 group-hover:scale-110 transition-transform">
                     {sol.icon}
                   </div>
                   <span className="text-white font-bold tracking-wide text-[15px]">{sol.title}</span>
@@ -330,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* Industries We Work - Advanced Side-by-Side Layout */}
-      <section className="py-32 relative border-t border-white/5 bg-[#030812] overflow-hidden">
+      <section className="py-32 relative border-t border-white/5 bg-base-darker overflow-hidden">
         {/* Immersive background elements */}
         <div className="absolute left-[-10%] top-1/2 w-[800px] h-[800px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute right-0 top-0 w-1/3 h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
@@ -372,9 +366,9 @@ export default function Home() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="aspect-square bg-[#0A101C] rounded-[24px] border border-white/5 hover:border-brand-primary/30 hover:bg-brand-primary/[0.03] transition-all duration-300 p-6 flex flex-col items-center justify-center text-center group shadow-2xl"
+                    className="aspect-square bg-surface-dark rounded-[24px] border border-white/5 hover:border-brand-primary/30 hover:bg-brand-primary/[0.03] transition-all duration-300 p-6 flex flex-col items-center justify-center text-center group shadow-2xl"
                   >
-                    <div className="w-16 h-16 rounded-2xl bg-[#0F172A] border border-white/5 flex items-center justify-center text-brand-primary group-hover:text-white group-hover:bg-brand-primary transition-all duration-500 mb-5 relative">
+                    <div className="w-16 h-16 rounded-2xl bg-surface-lighter border border-white/5 flex items-center justify-center text-brand-primary group-hover:text-white group-hover:bg-brand-primary transition-all duration-500 mb-5 relative">
                       {/* Inner glow for icon box */}
                       <div className="absolute inset-0 rounded-2xl bg-brand-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10 scale-110">
@@ -397,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* Our Partnership Logo Grid */}
-      <section className="py-32 relative bg-[#060D1A] overflow-hidden border-y border-white/5">
+      <section className="py-32 relative bg-base-dark overflow-hidden border-y border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             
@@ -427,7 +421,7 @@ export default function Home() {
                   { name: 'Audi' },
                   { name: 'Volkswagen' }
                 ].map((brand, i) => (
-                  <div key={i} className="bg-[#0A101C] aspect-[4/3] flex flex-col items-center justify-center p-6 group hover:bg-white/5 transition-colors">
+                  <div key={i} className="bg-surface-dark aspect-[4/3] flex flex-col items-center justify-center p-6 group hover:bg-white/5 transition-colors">
                     {/* Placeholder for actual logo - using stylized typography for tech/car vibes */}
                     <div className="w-14 h-14 mb-4 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:text-brand-primary group-hover:border-brand-primary/50 transition-colors">
                       <Star className="w-6 h-6" />
@@ -445,7 +439,7 @@ export default function Home() {
       </section>
 
       {/* Highly Polished Dark Testimonials */}
-      <section className="py-32 overflow-hidden relative bg-[#040914]">
+      <section className="py-32 overflow-hidden relative bg-base-darker">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 text-center mb-20 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-white/10 shadow-lg">
              <Star className="w-3.5 h-3.5 fill-brand-primary text-brand-primary" /> Client Success
@@ -460,7 +454,7 @@ export default function Home() {
         <div className="flex gap-8 px-8 animate-[scroll_50s_linear_infinite] w-max hover:[animation-play-state:paused]">
             {/* Duplicated for infinite scroll effect */}
             {[...testimonials, ...testimonials].map((testimonial, idx) => (
-              <div key={idx} className="w-[450px] flex-shrink-0 bg-[#0A101C] border border-white/5 p-12 rounded-3xl hover:border-white/20 transition-colors shadow-2xl relative overflow-hidden group">
+              <div key={idx} className="w-[450px] flex-shrink-0 bg-surface-dark border border-white/5 p-12 rounded-3xl hover:border-white/20 transition-colors shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-[40px] group-hover:bg-brand-primary/10 transition-colors"></div>
                 <div className="text-white/10 mb-8 group-hover:text-white/20 transition-colors absolute top-10 right-10">
                   <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -469,7 +463,7 @@ export default function Home() {
                 </div>
                 <p className="text-lg text-slate-300 leading-relaxed font-medium mb-12 relative z-10 italic">"{testimonial.text}"</p>
                 <div className="flex items-center gap-5 relative z-10">
-                  <div className="w-16 h-16 bg-[#111A2D] rounded-full overflow-hidden border-2 border-white/10 group-hover:border-brand-primary/50 transition-colors">
+                  <div className="w-16 h-16 bg-surface-lighter rounded-full overflow-hidden border-2 border-white/10 group-hover:border-brand-primary/50 transition-colors">
                      <img src={`https://picsum.photos/seed/${testimonial.name.replace(' ', '')}/100`} alt={testimonial.name} className="w-full h-full object-cover filter contrast-125" />
                   </div>
                   <div>
@@ -483,7 +477,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Pricing */}
-      <section className="py-32 relative bg-[#060D1A] overflow-hidden border-t border-white/5">
+      <section className="py-32 relative bg-base-dark overflow-hidden border-t border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 text-brand-primary rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-brand-primary/20">
              Transparent Value
@@ -493,7 +487,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 text-left max-w-[1400px] mx-auto">
             {/* Basic Plan */}
-            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
               <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Basic</div>
               <div className="text-slate-400 text-sm mb-8 font-medium">A simple start for everyone</div>
               <div className="mb-10 min-h-[80px]">
@@ -509,7 +503,7 @@ export default function Home() {
             </div>
 
             {/* Standard Plan */}
-            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
               <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Standard</div>
               <div className="text-slate-400 text-sm mb-8 font-medium">For small businesses</div>
               <div className="mb-10 min-h-[80px]">
@@ -544,7 +538,7 @@ export default function Home() {
             </div>
 
             {/* Enterprise Plan */}
-            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
               <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Enterprise</div>
               <div className="text-slate-400 text-sm mb-8 font-medium">For global corporations</div>
               <div className="mb-10 min-h-[80px] flex items-center">
@@ -562,23 +556,23 @@ export default function Home() {
           {/* Full Feature Comparison Table */}
           <div className="mt-32 max-w-[1400px] mx-auto text-left">
             <h3 className="text-3xl font-bold text-white mb-10 text-center tracking-tight">Full Feature Comparison</h3>
-            <div className="overflow-x-auto rounded-3xl border border-white/10 bg-[#0A101C] shadow-2xl pb-4">
+            <div className="overflow-x-auto rounded-3xl border border-white/10 bg-surface-dark shadow-2xl pb-4">
               <table className="w-full min-w-[900px] text-left border-collapse">
                 <thead>
                   <tr>
-                    <th className="py-6 px-8 border-b border-white/10 bg-[#0A101C]/50 w-[40%]">
+                    <th className="py-6 px-8 border-b border-white/10 bg-surface-dark/50 w-[40%]">
                       <div className="text-slate-400 font-bold uppercase tracking-widest text-xs">Feature</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center">
+                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center">
                       <div className="text-white font-bold text-lg">Basic</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center relative">
+                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center relative">
                       <div className="text-white font-bold text-lg">Standard</div>
                     </th>
                     <th className="py-6 px-6 border-b border-brand-primary/30 bg-brand-primary/5 text-center relative whitespace-nowrap">
                       <div className="text-brand-primary font-bold text-lg">Premium</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center">
+                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center">
                       <div className="text-white font-bold text-lg">Enterprise</div>
                     </th>
                   </tr>
@@ -643,7 +637,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Categorized FAQ Section */}
-      <section className="py-24 bg-[#040914] relative overflow-hidden border-t border-white/5">
+      <section className="py-24 bg-base-darker relative overflow-hidden border-t border-white/5">
         <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-brand-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="max-w-[1800px] mx-auto md:py-10 py-6 px-4 lg:px-8 xl:px-12 2xl:px-16 flex flex-col lg:flex-row gap-16 items-start relative z-10">
           <div className="lg:w-1/3 w-full rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(35,168,224,0.1)] border border-brand-primary/10 shrink-0  group">
@@ -672,7 +666,7 @@ export default function Home() {
 
             <div className="space-y-4 mb-12">
               {filteredFaqs.map((faq, i) => (
-                <div key={i} className="bg-[#0A101C] border border-white/5 rounded-2xl hover:border-brand-primary/30 transition-colors group overflow-hidden">
+                <div key={i} className="bg-surface-dark border border-white/5 rounded-2xl hover:border-brand-primary/30 transition-colors group overflow-hidden">
                   <button 
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full py-6 px-8 text-left flex justify-between items-center focus:outline-none"
@@ -706,25 +700,25 @@ export default function Home() {
             <div className="relative max-w-4xl">
               <div className="absolute left-6 top-1/2 -translate-y-1/2 flex items-center gap-2 font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-400 text-sm tracking-widest uppercase pointer-events-none">
                 <div className="w-4 h-4 rounded-full bg-gradient-to-r from-brand-primary to-purple-400 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-[#050C1A]"></div>
+                  <div className="w-2 h-2 rounded-full bg-base-darker"></div>
                 </div>
                 AI
               </div>
-              <input type="text" placeholder="Ask me anything..." className="w-full pl-24 pr-8 py-5 rounded-full border border-white/10 bg-[#0A101C]/80 focus:bg-[#0A101C] focus:border-brand-primary/50 outline-none text-white placeholder:text-slate-500 font-medium shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(35,168,224,0.1)] transition-all text-lg backdrop-blur-md" />
+              <input type="text" placeholder="Ask me anything..." className="w-full pl-24 pr-8 py-5 rounded-full border border-white/10 bg-surface-dark/80 focus:bg-surface-dark focus:border-brand-primary/50 outline-none text-white placeholder:text-slate-500 font-medium shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(35,168,224,0.1)] transition-all text-lg backdrop-blur-md" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Tech Powered CTA Banner */}
-      <section className="py-24 bg-[#050C1A] relative px-4 lg:px-8 xl:px-12 2xl:px-16 w-full max-w-[1800px] mx-auto">
+      <section className="py-24 bg-base-darker relative px-4 lg:px-8 xl:px-12 2xl:px-16 w-full max-w-[1800px] mx-auto">
         <div className="bg-gradient-to-r from-[#0E3A82] to-[#8042B8] rounded-[40px] p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl border border-white/10">
           
           <div className="md:w-[55%] z-10 text-left mb-10 md:mb-0">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-10 leading-[1.1] tracking-tight">
               Tech-Powered Success Awaits. Empower Your Digital Journey.
             </h2>
-            <Button variant="outline" className="bg-white hover:bg-slate-50 text-[#050C1A] border-transparent font-bold px-10 py-5 rounded-[20px] shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300 text-lg w-max">
+            <Button variant="outline" className="bg-white hover:bg-slate-50 text-base-darker border-transparent font-bold px-10 py-5 rounded-[20px] shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300 text-lg w-max">
               Schedule a Call <ArrowRight className="w-5 h-5" />
             </Button>
           </div>

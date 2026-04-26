@@ -5,6 +5,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Textarea } from '../components/ui/Textarea';
 import { Select } from '../components/ui/Select';
+import NetworkBackground from '../components/NetworkBackground';
 
 // Reusable styling components for the form
 const FormField = ({ label, type = "text", placeholder, isTextarea = false, isSelect = false }: { label: string, type?: string, placeholder?: string, isTextarea?: boolean, isSelect?: boolean }) => {
@@ -42,17 +43,11 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-48 lg:pt-40 lg:pb-56 overflow-hidden flex items-center justify-center">
-         {/* Minimalist Grid & Glow Background */}
-        <div className="absolute inset-0 z-0 bg-[#060D1A]">
-          {/* Subtle dotted grid overlay mapping to layout */ }
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_30%,transparent_100%)]"></div>
-          {/* Elegant top ambient glow completely different from the chaotic blurs */}
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
-        </div>
+        <NetworkBackground />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left w-full">
           <motion.div 
@@ -72,7 +67,7 @@ export default function Contact() {
       {/* Main Contact Card Section */}
       <section className="relative -mt-32 pb-24 z-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#111624] border border-white/5 shadow-2xl shadow-black/50 rounded-3xl overflow-hidden flex flex-col md:flex-row">
+            <div className="bg-surface-light border border-white/5 shadow-2xl shadow-black/50 rounded-3xl overflow-hidden flex flex-col md:flex-row">
                 
                 {/* Left Side: Contact Info */}
                 <div className="md:w-5/12 p-10 lg:p-14 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center">
@@ -119,7 +114,7 @@ export default function Contact() {
                 </div>
 
                 {/* Right Side: Form */}
-                <div className="md:w-7/12 p-10 lg:p-14 bg-[#0F1420]">
+                <div className="md:w-7/12 p-10 lg:p-14 bg-surface-lighter">
                     <form className="space-y-8">
                         <FormField label="Name" />
                         <FormField label="Select what you are looking for" isSelect />
@@ -141,7 +136,7 @@ export default function Contact() {
 
       {/* Map Section */}
       <section className="pb-32 w-full">
-         <div className="w-full h-[500px] relative overflow-hidden bg-[#111624] border-t border-b border-white/5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
+         <div className="w-full h-[500px] relative overflow-hidden bg-surface-light border-t border-b border-white/5 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
              {/* Instead of a complex embed that might fail or show bright light theme maps, CSS filtered iframe to enforce dark mode look of Dubai */}
              <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115408.09793132714!2d55.20015570220689!3d25.074127110992383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1714413809051!5m2!1sen!2sus" 
