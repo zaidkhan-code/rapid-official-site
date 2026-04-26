@@ -77,7 +77,7 @@ export default function Blog() {
            
            {/* Slanted Geometric Shapes (Matching Image) */}
            <div className="absolute inset-0 z-0 flex justify-center opacity-40">
-              <div className="relative w-full h-full max-w-7xl">
+              <div className="relative w-full h-full max-w-[1800px]">
                  <div className="absolute top-0 left-[-10%] w-1/4 h-full bg-brand-primary/10 -skew-x-12 translate-x-[-20%]"></div>
                  <div className="absolute top-0 left-[15%] w-1/3 h-full bg-brand-primary/5 -skew-x-12"></div>
                  <div className="absolute top-0 left-[50%] w-1/4 h-full bg-brand-primary/10 -skew-x-12 translate-x-[20%]"></div>
@@ -91,7 +91,7 @@ export default function Blog() {
            {/* Subtle Grid Pattern Overlay */}
            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -112,7 +112,7 @@ export default function Blog() {
       </section>
 
       {/* Content */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 -mt-16">
+      <section className="py-24 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-20 -mt-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, idx) => (
             <Link to={`/blog/${post.id}`} state={{ post }} key={post.id}>

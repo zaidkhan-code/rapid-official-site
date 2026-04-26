@@ -1,9 +1,11 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Search, Globe, ChevronDown, ChevronUp, ChevronRight, Package, Activity, Zap, Shield, Warehouse, BrainCircuit, Cloud, Layout as LayoutIcon, Smartphone, PenTool, Server, Database, Scan, Fingerprint, Cpu, ShieldCheck, Infinity, Info, Briefcase, Award, HelpCircle, Truck, Car, Hotel, Landmark, Pill, Scissors, GraduationCap, Factory, Droplets, BookOpen, FileText, Book, PlayCircle, Newspaper, Handshake, ShoppingBag, Users, User, ArrowRight, MessageCircle } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Search, Globe, ChevronDown, ChevronUp, ChevronRight, Package, Activity, Zap, Shield, Warehouse, BrainCircuit, Cloud, Layout as LayoutIcon, Smartphone, PenTool, Server, Database, Scan, Fingerprint, Cpu, ShieldCheck, Infinity, Info, Briefcase, Award, HelpCircle, Truck, Car, Hotel, Landmark, Pill, Scissors, GraduationCap, Factory, Droplets, BookOpen, FileText, Book, PlayCircle, Newspaper, Handshake, ShoppingBag, Users, User, ArrowRight, MessageCircle, ArrowLeft, LogOut } from 'lucide-react';
 import { useState, useEffect, ReactNode, useRef } from 'react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/Button';
+import { Input } from './ui/Input';
+import { useAuth } from '../contexts/AuthContext';
 
 const Logo = () => (
   <div className="flex items-center">
@@ -18,7 +20,7 @@ const Logo = () => (
   </div>
 );
 
-const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, maxWidth = "max-w-7xl" }: { children: ReactNode, activeMenu: string | null, menuName: string, onClose: () => void, maxWidth?: string }) => {
+const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, maxWidth = "max-w-[1800px]", align = "center" }: { children: ReactNode, activeMenu: string | null, menuName: string, onClose: () => void, maxWidth?: string, align?: 'left' | 'center' | 'right' }) => {
   if (activeMenu !== menuName) return null;
 
   return (
@@ -27,13 +29,15 @@ const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, maxWidth =
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 15, scale: 0.98 }}
       transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-      onMouseLeave={onClose}
       className={cn(
-        "absolute top-full left-1/2 -translate-x-1/2 w-full pt-3 z-50",
+        "absolute top-0 pt-3 z-50 w-full",
+        align === 'center' && 'left-1/2 -translate-x-1/2',
+        align === 'left' && 'left-4 lg:left-8 xl:left-12 2xl:left-16',
+        align === 'right' && 'right-4 lg:right-8 xl:right-12 2xl:right-16',
         maxWidth
       )}
     >
-      <div className="bg-white rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.2)] border border-slate-100 overflow-hidden p-8 md:p-12 relative">
+      <div className="bg-[#0A101C]/95 backdrop-blur-3xl rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden p-8 md:p-12 relative">
   
         {children}
       </div>
@@ -45,19 +49,19 @@ const MegaMenuItem = ({ icon: Icon, name, desc, path, isNew, onClose }: { icon: 
   <Link 
     to={path}
     onClick={onClose}
-    className="group flex items-start gap-5 p-4 -m-4 rounded-3xl hover:bg-slate-50 transition-all duration-300"
+    className="group flex items-start gap-5 p-4 -m-4 rounded-3xl hover:bg-white/5 transition-all duration-300"
   >
-    <div className="mt-1 flex-shrink-0 w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-primary/10 group-hover:text-brand-primary transition-all duration-300">
+    <div className="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:bg-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
       <Icon className="w-5 h-5" />
     </div>
     <div className="flex-1">
       <div className="flex items-center gap-3 mb-1">
-        <span className="font-extrabold text-[15px] text-slate-900 group-hover:text-brand-primary transition-colors tracking-tight">{name}</span>
+        <span className="font-extrabold text-[15px] text-white transition-colors tracking-tight">{name}</span>
         {isNew && (
-          <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-extrabold uppercase tracking-widest leading-none">New</span>
+          <span className="px-2 py-0.5 rounded-md bg-brand-primary/20 text-brand-primary text-[10px] font-extrabold uppercase tracking-widest leading-none">New</span>
         )}
       </div>
-      <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc}</p>
+      <p className="text-sm text-slate-400 leading-relaxed font-medium group-hover:text-slate-300 transition-colors">{desc}</p>
     </div>
   </Link>
 );
@@ -71,7 +75,7 @@ const ProductsMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; 
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Products" onClose={onClose} maxWidth="max-w-4xl">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Products" onClose={onClose} maxWidth="max-w-4xl" align="left">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
@@ -101,8 +105,8 @@ const SolutionsMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null;
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Solutions" onClose={onClose}>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Solutions" onClose={onClose} maxWidth="max-w-4xl" align="center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -142,7 +146,7 @@ const ServicesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; 
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Services" onClose={onClose}>
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Services" onClose={onClose} maxWidth="max-w-6xl" align="center">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
         {serviceColumns.map((col, colIdx) => (
           <div key={colIdx} className="flex flex-col gap-10">
@@ -181,8 +185,8 @@ const IndustriesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Industries" onClose={onClose}>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Industries" onClose={onClose} maxWidth="max-w-4xl" align="center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
         {industries.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -209,8 +213,8 @@ const ResourcesMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null;
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Resources" onClose={onClose} maxWidth="max-w-7xl">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Resources" onClose={onClose} maxWidth="max-w-md" align="right">
+      <div className="grid grid-cols-1 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -237,8 +241,8 @@ const CompanyMegaMenu = ({ activeMenu, onClose }: { activeMenu: string | null; o
   ];
 
   return (
-    <MegaMenuContainer activeMenu={activeMenu} menuName="Company" onClose={onClose} maxWidth="max-w-7xl">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+    <MegaMenuContainer activeMenu={activeMenu} menuName="Company" onClose={onClose} maxWidth="max-w-md" align="right">
+      <div className="grid grid-cols-1 gap-y-10">
         {items.map((item, idx) => (
           <MegaMenuItem 
             key={idx} 
@@ -259,8 +263,60 @@ export default function Layout() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
+  const [authView, setAuthView] = useState<'menu' | 'erp-signin' | 'erp-register' | 'erp-account'>('menu');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  
+  const { user, login, logout, register } = useAuth();
+  
+  useEffect(() => {
+    if (user && isUserMenuOpen && authView !== 'erp-account') {
+      setAuthView('erp-account');
+    }
+  }, [user, isUserMenuOpen, authView]);
+
   const location = useLocation();
   const navigate = useNavigate();
+
+  const handleLogin = () => {
+    if (email && password) {
+      login(email, 'User');
+      closeUserModal();
+    }
+  };
+
+  const handleRegister = () => {
+    if (email && password && name) {
+      register(name, email);
+      closeUserModal();
+    }
+  };
+
+  const closeLangModal = () => {
+    setIsLangOpen(false);
+    setTimeout(() => setSelectedRegion(null), 300);
+  };
+
+  const closeUserModal = () => {
+    setIsUserMenuOpen(false);
+    setTimeout(() => {
+      setAuthView(user ? 'erp-account' : 'menu');
+      setEmail('');
+      setPassword('');
+      setName('');
+    }, 300);
+  };
+
+  const regionData: Record<string, string[]> = {
+    'Americas': ['English (US)', 'Español (Latinoamérica)', 'Português (Brasil)', 'Français (Canada)'],
+    'Europe': ['English (UK)', 'Deutsch', 'Français', 'Español', 'Italiano'],
+    'Middle East and Africa': ['العربية', 'English', 'Français'],
+    'Asia Pacific': ['English (Australia)', '中文 (简体)', '日本語', '한국어', 'हिन्दी']
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -299,7 +355,7 @@ export default function Layout() {
       >
         {/* Subtle Header Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent"></div>
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center" onMouseEnter={() => setActiveMenu(null)}>
@@ -365,13 +421,23 @@ export default function Layout() {
                 )}
               </div>
               
-              <button className="text-white/80 hover:text-white">
-                <Globe className="w-5 h-5" strokeWidth={2.5} />
-              </button>
+              <div>
+                <button 
+                  onClick={() => { setIsLangOpen(true); setIsUserMenuOpen(false); setIsSearchOpen(false); }}
+                  className={cn("text-white/80 hover:text-white p-2 transition-colors", isLangOpen && "text-white")}
+                >
+                  <Globe className="w-5 h-5" strokeWidth={2.5} />
+                </button>
+              </div>
 
-              <button className="text-white/80 hover:text-white p-2">
-                <User className="w-5 h-5" strokeWidth={2.5} />
-              </button>
+              <div>
+                <button 
+                  onClick={() => { setIsUserMenuOpen(true); setIsLangOpen(false); setIsSearchOpen(false); }}
+                  className={cn("text-white/80 hover:text-white p-2 transition-colors", isUserMenuOpen && "text-white")}
+                >
+                  <User className="w-5 h-5" strokeWidth={2.5} />
+                </button>
+              </div>
             </div>
 
             {/* Mobile menu button */}
@@ -388,13 +454,15 @@ export default function Layout() {
 
         {/* Mega Menu Overlay */}
         <AnimatePresence>
-          <div onMouseLeave={() => setActiveMenu(null)}>
-            <ProductsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            <SolutionsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            <ServicesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            <IndustriesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            <ResourcesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
-            <CompanyMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+          <div className="absolute top-full left-0 w-full flex justify-center">
+            <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative" onMouseLeave={() => setActiveMenu(null)}>
+              <ProductsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+              <SolutionsMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+              <ServicesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+              <IndustriesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+              <ResourcesMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+              <CompanyMegaMenu activeMenu={activeMenu} onClose={() => setActiveMenu(null)} />
+            </div>
           </div>
         </AnimatePresence>
 
@@ -440,7 +508,7 @@ export default function Layout() {
 
       {/* Footer */}
       <footer className="bg-[#111624] text-slate-300 py-16 border-t border-brand-primary/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             
             {/* Column 1: Logo & Info */}
@@ -570,6 +638,247 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* --- Language Modal --- */}
+      <AnimatePresence>
+        {isLangOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" style={{ pointerEvents: 'auto' }}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeLangModal}
+              className="absolute inset-0 bg-[#030812]/90 backdrop-blur-sm"
+            ></motion.div>
+            
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative w-full max-w-md bg-[#0A101C] border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+            >
+              <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
+                <div className="flex items-center gap-3">
+                  {selectedRegion && (
+                    <button onClick={() => setSelectedRegion(null)} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                      <ArrowLeft className="w-5 h-5" />
+                    </button>
+                  )}
+                  <span className="font-bold text-white text-lg tracking-wide flex items-center gap-2">
+                    <Globe className="w-5 h-5 text-brand-primary" />
+                    {selectedRegion ? selectedRegion : 'Select your region'}
+                  </span>
+                </div>
+                <button onClick={closeLangModal} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="flex flex-col p-3 min-h-[250px] max-h-[60vh] overflow-y-auto custom-scrollbar">
+                <AnimatePresence mode="wait">
+                  {!selectedRegion ? (
+                    <motion.div
+                      key="regions"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="flex flex-col"
+                    >
+                      {Object.keys(regionData).map((region, i) => (
+                        <button 
+                          key={i} 
+                          onClick={() => setSelectedRegion(region)}
+                          className="flex items-center justify-between w-full px-5 py-4 text-left text-[15px] text-slate-300 font-bold hover:bg-brand-primary/10 hover:text-brand-primary rounded-2xl transition-all group border border-transparent hover:border-brand-primary/20"
+                        >
+                          {region}
+                          <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                        </button>
+                      ))}
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="languages"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className="flex flex-col gap-1"
+                    >
+                      {regionData[selectedRegion].map((lang, i) => (
+                        <button 
+                          key={i} 
+                          onClick={closeLangModal}
+                          className="flex items-center justify-between w-full px-5 py-3 text-left text-[15px] text-slate-300 font-medium hover:bg-brand-primary/10 hover:text-white rounded-xl transition-all group"
+                        >
+                          {lang}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className="px-6 py-5 bg-[#060D1A] border-t border-white/5 text-center">
+                <span className="text-[13px] font-medium text-slate-500">
+                  {selectedRegion ? 'Select your language to continue.' : 'Choose your country to view localized content.'}
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* --- User/Login Modal --- */}
+      <AnimatePresence>
+        {isUserMenuOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" style={{ pointerEvents: 'auto' }}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeUserModal}
+              className="absolute inset-0 bg-[#030812]/90 backdrop-blur-sm"
+            ></motion.div>
+            
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="relative w-full max-w-sm bg-[#0A101C] border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+            >
+              <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
+                <div className="flex items-center gap-3">
+                  {authView !== 'menu' && (
+                    <button onClick={() => setAuthView('menu')} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                      <ArrowLeft className="w-5 h-5" />
+                    </button>
+                  )}
+                  <span className="font-bold text-white text-lg tracking-wide flex items-center gap-2">
+                    <User className="w-5 h-5 text-brand-primary" />
+                    {authView === 'menu' ? 'Account Access' : authView === 'erp-signin' ? 'Sign In' : 'Create Account'}
+                  </span>
+                </div>
+                <button onClick={closeUserModal} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="p-6">
+                <AnimatePresence mode="wait">
+                  {authView === 'menu' && (
+                    <motion.div
+                      key="menu"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="space-y-8"
+                    >
+                      {/* Cloud Account section */}
+                      <div>
+                        <span className="block text-[11px] font-black text-slate-500 mb-4 uppercase tracking-widest pl-1">Cloud Account</span>
+                        <div className="flex flex-col gap-3">
+                          <Button variant="outline" className="w-full justify-center py-6 text-[15px] border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white">
+                            Sign in to Cloud
+                          </Button>
+                          <Button variant="ghost" className="w-full justify-center text-slate-400 hover:text-white">
+                            Sign Up for Free Tier
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                      
+                      {/* Rapid ERP Account section */}
+                      <div>
+                        <span className="block text-[11px] font-black text-slate-500 mb-4 uppercase tracking-widest pl-1">Rapid ERP Account</span>
+                        <div className="flex flex-col gap-3">
+                          <Button onClick={() => setAuthView('erp-signin')} variant="primary" className="w-full justify-center shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)] py-6 text-[15px]">
+                            Sign In
+                          </Button>
+                          <Button onClick={() => setAuthView('erp-register')} variant="outline" className="w-full justify-center py-6 text-[15px] border-white/10 hover:border-white/20 bg-transparent hover:bg-white/5 text-white">
+                            Create an Account
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {authView === 'erp-signin' && (
+                    <motion.div
+                      key="signin"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className="space-y-6"
+                    >
+                      <div className="space-y-4">
+                        <Input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                      </div>
+                      <Button variant="primary" className="w-full justify-center py-6 text-[15px]" onClick={handleLogin}>
+                        Sign In Securely
+                      </Button>
+                      <div className="text-center">
+                        <button className="text-[13px] text-brand-primary hover:text-white transition-colors">Forgot your password?</button>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {authView === 'erp-register' && (
+                    <motion.div
+                      key="register"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className="space-y-6"
+                    >
+                      <div className="space-y-4">
+                        <Input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} />
+                        <Input type="email" placeholder="Work Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                      </div>
+                      <Button variant="primary" className="w-full justify-center py-6 text-[15px]" onClick={handleRegister}>
+                        Create Account
+                      </Button>
+                      <div className="text-center">
+                        <span className="text-[13px] text-slate-500">By creating an account, you agree to our <button className="text-brand-primary hover:text-white">Terms</button>.</span>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {authView === 'erp-account' && user && (
+                    <motion.div
+                      key="account"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="space-y-6 text-center"
+                    >
+                      <div className="w-20 h-20 bg-brand-primary/20 rounded-full mx-auto flex items-center justify-center border border-brand-primary/30 shadow-inner">
+                        <span className="text-2xl text-brand-primary font-bold">{user.name.charAt(0).toUpperCase()}</span>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">{user.name}</h3>
+                        <p className="text-slate-400 text-sm">{user.email}</p>
+                      </div>
+                      
+                      <div className="h-[1px] bg-white/5 my-6"></div>
+                      
+                      <div className="flex flex-col gap-3">
+                        <Button variant="outline" className="w-full justify-center py-4 bg-white/5 border-white/10 hover:bg-white/10 text-white" onClick={() => { closeUserModal(); navigate('/dashboard'); }}>
+                          Go to Dashboard
+                        </Button>
+                        <Button variant="ghost" className="w-full justify-center py-4 text-red-400 hover:text-red-300 hover:bg-red-500/10" onClick={() => { logout(); closeUserModal(); }}>
+                          <LogOut className="w-4 h-4 mr-2" />
+                          Sign Out
+                        </Button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function About() {
           <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -70,7 +70,7 @@ export default function About() {
 
       {/* Who We Are / What We Do */}
       <section className="py-20 lg:py-28 relative border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
             {/* Who We Are */}
             <motion.div 
@@ -109,7 +109,7 @@ export default function About() {
 
       {/* Awards */}
       <section className="pt-20 pb-12 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <SectionHeader title="Awards" />
           <LogoGrid>
             <LogoCard><Trophy className="w-16 h-16 text-[#F59E0B]" /></LogoCard>
@@ -133,7 +133,7 @@ export default function About() {
 
       {/* Membership */}
       <section className="py-12 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <SectionHeader title="Membership" />
           <LogoGrid>
             <LogoCard>
@@ -174,8 +174,8 @@ export default function About() {
           <div className="w-full md:w-1/2 h-full bg-[#0a1a14]/80"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-           <div className="grid md:grid-cols-2 gap-12 md:gap-0">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-0">
               <div className="py-10 md:py-16 md:pr-16 lg:pr-24">
                  <SectionHeader title="Our Mission" />
                  <p className="text-[15px] leading-relaxed text-slate-400 font-medium">
@@ -194,7 +194,7 @@ export default function About() {
 
       {/* Certifications */}
       <section className="py-12 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <SectionHeader title="Certifications" />
           <LogoGrid>
              <LogoCard>
@@ -234,7 +234,7 @@ export default function About() {
 
       {/* Technology Partners */}
       <section className="py-12 pb-32 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <SectionHeader title="Technology Partners" />
           <LogoGrid>
              {/* Google */}

@@ -15,24 +15,29 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import JobApplication from './pages/JobApplication';
 import Technology from './pages/Technology';
+import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './contexts/AuthContext';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="industries" element={<Industries />} />
-          <Route path="services" element={<Services />} />
-          <Route path="technology" element={<Technology />} />
-          <Route path="about" element={<About />} />
-          <Route path="career" element={<Career />} />
-          <Route path="career/:id" element={<JobApplication />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="blog/:id" element={<BlogPost />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="industries" element={<Industries />} />
+            <Route path="services" element={<Services />} />
+            <Route path="technology" element={<Technology />} />
+            <Route path="about" element={<About />} />
+            <Route path="career" element={<Career />} />
+            <Route path="career/:id" element={<JobApplication />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:id" element={<BlogPost />} />
+            <Route path="dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

@@ -84,7 +84,7 @@ export default function Technology() {
           <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-left">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full text-left">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -101,7 +101,7 @@ export default function Technology() {
 
       {/* Expertise Section */}
       <section className="py-20 lg:py-28 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex justify-between items-end mb-10 border-b border-white/10 pb-4">
              <h2 className="text-2xl lg:text-3xl font-bold text-white tracking-tight">Our Expertise</h2>
              <Link to="/products" className="text-brand-primary font-bold text-sm flex items-center gap-1 hover:text-brand-secondary transition-colors">
@@ -118,8 +118,7 @@ export default function Technology() {
 
       {/* Technology Catalog */}
       <section className="py-12 pb-32 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <TechGroup title="Design" technologies={[
             { name: "Photoshop", icon: <div className="bg-[#001E36] text-[#31A8FF] border border-[#31A8FF] p-2 text-2xl font-bold rounded-md font-sans leading-none">Ps</div> },
             { name: "Illustrator", icon: <div className="bg-[#260000] text-[#FF9A00] border border-[#FF9A00] p-2 text-2xl font-bold rounded-md font-sans leading-none">Ai</div> },
@@ -190,8 +189,8 @@ export default function Technology() {
       {/* CTA Section */}
       <section className="py-20 lg:py-24 relative overflow-hidden bg-brand-primary">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.1] mix-blend-overlay"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-           <div>
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to build your custom application solution?</h2>
               <p className="text-white/80 font-medium text-lg">Send us your requirements on <span className="text-white font-bold">Info@gotorapid.com</span> or call <span className="text-white font-bold">+971 56 71 38 911</span></p>
            </div>

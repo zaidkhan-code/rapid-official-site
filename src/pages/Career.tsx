@@ -88,7 +88,7 @@ export default function Career() {
           <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-left">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full text-left">
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -159,7 +159,7 @@ export default function Career() {
       </section>
 
       {/* FAQs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-32">
+      <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 py-10 pb-32">
         <SectionTitle 
           title="FAQs" 
           rightAction={

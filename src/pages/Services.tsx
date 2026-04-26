@@ -298,7 +298,7 @@ export default function Services() {
         </div>
 
         {/* Floating Abstract Blobs Container */}
-        <div className="relative z-10 w-full max-w-[1200px] mx-auto h-[500px] sm:h-[600px] flex items-center justify-center">
+        <div className="relative z-10 w-full max-w-[1800px] mx-auto h-[500px] sm:h-[600px] flex items-center justify-center">
           {/* Scaler for responsive viewing */}
           <div className="relative w-[1000px] h-[800px] flex items-center justify-center scale-[0.45] sm:scale-[0.6] md:scale-[0.8] lg:scale-[1] origin-center -mt-10 sm:-mt-0">
             {servicesList.map((serviceKey) => {
@@ -390,7 +390,7 @@ export default function Services() {
       </section>
 
       {/* Content Section */}
-      <section className="py-12 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 bg-transparent">
+      <section className="py-12 w-full w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 bg-transparent">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           
           {/* Left Sidebar */}

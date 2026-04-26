@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Briefcase, Globe, Building2, Users, CheckCircle, CheckCircle2, Smile, 
   Languages, Settings, ArrowUpCircle, Link as LinkIcon,
   ShoppingCart, Truck, Car, Stethoscope, Pill, Hotel, Utensils,
   GraduationCap, Factory, Droplet, ArrowRight, Activity, Zap, Shield, ChevronRight, Star, Cpu, Server, Network, Layers, BarChart3, LineChart, PieChart,
-  MessageCircle, Shirt, Package
+  MessageCircle, Shirt, Package, Database, FileText, ChevronDown, X
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '../components/ui/Button';
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeFaqCategory, setActiveFaqCategory] = useState('All');
+
+  const allFaqs = [
+    { q: 'What is Rapid ERP and what do you do?', a: 'Rapid ERP is a leading enterprise technology company with over 20 years of experience. We design and deliver end-to-end software solutions and operational systems for global industries. Serving retail, healthcare, and finance, our flagship product automates the entire ecosystem from supply chain management to multi-channel distribution.', category: 'About Rapid ERP' },
+    { q: 'How long has Rapid been in business?', a: 'We have been empowering businesses for over two decades with scalable digital solutions.', category: 'About Rapid ERP' },
+    { q: 'What kind of support is available?', a: 'We offer 24/7 global support with dedicated technical account managers for Enterprise plans.', category: 'Implementation & Support' },
+    { q: 'How does the AI Platform integrate?', a: 'Our AI Platform integrates seamlessly via secure API gateways, providing predictive intelligence and real-time analytics across your existing data structure without disruption.', category: 'AI Platform' },
+    { q: 'Are your products customizable?', a: 'Yes, our modular architecture means you can add, remove, and customize products and tools to fit your specific operational needs.', category: 'Products & Tools' },
+    { q: 'Do you offer solutions for specific industries?', a: 'Rapid ERP caters to vertical-specific needs for manufacturing, retail, finance, and hospitality with custom-tailored workflows and compliance standards.', category: 'Industries & Solutions' },
+  ];
+
+  const filteredFaqs = activeFaqCategory === 'All' ? allFaqs : allFaqs.filter(f => f.category === activeFaqCategory);
+
   const stats = [
     { value: '5,000+', label: 'Global Businesses' },
     { value: '25M+', label: 'Reports Processed' },
@@ -62,7 +77,7 @@ export default function Home() {
           <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Hand Text: Premium, Clear, High-Contrast */}
@@ -212,8 +227,8 @@ export default function Home() {
       </section>
 
       {/* Floating Trust & Stats Bar */}
-      <section className="relative z-20 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div className="bg-[#111827]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
+      <section className="relative z-20 -mt-20 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
+          <div className="bg-[#111827]/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
            {stats.map((stat, idx) => (
              <div key={idx} className="flex-1 min-w-[200px] text-center md:text-left">
                <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-lg">{stat.value}</div>
@@ -223,9 +238,32 @@ export default function Home() {
          </div>
       </section>
 
+      {/* AI Network Banner */}
+      <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-[#040914] rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+        {/* Intricate network background */}
+        <div className="absolute inset-0 z-0 bg-[#040914]"></div>
+        <div className="absolute inset-0 z-0 opacity-60" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'150\' height=\'150\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 30 L90 70 M90 70 L140 40 M90 70 L110 130 M30 30 L50 110 M50 110 L110 130 M110 130 L140 40 M110 130 L160 170 M90 190 L50 110 M-20 60 L30 30 M140 40 L180 10 M170 110 L110 130\' stroke=\'%23ffffff\' stroke-width=\'0.5\' opacity=\'0.15\' /%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'90\' cy=\'70\' r=\'2\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3Ccircle cx=\'140\' cy=\'40\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.4\'/%3E%3Ccircle cx=\'50\' cy=\'110\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'110\' cy=\'130\' r=\'2\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3C/svg%3E")', backgroundSize: '150px 150px' }}></div>
+        <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'250\' height=\'250\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M50 50 L120 90 M120 90 L200 60 M120 90 L160 180 M50 50 L80 160 M80 160 L160 180 M160 180 L200 60 M-30 80 L50 50 M200 60 L240 20 M220 150 L160 180\' stroke=\'%23ffffff\' stroke-width=\'0.5\' opacity=\'0.15\' /%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'120\' cy=\'90\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3Ccircle cx=\'200\' cy=\'60\' r=\'3.5\' fill=\'%23ffffff\' opacity=\'0.4\'/%3E%3Ccircle cx=\'80\' cy=\'160\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.3\'/%3E%3Ccircle cx=\'160\' cy=\'180\' r=\'2.5\' fill=\'%23ffffff\' opacity=\'0.2\'/%3E%3C/svg%3E")', backgroundSize: '250px 250px' }}></div>
+        
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[60%] z-0 bg-gradient-to-r from-[#040914] via-[#040914]/90 to-transparent"></div>
+
+        <div className="relative z-10 max-w-4xl px-8 lg:px-16 text-left">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight max-w-2xl">
+            Artificial Intelligence Bringing You Closer to Customers
+          </h2>
+          <p className="text-slate-300 text-sm md:text-base font-medium mb-10 leading-relaxed max-w-2xl">
+            Unlock growth opportunities with AI-driven travel software that enhances customer engagement, boosts direct sales, and fosters loyalty through hyper-relevant experiences. Powered by Rapid's proprietary 'Sense' data center, our AI product suite delivers cutting-edge solutions for tangible results.
+          </p>
+          <Button variant="primary" className="px-8 py-3 text-sm font-bold shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)] transition-all rounded-full border-0">
+            Explore
+          </Button>
+        </div>
+      </section>
+
       {/* Core Features - Ultra Clean Architecture */}
-      <section className="py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
+      <section className="py-32 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative">
+          <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
           <div className="inline-flex items-center justify-center p-3 bg-white/5 rounded-2xl mb-6 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
              <Cpu className="w-8 h-8 text-white" />
           </div>
@@ -258,13 +296,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Enterprise Suite Solutions */}
+      <section className="py-24 bg-[#0A101C] relative border-t border-white/5 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">Enterprise <span className="font-bold">suite solutions</span></h2>
+            <p className="text-slate-400 text-lg leading-relaxed max-w-4xl font-medium">
+              Enhance operational efficiencies, alleviate staff burnout, and provide a cohesive user experience with solutions that enable teams to document and access critical enterprise data, streamline workflows, and support data safety.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Core operational record', icon: <Database className="w-6 h-6 text-brand-primary" /> },
+              { title: 'Communications and alerts', icon: <Activity className="w-6 h-6 text-brand-primary" /> },
+              { title: 'Device connectivity', icon: <Network className="w-6 h-6 text-brand-primary" /> },
+              { title: 'Documentation management', icon: <FileText className="w-6 h-6 text-brand-primary" /> },
+              { title: 'Global health & compliance', icon: <BarChart3 className="w-6 h-6 text-brand-primary" /> },
+              { title: 'Virtual care and observation', icon: <Layers className="w-6 h-6 text-brand-primary" /> }
+            ].map((sol, i) => (
+              <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 px-5 py-4 rounded-xl flex items-center justify-between cursor-pointer hover:bg-white/10 hover:border-brand-primary/40 transition-all duration-300 group shadow-lg">
+                <div className="flex items-center gap-4">
+                  <div className="bg-[#111A2D] p-2.5 rounded-lg border border-white/5 group-hover:scale-110 transition-transform">
+                    {sol.icon}
+                  </div>
+                  <span className="text-white font-bold tracking-wide text-[15px]">{sol.title}</span>
+                </div>
+                <ChevronDown className="w-5 h-5 text-slate-500 group-hover:text-white transition-colors" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Industries We Work - Advanced Side-by-Side Layout */}
       <section className="py-32 relative border-t border-white/5 bg-[#030812] overflow-hidden">
         {/* Immersive background elements */}
         <div className="absolute left-[-10%] top-1/2 w-[800px] h-[800px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute right-0 top-0 w-1/3 h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
             
             {/* Left Portion: Heading and Context */}
@@ -325,35 +397,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Global Partnership Text - Deep immersive geometric rings */}
-      <section className="py-40 relative flex items-center justify-center group bg-[#060D1A] overflow-hidden border-y border-white/5">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-          <div className="w-[300px] h-[300px] border border-white/10 rounded-full absolute group-hover:scale-[1.5] transition-transform duration-1000 ease-out"></div>
-          <div className="w-[600px] h-[600px] border border-white/5 rounded-full absolute animate-[spin_30s_linear_infinite] border-t-brand-primary/30"></div>
-          <div className="w-[900px] h-[900px] border border-white/5 rounded-full absolute group-hover:scale-[1.2] transition-transform duration-1000 ease-out border-b-emerald-400/20"></div>
-        </div>
+      {/* Our Partnership Logo Grid */}
+      <section className="py-32 relative bg-[#060D1A] overflow-hidden border-y border-white/5">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Left Portion: Text */}
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-2 mb-6">
+                <Settings className="w-4 h-4 text-[#E63946]" />
+                <span className="text-[#E63946] text-xs font-bold uppercase tracking-widest">PARTNERSHIP</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">Our Partnership</h2>
+              <p className="text-slate-400 text-lg leading-relaxed max-w-sm">
+                We work with the world's leading brands to bring you certified service and genuine integrations for every solution we deliver.
+              </p>
+            </div>
 
-        {/* Center atmospheric glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none group-hover:bg-brand-primary/20 transition-all duration-[2000ms]"></div>
-        
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <Globe className="w-16 h-16 text-white/50 mx-auto mb-10 animate-[spin_60s_linear_infinite]" strokeWidth={1} />
-          
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-10 drop-shadow-2xl">
-            Trusted by the world's most <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-cyan-300">innovative teams.</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-slate-400 font-light max-w-3xl mx-auto mb-14 leading-relaxed">
-            From hyper-growth startups to established enterprises, Rapid ERP forms the essential foundation for operational excellence.
-          </p>
-          <Link to="/about" className="inline-flex items-center justify-center gap-3 bg-white text-[#0B1120] px-10 py-5 rounded-full font-extrabold tracking-wide hover:scale-105 hover:bg-slate-200 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)]">
-            Read Our Success Stories <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
+            {/* Right Portion: Logo Grid with Internal Borders */}
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-white/10 p-[1px] rounded-2xl overflow-hidden shadow-2xl">
+                {[
+                  { name: 'Ferrari' },
+                  { name: 'Lamborghini' },
+                  { name: 'BMW' },
+                  { name: 'Bentley' },
+                  { name: 'Mercedes-Benz' },
+                  { name: 'MINI' },
+                  { name: 'Porsche' },
+                  { name: 'Audi' },
+                  { name: 'Volkswagen' }
+                ].map((brand, i) => (
+                  <div key={i} className="bg-[#0A101C] aspect-[4/3] flex flex-col items-center justify-center p-6 group hover:bg-white/5 transition-colors">
+                    {/* Placeholder for actual logo - using stylized typography for tech/car vibes */}
+                    <div className="w-14 h-14 mb-4 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:text-brand-primary group-hover:border-brand-primary/50 transition-colors">
+                      <Star className="w-6 h-6" />
+                    </div>
+                    <span className="text-white text-sm font-semibold tracking-wide">
+                      {brand.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
       {/* Highly Polished Dark Testimonials */}
       <section className="py-32 overflow-hidden relative bg-[#040914]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20 relative z-10">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 text-center mb-20 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-white/10 shadow-lg">
              <Star className="w-3.5 h-3.5 fill-brand-primary text-brand-primary" /> Client Success
           </div>
@@ -388,6 +482,264 @@ export default function Home() {
             ))}
         </div>
       </section>
+
+      {/* Dynamic Pricing */}
+      <section className="py-32 relative bg-[#060D1A] overflow-hidden border-t border-white/5">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 text-brand-primary rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-brand-primary/20">
+             Transparent Value
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Choose Right Plan</h2>
+          <p className="text-slate-400 text-lg mb-16 font-medium">Simple & straightforward options with no hidden fees.</p>
+          
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 text-left max-w-[1400px] mx-auto">
+            {/* Basic Plan */}
+            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Basic</div>
+              <div className="text-slate-400 text-sm mb-8 font-medium">A simple start for everyone</div>
+              <div className="mb-10 min-h-[80px]">
+                <span className="text-5xl font-extrabold text-white tracking-tight">$0</span>
+                <span className="text-slate-500 font-bold tracking-wide">/month</span>
+              </div>
+              <div className="space-y-5 mb-10">
+                {['Up to 5 users', 'Basic support', '10GB storage'].map((f, i) => (
+                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                ))}
+              </div>
+              <Button variant="outline" className="w-full justify-center">Get Started</Button>
+            </div>
+
+            {/* Standard Plan */}
+            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Standard</div>
+              <div className="text-slate-400 text-sm mb-8 font-medium">For small businesses</div>
+              <div className="mb-10 min-h-[80px]">
+                <span className="text-5xl font-extrabold text-white tracking-tight">$99</span>
+                <span className="text-slate-500 font-bold tracking-wide">/month</span>
+              </div>
+              <div className="space-y-5 mb-10">
+                {['Up to 50 users', 'Priority support', '100GB storage', 'Standard analytics'].map((f, i) => (
+                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                ))}
+              </div>
+              <Button variant="outline" className="w-full justify-center border-brand-primary/50 text-brand-primary hover:bg-brand-primary/10 hover:border-brand-primary">Free Selection</Button>
+            </div>
+
+            {/* Premium Plan (Highlighted) */}
+            <div className="bg-gradient-to-b from-brand-primary/10 to-[#0A101C] border border-brand-primary/40 p-10 rounded-[32px] relative overflow-hidden transform xl:-translate-y-4 shadow-[0_30px_80px_rgba(35,168,224,0.15)] ring-1 ring-brand-primary/50">
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-primary to-emerald-400"></div>
+              <div className="font-extrabold text-white text-2xl mb-2 flex justify-between items-center tracking-wide">
+                Premium <span className="bg-brand-primary text-white text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-black">Most Popular</span>
+              </div>
+              <div className="text-slate-300 text-sm mb-8 font-medium">For growing enterprises</div>
+              <div className="mb-10 min-h-[80px]">
+                <span className="text-5xl font-extrabold text-white tracking-tight">$299</span>
+                <span className="text-slate-400 font-bold tracking-wide">/month</span>
+              </div>
+              <div className="space-y-5 mb-10">
+                {['Unlimited users', '24/7 dedicated support', '1TB storage', 'Advanced integrations', 'Custom reporting'].map((f, i) => (
+                   <div key={i} className="flex items-start gap-4 text-white text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" /> <span>{f}</span></div>
+                ))}
+              </div>
+              <Button variant="primary" className="w-full justify-center shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)]">Start Free Trial</Button>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-[#0A101C] border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Enterprise</div>
+              <div className="text-slate-400 text-sm mb-8 font-medium">For global corporations</div>
+              <div className="mb-10 min-h-[80px] flex items-center">
+                <span className="text-4xl font-extrabold text-white tracking-tight">Custom</span>
+              </div>
+              <div className="space-y-5 mb-10">
+                {['Unlimited everything', 'Dedicated success manager', 'On-premise option', 'SLA guarantees', 'Custom SSO'].map((f, i) => (
+                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                ))}
+              </div>
+              <Button variant="outline" className="w-full justify-center">Contact Sales</Button>
+            </div>
+          </div>
+
+          {/* Full Feature Comparison Table */}
+          <div className="mt-32 max-w-[1400px] mx-auto text-left">
+            <h3 className="text-3xl font-bold text-white mb-10 text-center tracking-tight">Full Feature Comparison</h3>
+            <div className="overflow-x-auto rounded-3xl border border-white/10 bg-[#0A101C] shadow-2xl pb-4">
+              <table className="w-full min-w-[900px] text-left border-collapse">
+                <thead>
+                  <tr>
+                    <th className="py-6 px-8 border-b border-white/10 bg-[#0A101C]/50 w-[40%]">
+                      <div className="text-slate-400 font-bold uppercase tracking-widest text-xs">Feature</div>
+                    </th>
+                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center">
+                      <div className="text-white font-bold text-lg">Basic</div>
+                    </th>
+                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center relative">
+                      <div className="text-white font-bold text-lg">Standard</div>
+                    </th>
+                    <th className="py-6 px-6 border-b border-brand-primary/30 bg-brand-primary/5 text-center relative whitespace-nowrap">
+                      <div className="text-brand-primary font-bold text-lg">Premium</div>
+                    </th>
+                    <th className="py-6 px-6 border-b border-white/10 bg-[#0A101C]/50 text-center">
+                      <div className="text-white font-bold text-lg">Enterprise</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* Category 1 */}
+                  <tr>
+                    <td colSpan={5} className="py-4 px-8 border-b border-white/5 bg-white/[0.02]">
+                      <div className="flex items-center gap-3">
+                        <div className="w-1 h-6 bg-brand-primary rounded-full"></div>
+                        <h4 className="text-white font-bold text-lg tracking-wide">Core Functionality</h4>
+                      </div>
+                    </td>
+                  </tr>
+                  {[
+                    { name: 'Core Cloud ERP Modules', b: 'Unlimited', s: 'Unlimited', p: 'Unlimited', e: 'Unlimited' },
+                    { name: 'Financial Management & Accounting', b: 'Up to 5', s: 'Unlimited', p: 'Unlimited', e: 'Unlimited' },
+                    { name: 'Basic Automated Workflows', b: true, s: true, p: true, e: true },
+                    { name: 'Advanced AI Powered Automations', b: false, s: true, p: true, e: true },
+                    { name: 'Data export into CSV or PDF', b: true, s: true, p: true, e: true },
+                    { name: 'Real-time Analytics Dashboard', b: true, s: true, p: true, e: true },
+                  ].map((row, i) => (
+                    <tr key={`t1-${i}`} className="hover:bg-white/[0.02] transition-colors group">
+                      <td className="py-5 px-8 text-slate-300 font-medium text-[15px] border-b border-white/5 group-hover:text-white transition-colors">{row.name}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.b === 'boolean' ? (row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.b}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.s === 'boolean' ? (row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.s}</td>
+                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5 text-brand-primary font-semibold">{typeof row.p === 'boolean' ? (row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.p}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.e === 'boolean' ? (row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.e}</td>
+                    </tr>
+                  ))}
+                  
+                  {/* Category 2 */}
+                  <tr>
+                    <td colSpan={5} className="py-4 px-8 border-b border-white/5 bg-white/[0.02]">
+                      <div className="flex items-center gap-3">
+                        <div className="w-1 h-6 bg-emerald-400 rounded-full"></div>
+                        <h4 className="text-white font-bold text-lg tracking-wide">Administration & Security</h4>
+                      </div>
+                    </td>
+                  </tr>
+                  {[
+                    { name: 'Admin Control Panel', b: true, s: true, p: true, e: true },
+                    { name: 'Role-Based Access Control', b: true, s: true, p: true, e: true },
+                    { name: 'Advanced Audit Logs', b: false, s: true, p: true, e: true },
+                    { name: 'Custom Domain Mapping', b: false, s: false, p: true, e: true },
+                    { name: 'SSO (Single Sign-On)', b: false, s: false, p: false, e: true },
+                    { name: 'HIPAA & SOC2 Compliance', b: false, s: false, p: false, e: true },
+                  ].map((row, i) => (
+                    <tr key={`t2-${i}`} className="hover:bg-white/[0.02] transition-colors group">
+                      <td className="py-5 px-8 text-slate-300 font-medium text-[15px] border-b border-white/5 group-hover:text-white transition-colors">{row.name}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5">{row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5">{row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5">{row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-white/5">{row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dynamic Categorized FAQ Section */}
+      <section className="py-24 bg-[#040914] relative overflow-hidden border-t border-white/5">
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-brand-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="max-w-[1800px] mx-auto md:py-10 py-6 px-4 lg:px-8 xl:px-12 2xl:px-16 flex flex-col lg:flex-row gap-16 items-start relative z-10">
+          <div className="lg:w-1/3 w-full rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(35,168,224,0.1)] border border-brand-primary/10 shrink-0  group">
+            <div className="absolute inset-0 bg-brand-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay pointer-events-none"></div>
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1000" alt="Consulting" className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div className="lg:w-2/3 w-full">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-slate-400 text-lg mb-10 font-medium">Browse questions by topic or select a category below</p>
+            
+            <div className="flex flex-wrap gap-3 mb-12">
+              {['All', 'About Rapid ERP', 'AI Platform', 'Products & Tools', 'Industries & Solutions', 'Implementation & Support'].map((cat, i) => (
+                <button 
+                  key={i} 
+                  onClick={() => { setActiveFaqCategory(cat); setOpenFaq(null); }}
+                  className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
+                    activeFaqCategory === cat 
+                      ? 'bg-brand-primary border-brand-primary text-white shadow-[0_0_20px_rgba(35,168,224,0.3)]' 
+                      : 'bg-white/5 border-white/10 text-slate-300 hover:border-brand-primary/50 hover:text-brand-primary bg-backdrop-blur-md'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            <div className="space-y-4 mb-12">
+              {filteredFaqs.map((faq, i) => (
+                <div key={i} className="bg-[#0A101C] border border-white/5 rounded-2xl hover:border-brand-primary/30 transition-colors group overflow-hidden">
+                  <button 
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full py-6 px-8 text-left flex justify-between items-center focus:outline-none"
+                  >
+                    <span className="text-white font-bold text-lg group-hover:text-brand-primary transition-colors">{faq.q}</span>
+                    <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors flex-shrink-0 ml-4 ${
+                      openFaq === i 
+                        ? 'border-brand-primary bg-brand-primary/10' 
+                        : 'border-white/10 group-hover:border-brand-primary/50 group-hover:bg-brand-primary/5'
+                    }`}>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaq === i ? 'text-brand-primary rotate-180' : 'text-slate-400 group-hover:text-brand-primary'}`} />
+                    </div>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
+                        <div className="px-8 pb-8 pt-0 text-slate-400 leading-relaxed text-[15px] font-medium max-w-4xl">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+              {filteredFaqs.length === 0 && (
+                 <div className="py-12 text-center text-slate-500 font-medium">No questions found for this category.</div>
+              )}
+            </div>
+
+            {/* AI Search Input */}
+            <div className="relative max-w-4xl">
+              <div className="absolute left-6 top-1/2 -translate-y-1/2 flex items-center gap-2 font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-400 text-sm tracking-widest uppercase pointer-events-none">
+                <div className="w-4 h-4 rounded-full bg-gradient-to-r from-brand-primary to-purple-400 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-[#050C1A]"></div>
+                </div>
+                AI
+              </div>
+              <input type="text" placeholder="Ask me anything..." className="w-full pl-24 pr-8 py-5 rounded-full border border-white/10 bg-[#0A101C]/80 focus:bg-[#0A101C] focus:border-brand-primary/50 outline-none text-white placeholder:text-slate-500 font-medium shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(35,168,224,0.1)] transition-all text-lg backdrop-blur-md" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Powered CTA Banner */}
+      <section className="py-24 bg-[#050C1A] relative px-4 lg:px-8 xl:px-12 2xl:px-16 w-full max-w-[1800px] mx-auto">
+        <div className="bg-gradient-to-r from-[#0E3A82] to-[#8042B8] rounded-[40px] p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl border border-white/10">
+          
+          <div className="md:w-[55%] z-10 text-left mb-10 md:mb-0">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-10 leading-[1.1] tracking-tight">
+              Tech-Powered Success Awaits. Empower Your Digital Journey.
+            </h2>
+            <Button variant="outline" className="bg-white hover:bg-slate-50 text-[#050C1A] border-transparent font-bold px-10 py-5 rounded-[20px] shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300 text-lg w-max">
+              Schedule a Call <ArrowRight className="w-5 h-5" />
+            </Button>
+          </div>
+          
+          <div className="md:w-[45%] relative z-10 flex justify-center md:justify-end">
+             {/* Using an unsplash image for the person with a laptop */}
+             <div className="relative">
+               <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-110"></div>
+               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Professional with laptop" className="w-[400px] h-[400px] object-cover rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.4)] ring-8 ring-white/10 relative z-10" />
+             </div>
+          </div>
+        </div>
+      </section>
+
     </motion.div>
   );
 }

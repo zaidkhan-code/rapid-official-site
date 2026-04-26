@@ -1,13 +1,12 @@
-import { ReactNode, ComponentPropsWithoutRef } from 'react';
+import { ReactNode, ButtonHTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
-import { motion } from 'motion/react';
+import { motion, HTMLMotionProps } from 'motion/react';
 
-interface ButtonProps extends ComponentPropsWithoutRef<typeof motion.button> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, 'children'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'whatsapp';
   size?: 'sm' | 'md' | 'lg' | 'icon';
   children?: ReactNode;
   className?: string;
-  type?: 'button' | 'submit' | 'reset';
 }
 
 export const Button = ({ 
