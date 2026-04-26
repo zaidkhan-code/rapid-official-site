@@ -66,7 +66,7 @@ export default function Blog() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-slate-50 min-h-screen"
+      className="flex flex-col bg-brand-dark min-h-screen"
     >
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden flex items-center justify-center">
@@ -101,7 +101,7 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white border text-left border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:border-brand-primary/30 transition-all group flex flex-col cursor-pointer h-full"
+                className="bg-surface-dark border text-left border-white/5 rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-brand-primary/5 hover:border-brand-primary/30 transition-all group flex flex-col cursor-pointer h-full"
               >
                 <div className="h-60 overflow-hidden relative">
                   <img 
@@ -110,8 +110,8 @@ export default function Blog() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-brand-primary shadow-sm">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-sm">
                     {post.category}
                   </div>
                 </div>
@@ -120,10 +120,10 @@ export default function Blog() {
                     <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
                     <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {post.author}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-brand-primary transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors leading-snug line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-slate-600 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
+                  <p className="text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
                     {post.excerpt}
                   </p>
                   <div className="text-brand-primary font-bold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all mt-auto">
@@ -136,7 +136,7 @@ export default function Blog() {
         </div>
         
         <div className="mt-16 flex justify-center">
-          <button className="bg-white border border-slate-200 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 hover:shadow-md transition-all">
+          <button className="bg-surface-dark border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-surface-darker hover:shadow-md transition-all">
             Load More Articles
           </button>
         </div>

@@ -19,7 +19,7 @@ export default function BlogPost() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-slate-50 min-h-screen pb-24"
+      className="flex flex-col bg-brand-dark min-h-screen pb-24"
     >
       {/* Dynamic Hero */}
       <div className="relative h-[50vh] min-h-[400px] w-full mt-20 lg:mt-24">
@@ -59,31 +59,31 @@ export default function BlogPost() {
       </div>
 
       {/* Content */}
-      <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 bg-white rounded-3xl p-8 md:p-16 lg:p-20 shadow-2xl shadow-slate-200/50 border border-slate-100 -mt-10 relative z-20">
-        <div className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-brand-primary">
-          <p className="text-2xl text-slate-700 mb-10 leading-relaxed font-semibold">
+      <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 bg-surface-dark rounded-3xl p-8 md:p-16 lg:p-20 shadow-2xl shadow-black/20 border border-white/5 -mt-10 relative z-20">
+        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-brand-primary">
+          <p className="text-2xl text-slate-200 mb-10 leading-relaxed font-semibold">
             {post.excerpt}
           </p>
           
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <p className="text-slate-400 mb-8 leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </p>
 
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <p className="text-slate-400 mb-8 leading-relaxed">
             In our experience, software architecture plays a crucial role in enabling or restricting scale. By opting for a modular, microservices-driven approach, organizations can iterate faster and deliver functionality with less friction. However, this comes with its own set of trade-offs regarding operational complexity.
           </p>
           
-          <h3 className="text-3xl font-extrabold text-slate-900 mt-16 mb-8">The Impact on Business Overview</h3>
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <h3 className="text-3xl font-extrabold text-white mt-16 mb-8">The Impact on Business Overview</h3>
+          <p className="text-slate-400 mb-8 leading-relaxed">
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
           </p>
           
-          <blockquote className="border-l-4 border-brand-primary pl-6 my-12 italic text-slate-800 text-2xl font-medium py-2">
+          <blockquote className="border-l-4 border-brand-primary pl-6 my-12 italic text-slate-100 text-2xl font-medium py-2">
             "The integration of these new technologies is not just an upgrade; it's a fundamental shift in how we approach enterprise software."
           </blockquote>
           
-          <h3 className="text-3xl font-extrabold text-slate-900 mt-16 mb-8">Looking Ahead</h3>
-          <p className="text-slate-600 mb-8 leading-relaxed">
+          <h3 className="text-3xl font-extrabold text-white mt-16 mb-8">Looking Ahead</h3>
+          <p className="text-slate-400 mb-8 leading-relaxed">
             Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
           </p>
         </div>
