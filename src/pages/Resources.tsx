@@ -46,9 +46,9 @@ export default function Resources() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-brand-dark min-h-screen font-sans"
+      className="flex flex-col bg-slate-50 dark:bg-[#061121] min-h-screen font-sans"
     >
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-white/5">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 w-full text-center">
@@ -62,10 +62,10 @@ export default function Resources() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(40,168,224,0.8)]"></span>
               Knowledge Base
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Resources & Insights
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Explore our comprehensive library of technical literature, case studies, and engineering blogs.
             </p>
           </motion.div>
@@ -83,24 +83,24 @@ export default function Resources() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               <Link to={cat.link} className="block group">
-                <div className="bg-brand-dark/50 border border-white/5 p-10 rounded-3xl relative overflow-hidden transition-all duration-300 hover:border-brand-primary/30 hover:bg-white/[0.02] shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] h-full flex flex-col">
+                <div className="bg-slate-50 dark:bg-[#061121]/50 border border-slate-100 dark:border-white/5 p-10 rounded-3xl relative overflow-hidden transition-all duration-300 hover:border-brand-primary/30 hover:bg-white dark:hover:bg-white/5 shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] h-full flex flex-col">
                   {/* Decorative background gradient */}
                   <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${cat.gradient} blur-[50px] rounded-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   
                   <div className="flex items-center justify-between mb-8 relative z-10">
-                    <div className="p-4 bg-surface-light border border-white/5 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                    <div className="p-4 bg-slate-50 dark:bg-[#061121] border border-slate-100 dark:border-white/5 rounded-2xl group-hover:scale-110 transition-transform duration-500">
                       {cat.icon}
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500 border border-white/10 px-3 py-1.5 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-white/60 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-full">
                       {cat.metrics}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-brand-primary transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 relative z-10 group-hover:text-brand-primary transition-colors">
                     {cat.title}
                   </h3>
                   
-                  <p className="text-slate-400 leading-relaxed mb-10 flex-grow relative z-10">
+                  <p className="text-slate-600 dark:text-white/80 leading-relaxed mb-10 flex-grow relative z-10">
                     {cat.description}
                   </p>
                   
@@ -114,13 +114,13 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="py-24 bg-transparent border-t border-white/5 relative z-10">
+      <section className="py-24 bg-transparent border-t border-slate-100 dark:border-white/5 relative z-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Need specific literature?</h2>
-            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Need specific literature?</h2>
+            <p className="text-lg text-slate-600 dark:text-white/80 mb-8 max-w-2xl mx-auto">
               If you require a specific architectural whitepaper or security audit report, please reach out to our compliance and technical documentation teams.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-2 btn border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
+            <Link to="/contact" className="inline-flex items-center gap-2 btn border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg">
                Request Documents <ArrowRight className="w-5 h-5"/>
             </Link>
         </div>

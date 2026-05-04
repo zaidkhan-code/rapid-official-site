@@ -18,10 +18,10 @@ export const Button = ({
 }: ButtonProps) => {
   const variants = {
     primary: 'bg-brand-primary text-white hover:brightness-110 shadow-lg shadow-brand-primary/20',
-    secondary: 'bg-white text-brand-dark hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]',
-    outline: 'border border-white/20 text-white hover:bg-white/5 backdrop-blur-sm',
-    ghost: 'text-white/80 hover:text-white hover:bg-white/5',
-    whatsapp: 'bg-[#25D366] text-white hover:scale-110 shadow-lg shadow-[#25D366]/30',
+    secondary: 'bg-white dark:bg-[#0A101C] text-brand-dark hover:shadow-[0_0_30px_rgba(0,0,0,0.1)]',
+    outline: 'border border-slate-300 dark:border-white/20 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 backdrop-blur-sm',
+    ghost: 'text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5',
+    whatsapp: 'bg-[#25D366] text-slate-900 dark:text-white hover:scale-110 shadow-lg shadow-[#25D366]/30',
   };
 
   const sizes = {

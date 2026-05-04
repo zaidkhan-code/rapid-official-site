@@ -286,10 +286,10 @@ export default function Services() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-slate-100 dark:bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-slate-900 dark:text-white"
     >
       {/* Animated Organic Blob Hero Section */}
-      <section className="relative w-full overflow-hidden pt-20 pb-20 sm:pt-28 sm:pb-32 border-b border-white/5">
+      <section className="relative w-full overflow-hidden pt-20 pb-20 sm:pt-28 sm:pb-32 border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         {/* Floating Abstract Blobs Container */}
@@ -338,7 +338,7 @@ export default function Services() {
                   className={cn(
                     "absolute flex items-center justify-center p-6 text-center shadow-2xl overflow-hidden",
                     config.z,
-                    isActive ? "cursor-default border border-white/20" : "cursor-pointer hover:scale-105 border border-white/5"
+                    isActive ? "cursor-default border border-slate-300 dark:border-white/20" : "cursor-pointer hover:scale-105 border border-slate-100 dark:border-white/5"
                   )}
                   style={{
                     background: `linear-gradient(135deg, ${visualData.from}, ${visualData.to})`,
@@ -363,7 +363,7 @@ export default function Services() {
                     />
                     
                     <Icon
-                      className="absolute opacity-[0.15] text-white pointer-events-none transition-all duration-700"
+                      className="absolute opacity-[0.15] text-slate-900 dark:text-white pointer-events-none transition-all duration-700"
                       style={{
                         width: isActive ? '140px' : '80px',
                         height: isActive ? '140px' : '80px',
@@ -374,7 +374,7 @@ export default function Services() {
                     />
                   </motion.div>
                   
-                  <span className={cn("relative z-10 text-white font-bold whitespace-pre-line drop-shadow-md transition-all duration-500", config.textClass)}>
+                  <span className={cn("relative z-10 text-slate-900 dark:text-white font-bold whitespace-pre-line drop-shadow-md transition-all duration-500", config.textClass)}>
                     {visualData.label}
                   </span>
                 </motion.div>
@@ -389,23 +389,23 @@ export default function Services() {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           
           {/* Left Sidebar */}
-          <div className="w-full lg:w-[320px] flex-shrink-0 lg:pr-8 lg:border-r border-white/10">
+          <div className="w-full lg:w-[320px] flex-shrink-0 lg:pr-8 lg:border-r border-slate-200 dark:border-white/10">
             {/* Search Bar */}
             <div className="relative mb-8 group">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-brand-primary transition-colors duration-300" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-white/60 group-focus-within:text-brand-primary transition-colors duration-300" />
               <input 
                 type="text" 
                 placeholder="Find a service..." 
-                className="w-full pl-11 pr-12 py-3.5 bg-white/5 border border-white/10 rounded-2xl text-[14px] text-white focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary outline-none transition-all duration-300 placeholder:text-slate-500 hover:bg-white/10 hover:border-white/20 shadow-sm" 
+                className="w-full pl-11 pr-12 py-3.5 bg-slate-100 dark:bg-[#060D1A] border border-slate-200 dark:border-white/10 rounded-2xl text-[14px] text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-primary/30 focus:border-brand-primary outline-none transition-all duration-300 placeholder:text-slate-500 dark:text-white/60 hover:bg-slate-200 dark:hover:bg-white/10 hover:border-slate-300 dark:hover:border-white/20 shadow-sm" 
               />
-              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-surface-lighter border border-white/10 rounded-xl p-1.5 shadow-sm hover:bg-[#232D45] cursor-pointer transition-colors">
-                 <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-[#060D1A] border border-slate-200 dark:border-white/10 rounded-xl p-1.5 shadow-sm hover:bg-[#232D45] cursor-pointer transition-colors">
+                 <svg className="w-4 h-4 text-slate-600 dark:text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
               </div>
             </div>
 
             {/* Service List */}
             <div className="flex flex-col gap-1.5 overflow-y-auto max-h-[700px] scrollbar-hide pb-10">
-              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider px-4 mb-3">All Services</h4>
+              <h4 className="text-xs font-bold text-slate-500 dark:text-white/60 uppercase tracking-wider px-4 mb-3">All Services</h4>
               {servicesList.map((service) => {
                 const isActive = activeService === service;
                 // Get the icon for the sidebar
@@ -420,7 +420,7 @@ export default function Services() {
                       "text-left px-4 py-3.5 rounded-xl text-[14px] transition-all relative group flex items-center gap-3 w-full",
                       isActive 
                         ? "text-brand-primary font-semibold bg-brand-primary/10 shadow-sm ring-1 ring-brand-primary/40" 
-                        : "text-slate-400 font-medium hover:text-white hover:bg-surface-light"
+                        : "text-slate-600 dark:text-white/80 font-medium hover:text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-white/5"
                     )}
                   >
                     {isActive && (
@@ -432,7 +432,7 @@ export default function Services() {
                     )}
                     <Icon className={cn(
                       "w-4 h-4 transition-colors duration-300",
-                      isActive ? "text-brand-primary" : "text-slate-500 group-hover:text-slate-300"
+                      isActive ? "text-brand-primary" : "text-slate-500 dark:text-white/60 group-hover:text-slate-700 dark:text-white/90"
                     )} />
                     <span className="truncate">{service}</span>
                   </button>
@@ -451,7 +451,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Overview' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
+                    : "font-medium bg-slate-50 dark:bg-[#061121] text-slate-600 dark:text-white/80 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:text-white border border-slate-100 dark:border-white/5"
                 )}
               >
                 Overview
@@ -462,7 +462,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Portfolio' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
+                    : "font-medium bg-slate-50 dark:bg-[#061121] text-slate-600 dark:text-white/80 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:text-white border border-slate-100 dark:border-white/5"
                 )}
               >
                 Portfolio
@@ -473,7 +473,7 @@ export default function Services() {
                   "whitespace-nowrap px-6 py-2.5 rounded-full text-[14px] transition-all",
                   activeSection === 'Videos' 
                     ? "font-semibold bg-brand-primary text-white shadow-md shadow-brand-primary/20" 
-                    : "font-medium bg-surface-light text-slate-400 hover:bg-surface-lighter hover:text-white border border-white/5"
+                    : "font-medium bg-slate-50 dark:bg-[#061121] text-slate-600 dark:text-white/80 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:text-white border border-slate-100 dark:border-white/5"
                 )}
               >
                 Videos
@@ -498,73 +498,73 @@ export default function Services() {
                   {/* Content Header (Consistent across all sections) */}
                   <div className="flex items-center gap-4 mb-8">
                      <div className="w-[4px] h-8 bg-brand-primary rounded-full"></div>
-                     <h2 className="text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-tight">{activeData.title} {activeSection !== 'Overview' && <span className="text-slate-500 font-light">/ {activeSection}</span>}</h2>
+                     <h2 className="text-[32px] sm:text-[36px] font-bold text-slate-900 dark:text-white tracking-tight leading-tight">{activeData.title} {activeSection !== 'Overview' && <span className="text-slate-500 dark:text-white/60 font-light">/ {activeSection}</span>}</h2>
                   </div>
 
                   {activeSection === 'Overview' && (
                   <div className="prose prose-slate max-w-none">
-                    <p className="text-[16px] text-slate-400 leading-relaxed font-normal mb-10 max-w-[900px]">
+                    <p className="text-[16px] text-slate-600 dark:text-white/80 leading-relaxed font-normal mb-10 max-w-[900px]">
                       {activeData.description1}
                     </p>
 
                     {/* Re-added Stats Section inline */}
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-8 py-10 px-4 sm:px-12 bg-surface-light rounded-3xl border border-white/5 mb-10 shadow-lg shadow-black/20">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-8 py-10 px-4 sm:px-12 bg-slate-50 dark:bg-[#061121] rounded-3xl border border-slate-100 dark:border-white/5 mb-10 shadow-lg shadow-black/20">
                       {activeData.stats.map((stat, idx) => (
                         <div key={idx} className="flex flex-col items-center flex-1 text-center group">
                           <div className="text-[48px] sm:text-[56px] font-bold text-[#5AB2E8] mb-2 tracking-tighter leading-none group-hover:scale-105 transition-transform duration-300">
                              {stat.value}
                           </div>
-                          <div className="text-[14px] font-medium text-slate-500 max-w-[150px]">{stat.label}</div>
+                          <div className="text-[14px] font-medium text-slate-500 dark:text-white/60 max-w-[150px]">{stat.label}</div>
                         </div>
                       ))}
                     </div>
 
-                    <p className="text-[16px] text-slate-400 leading-relaxed font-normal mb-12 max-w-[900px]">
+                    <p className="text-[16px] text-slate-600 dark:text-white/80 leading-relaxed font-normal mb-12 max-w-[900px]">
                       {activeData.description2}
                     </p>
 
-                    <h3 className="text-[16px] font-bold text-white mb-4">Key Services:</h3>
-                    <ul className="list-disc ml-6 space-y-2 mb-10 marker:text-white">
+                    <h3 className="text-[16px] font-bold text-slate-900 dark:text-white mb-4">Key Services:</h3>
+                    <ul className="list-disc ml-6 space-y-2 mb-10 marker:text-slate-900 dark:text-white">
                       {activeData.keyServices.map((service, idx) => (
                         <li key={idx}>
-                          <span className="text-[15px] text-slate-300 font-normal">{service}</span>
+                          <span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">{service}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <h3 className="text-[16px] font-bold text-white mb-4">Key Benefits:</h3>
-                    <ul className="list-disc ml-6 space-y-2 mb-10 marker:text-white">
-                      <li><span className="text-[15px] text-slate-300 font-normal">Enhanced brand presence with modern UI/UX design</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">High-performance solutions optimized for speed and SEO</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Mobile-first responsive design for all devices</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Scalable architecture for future business growth</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Secure and reliable infrastructure</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Improved conversion rates and user engagement</span></li>
+                    <h3 className="text-[16px] font-bold text-slate-900 dark:text-white mb-4">Key Benefits:</h3>
+                    <ul className="list-disc ml-6 space-y-2 mb-10 marker:text-slate-900 dark:text-white">
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Enhanced brand presence with modern UI/UX design</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">High-performance solutions optimized for speed and SEO</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Mobile-first responsive design for all devices</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Scalable architecture for future business growth</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Secure and reliable infrastructure</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Improved conversion rates and user engagement</span></li>
                     </ul>
 
-                    <h3 className="text-[16px] font-bold text-white mb-4">Technologies We Use:</h3>
-                    <ul className="list-disc ml-6 space-y-2 mb-12 marker:text-white">
-                      <li><span className="text-[15px] text-slate-300 font-normal">Frontend: React, Vue, Angular</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Backend: Node.js, Laravel, .NET, Python</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">CMS: WordPress, Drupal</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Database: MySQL, MongoDB, PostgreSQL</span></li>
-                      <li><span className="text-[15px] text-slate-300 font-normal">Cloud: AWS, Google Cloud, Azure</span></li>
+                    <h3 className="text-[16px] font-bold text-slate-900 dark:text-white mb-4">Technologies We Use:</h3>
+                    <ul className="list-disc ml-6 space-y-2 mb-12 marker:text-slate-900 dark:text-white">
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Frontend: React, Vue, Angular</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Backend: Node.js, Laravel, .NET, Python</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">CMS: WordPress, Drupal</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Database: MySQL, MongoDB, PostgreSQL</span></li>
+                      <li><span className="text-[15px] text-slate-700 dark:text-white/90 font-normal">Cloud: AWS, Google Cloud, Azure</span></li>
                     </ul>
                   </div>
                 )}
 
                 {activeSection === 'Portfolio' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
-                       <div className="h-56 overflow-hidden relative bg-surface-light">
+                     <div className="group rounded-2xl overflow-hidden border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#061121] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
+                       <div className="h-56 overflow-hidden relative bg-slate-50 dark:bg-[#061121]">
                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Portfolio 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <span className="text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span className="text-slate-900 dark:text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
                          </div>
                        </div>
                        <div className="p-6">
-                          <h4 className="font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Global Logistics Platform</h4>
-                          <p className="text-sm text-slate-400 mb-5 line-clamp-2">A complete digital transformation of a legacy supply chain system, improving tracking accuracy by 99%.</p>
+                          <h4 className="font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-primary transition-colors">Global Logistics Platform</h4>
+                          <p className="text-sm text-slate-600 dark:text-white/80 mb-5 line-clamp-2">A complete digital transformation of a legacy supply chain system, improving tracking accuracy by 99%.</p>
                           <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-brand-primary uppercase tracking-wider">
                             <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">React</span>
                             <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">Node.js</span>
@@ -573,16 +573,16 @@ export default function Services() {
                        </div>
                      </div>
 
-                     <div className="group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
-                       <div className="h-56 overflow-hidden relative bg-surface-light">
+                     <div className="group rounded-2xl overflow-hidden border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#061121] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300">
+                       <div className="h-56 overflow-hidden relative bg-slate-50 dark:bg-[#061121]">
                          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Portfolio 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <span className="text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span className="text-slate-900 dark:text-white font-medium text-sm flex items-center gap-2">View Case Study <ArrowRight className="w-4 h-4"/></span>
                          </div>
                        </div>
                        <div className="p-6">
-                          <h4 className="font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Enterprise Data Dashboard</h4>
-                          <p className="text-sm text-slate-400 mb-5 line-clamp-2">Real-time analytics engine processing over 5M+ daily events for a major financial institution.</p>
+                          <h4 className="font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-primary transition-colors">Enterprise Data Dashboard</h4>
+                          <p className="text-sm text-slate-600 dark:text-white/80 mb-5 line-clamp-2">Real-time analytics engine processing over 5M+ daily events for a major financial institution.</p>
                           <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-brand-primary uppercase tracking-wider">
                             <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">Vue.js</span>
                             <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">Python</span>
@@ -591,14 +591,14 @@ export default function Services() {
                        </div>
                      </div>
                      
-                     <div className="col-span-1 md:col-span-2 group rounded-2xl overflow-hidden border border-white/5 bg-surface-light shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 mt-2">
+                     <div className="col-span-1 md:col-span-2 group rounded-2xl overflow-hidden border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#061121] shadow-sm hover:shadow-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300 mt-2">
                         <div className="flex flex-col md:flex-row">
-                          <div className="md:w-2/5 h-48 md:h-auto overflow-hidden relative bg-surface-light">
+                          <div className="md:w-2/5 h-48 md:h-auto overflow-hidden relative bg-slate-50 dark:bg-[#061121]">
                              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80" alt="Portfolio 3" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
                           </div>
                           <div className="p-6 md:p-8 md:w-3/5 flex flex-col justify-center">
-                              <h4 className="font-bold text-white mb-2 text-lg group-hover:text-brand-primary transition-colors">Healthcare Portal & Booking System</h4>
-                              <p className="text-sm text-slate-400 mb-6">Fully compliant patient management ecosystem with telemedicine capabilities, reducing wait times.</p>
+                              <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-lg group-hover:text-brand-primary transition-colors">Healthcare Portal & Booking System</h4>
+                              <p className="text-sm text-slate-600 dark:text-white/80 mb-6">Fully compliant patient management ecosystem with telemedicine capabilities, reducing wait times.</p>
                               <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-brand-primary uppercase tracking-wider">
                                 <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">Angular</span>
                                 <span className="px-2.5 py-1 bg-brand-primary/10 border border-brand-primary/20 rounded-md">.NET</span>
@@ -613,7 +613,7 @@ export default function Services() {
                 {activeSection === 'Videos' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
                      <div className="group">
-                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-surface-light aspect-video">
+                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#061121] aspect-video">
                          <iframe 
                            className="absolute inset-0 w-full h-full"
                            src="https://www.youtube.com/embed/LXb3EKWsInQ?rel=0" 
@@ -624,13 +624,13 @@ export default function Services() {
                          ></iframe>
                        </div>
                        <div className="mt-5 px-1">
-                         <h4 className="font-bold text-white group-hover:text-brand-primary transition-colors text-lg">How we built the {activeData.title} system</h4>
-                         <p className="text-[15px] text-slate-400 mt-2 line-clamp-2">A technical walkthrough and architecture deep-dive of our {activeData.title.toLowerCase()} implementation strategies.</p>
+                         <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-brand-primary transition-colors text-lg">How we built the {activeData.title} system</h4>
+                         <p className="text-[15px] text-slate-600 dark:text-white/80 mt-2 line-clamp-2">A technical walkthrough and architecture deep-dive of our {activeData.title.toLowerCase()} implementation strategies.</p>
                        </div>
                      </div>
 
                      <div className="group">
-                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-white/5 bg-surface-light aspect-video">
+                       <div className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-brand-primary/20 transition-all duration-300 border border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-[#061121] aspect-video">
                          <iframe 
                            className="absolute inset-0 w-full h-full"
                            src="https://www.youtube.com/embed/bON-KPiiNCk?rel=0" 
@@ -641,8 +641,8 @@ export default function Services() {
                          ></iframe>
                        </div>
                        <div className="mt-5 px-1">
-                         <h4 className="font-bold text-white group-hover:text-brand-primary transition-colors text-lg">Client Success Story: {activeData.title}</h4>
-                         <p className="text-[15px] text-slate-400 mt-2 line-clamp-2">Hear directly from our enterprise clients on how our {activeData.title.toLowerCase()} skyrocketed their growth.</p>
+                         <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-brand-primary transition-colors text-lg">Client Success Story: {activeData.title}</h4>
+                         <p className="text-[15px] text-slate-600 dark:text-white/80 mt-2 line-clamp-2">Hear directly from our enterprise clients on how our {activeData.title.toLowerCase()} skyrocketed their growth.</p>
                        </div>
                      </div>
                   </div>
@@ -655,10 +655,10 @@ export default function Services() {
       </section>
       
       {/* CTA Layer */}
-      <section className="py-24 bg-transparent border-t border-white/5 relative z-10">
+      <section className="py-24 bg-transparent border-t border-slate-100 dark:border-white/5 relative z-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Ready to scale faster?</h2>
-            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Ready to scale faster?</h2>
+            <p className="text-lg text-slate-600 dark:text-white/80 mb-8 max-w-2xl mx-auto">
               Our engineering team is ready to architect the perfect solution for your enterprise. Let's discuss your technical requirements.
             </p>
             <div className="flex justify-center gap-4">

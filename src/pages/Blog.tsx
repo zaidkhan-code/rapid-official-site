@@ -66,7 +66,7 @@ export default function Blog() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-brand-dark min-h-screen"
+      className="flex flex-col bg-slate-50 dark:bg-[#061121] min-h-screen"
     >
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden flex items-center justify-center">
@@ -82,10 +82,10 @@ export default function Blog() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary"></span>
               Engineering Ideas
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               The Blueprint.
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Insights, technical deep-dives, and strategy from the engineers building the future of software infrastructure.
             </p>
           </motion.div>
@@ -101,7 +101,7 @@ export default function Blog() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-surface-dark border text-left border-white/5 rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-brand-primary/5 hover:border-brand-primary/30 transition-all group flex flex-col cursor-pointer h-full"
+                className="bg-white dark:bg-[#0A101C] border text-left border-slate-100 dark:border-white/5 rounded-3xl overflow-hidden hover:shadow-xl hover:shadow-slate-200 dark:shadow-white/5 hover:border-brand-primary/30 transition-all group flex flex-col cursor-pointer h-full"
               >
                 <div className="h-60 overflow-hidden relative">
                   <img 
@@ -110,20 +110,20 @@ export default function Blog() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-sm">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-slate-900 dark:text-white shadow-sm">
                     {post.category}
                   </div>
                 </div>
                 <div className="p-8 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wider">
+                  <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 dark:text-white/80 mb-4 uppercase tracking-wider">
                     <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {post.date}</span>
                     <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {post.author}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-brand-primary transition-colors leading-snug line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-slate-400 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
+                  <p className="text-slate-600 dark:text-white/80 text-sm mb-6 line-clamp-3 leading-relaxed font-medium flex-grow">
                     {post.excerpt}
                   </p>
                   <div className="text-brand-primary font-bold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all mt-auto">
@@ -136,7 +136,7 @@ export default function Blog() {
         </div>
         
         <div className="mt-16 flex justify-center">
-          <button className="bg-surface-dark border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-surface-darker hover:shadow-md transition-all">
+          <button className="bg-white dark:bg-[#0A101C] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold hover:bg-surface-darker hover:shadow-md transition-all">
             Load More Articles
           </button>
         </div>

@@ -8,7 +8,7 @@ import NetworkBackground from '../components/NetworkBackground';
 const SectionHeader = ({ title }: { title: string }) => (
   <div className="flex items-center gap-4 mb-10">
     <div className="w-[4px] h-8 bg-brand-primary rounded-full"></div>
-    <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{title}</h2>
+    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{title}</h2>
   </div>
 );
 
@@ -21,7 +21,7 @@ const LogoGrid = ({ children }: { children: ReactNode }) => (
 
 // Reusable Card for Logos
 const LogoCard = ({ children }: { children: ReactNode }) => (
-  <div className="bg-surface-light border border-white/5 rounded-2xl p-6 sm:p-8 flex items-center justify-center hover:border-brand-primary/40 hover:bg-surface-lighter transition-all duration-300 shadow-xl shadow-black/20 group min-h-[140px]">
+  <div className="bg-slate-50 dark:bg-[#061121] border border-slate-100 dark:border-white/5 rounded-2xl p-6 sm:p-8 flex items-center justify-center hover:border-brand-primary/40 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300 shadow-xl shadow-black/20 group min-h-[140px]">
     <div className="group-hover:scale-110 transition-transform duration-500 flex items-center justify-center w-full h-full">
       {children}
     </div>
@@ -42,7 +42,7 @@ export default function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-slate-100 dark:bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-slate-900 dark:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
@@ -54,8 +54,8 @@ export default function About() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-6">About Us</h1>
-            <p className="text-lg text-slate-300 max-w-2xl leading-relaxed">
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">About Us</h1>
+            <p className="text-lg text-slate-700 dark:text-white/90 max-w-2xl leading-relaxed">
               There are many variations of passag of Lorem Ipsum available, but the majority<br className="hidden md:block"/>
               have sufferedThere are many variations of passag of Lorem Ipsum available.
             </p>
@@ -64,7 +64,7 @@ export default function About() {
       </section>
 
       {/* Who We Are / What We Do */}
-      <section className="py-20 lg:py-28 relative border-b border-white/5">
+      <section className="py-20 lg:py-28 relative border-b border-slate-100 dark:border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
             {/* Who We Are */}
@@ -74,11 +74,11 @@ export default function About() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-2xl font-bold text-white mb-8">Who We Are</h2>
-              <p className="text-[15px] leading-relaxed text-slate-400 font-medium">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Who We Are</h2>
+              <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium">
                 {lorem1}
               </p>
-              <p className="text-[15px] leading-relaxed text-slate-400 font-medium mt-6">
+              <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium mt-6">
                 {lorem2}
               </p>
             </motion.div>
@@ -90,11 +90,11 @@ export default function About() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-2xl font-bold text-white mb-8">What We Do</h2>
-              <p className="text-[15px] leading-relaxed text-slate-400 font-medium">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">What We Do</h2>
+              <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium">
                 {lorem1}
               </p>
-              <p className="text-[15px] leading-relaxed text-slate-400 font-medium mt-6">
+              <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium mt-6">
                 {lorem2}
               </p>
             </motion.div>
@@ -112,13 +112,13 @@ export default function About() {
             <LogoCard>
                <div className="flex flex-col items-center">
                  <ShieldCheck className="w-14 h-14 text-[#10B981] mb-2" />
-                 <span className="text-[10px] font-bold text-slate-300 tracking-widest text-center uppercase">Top 100<br/>Software</span>
+                 <span className="text-[10px] font-bold text-slate-700 dark:text-white/90 tracking-widest text-center uppercase">Top 100<br/>Software</span>
                </div>
             </LogoCard>
             <LogoCard>
                <div className="flex flex-col items-center">
                  <Medal className="w-14 h-14 text-[#3B82F6] mb-2" />
-                 <span className="text-[10px] font-bold text-slate-300 tracking-widest text-center uppercase">Best IT<br/>Services</span>
+                 <span className="text-[10px] font-bold text-slate-700 dark:text-white/90 tracking-widest text-center uppercase">Best IT<br/>Services</span>
                </div>
             </LogoCard>
             <LogoCard><Star className="w-16 h-16 text-[#FBBF24]" /></LogoCard>
@@ -133,7 +133,7 @@ export default function About() {
           <LogoGrid>
             <LogoCard>
                <div className="flex flex-col items-center">
-                  <span className="text-2xl sm:text-3xl font-black text-slate-200 tracking-tight">BASIS</span>
+                  <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">BASIS</span>
                </div>
             </LogoCard>
             <LogoCard>
@@ -142,7 +142,7 @@ export default function About() {
                      <div className="w-4 h-6 border-[3px] border-rose-500 rounded-sm skew-x-[-10deg]"></div>
                      <div className="w-4 h-6 border-[3px] border-green-500 rounded-sm skew-x-[-10deg]"></div>
                   </div>
-                  <span className="text-xl font-black text-slate-200 tracking-tighter">BCS</span>
+                  <span className="text-xl font-black text-slate-900 dark:text-white tracking-tighter">BCS</span>
                </div>
             </LogoCard>
             <LogoCard>
@@ -165,7 +165,7 @@ export default function About() {
       <section className="py-16 my-12 relative w-full">
         {/* Full width split backgrounds */}
         <div className="absolute inset-0 flex flex-col md:flex-row w-full h-full z-0 pointer-events-none">
-          <div className="w-full md:w-1/2 h-full bg-[#1e140d]/80 border-r border-white/5"></div>
+          <div className="w-full md:w-1/2 h-full bg-[#1e140d]/80 border-r border-slate-100 dark:border-white/5"></div>
           <div className="w-full md:w-1/2 h-full bg-[#0a1a14]/80"></div>
         </div>
 
@@ -173,13 +173,13 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-0">
               <div className="py-10 md:py-16 md:pr-16 lg:pr-24">
                  <SectionHeader title="Our Mission" />
-                 <p className="text-[15px] leading-relaxed text-slate-400 font-medium">
+                 <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium">
                     Retail Management Software provides you with exceptional capabilities that will simplify the way you manage all critical aspects of your businessRetail Management Software provides you with exceptional capabilities that will simplify. Retail Management Software provides you with exceptional capabilities that will simplify.
                  </p>
               </div>
               <div className="py-10 md:py-16 md:pl-16 lg:pl-24">
                  <SectionHeader title="Our Vision" />
-                 <p className="text-[15px] leading-relaxed text-slate-400 font-medium">
+                 <p className="text-[15px] leading-relaxed text-slate-600 dark:text-white/80 font-medium">
                     Retail Management Software provides you with exceptional capabilities that will simplify the way you manage all critical aspects of your businessRetail Management Software provides you with exceptional capabilities that will simplify. Retail Management Software provides you with exceptional capabilities that will simplify.
                  </p>
               </div>
@@ -210,8 +210,8 @@ export default function About() {
              </LogoCard>
              <LogoCard>
                 <div className="border-[2px] border-slate-500 py-3 px-4 text-center flex flex-col items-center">
-                  <Crown className="w-7 h-7 text-slate-400 mb-2" />
-                  <span className="text-xs font-black text-slate-300 tracking-tighter">UKAS</span>
+                  <Crown className="w-7 h-7 text-slate-600 dark:text-white/80 mb-2" />
+                  <span className="text-xs font-black text-slate-700 dark:text-white/90 tracking-tighter">UKAS</span>
                 </div>
              </LogoCard>
              <LogoCard>
@@ -240,7 +240,7 @@ export default function About() {
              </LogoCard>
              {/* Microsoft */}
              <LogoCard>
-               <span className="text-xl sm:text-2xl font-semibold text-slate-200 flex items-center gap-3">
+               <span className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white flex items-center gap-3">
                   <div className="grid grid-cols-2 gap-[3px]">
                      <div className="w-[10px] h-[10px] bg-[#F25022]"/>
                      <div className="w-[10px] h-[10px] bg-[#7FBA00]"/>

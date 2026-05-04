@@ -49,9 +49,9 @@ export default function CaseStudies() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-darker min-h-screen font-sans"
+      className="flex flex-col bg-slate-200 dark:bg-[#040914] min-h-screen font-sans"
     >
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-white/5">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
@@ -65,10 +65,10 @@ export default function CaseStudies() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(40,168,224,0.8)]"></span>
               Success Stories
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Case Studies
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Real-world impacts of Rapid ERP solutions across global enterprises.
             </p>
           </motion.div>
@@ -84,25 +84,25 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-surface-dark border border-white/5 rounded-3xl p-10 hover:border-brand-primary/30 transition-all group relative overflow-hidden"
+              className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 rounded-3xl p-10 hover:border-brand-primary/30 transition-all group relative overflow-hidden"
             >
               <div className="flex items-center justify-between mb-8">
-                <div className={`p-4 bg-white/5 rounded-2xl ${study.color}`}>
+                <div className={`p-4 bg-slate-100 dark:bg-[#060D1A] rounded-2xl ${study.color}`}>
                   {study.icon}
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-500 border border-white/10 px-3 py-1.5 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-white/60 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-full">
                   {study.tag}
                 </span>
               </div>
               
-              <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">{study.title}</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-primary transition-colors">{study.title}</h2>
               <p className="text-brand-primary/80 font-semibold mb-4">{study.client}</p>
               
-              <div className="mb-6 py-4 border-y border-white/5">
-                <p className="text-white font-bold text-lg">{study.impact}</p>
+              <div className="mb-6 py-4 border-y border-slate-100 dark:border-white/5">
+                <p className="text-slate-900 dark:text-white font-bold text-lg">{study.impact}</p>
               </div>
               
-              <p className="text-slate-400 leading-relaxed mb-8">
+              <p className="text-slate-600 dark:text-white/80 leading-relaxed mb-8">
                 {study.description}
               </p>
               

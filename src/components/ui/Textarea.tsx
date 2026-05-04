@@ -9,7 +9,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="relative w-full group">
         <textarea
           className={cn(
-            "flex min-h-[120px] w-full border-b border-white/20 bg-transparent px-0 py-2 text-sm text-white placeholder:text-slate-500 focus:outline-none transition-all duration-300 resize-none",
+            "flex min-h-[120px] w-full border-b border-slate-300 dark:border-white/20 bg-transparent px-0 py-2 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 dark:text-white/60 focus:outline-none transition-all duration-300 resize-none",
             className
           )}
           ref={ref}

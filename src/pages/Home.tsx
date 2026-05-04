@@ -66,7 +66,7 @@ export default function Home() {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-darker font-sans selection:bg-brand-primary/30 selection:text-white min-h-screen"
+      className="flex flex-col bg-slate-200 dark:bg-[#040914] font-sans selection:bg-brand-primary/30 selection:text-slate-900 dark:text-white min-h-screen"
     >
       {/* Hyper-Clean Elegance Hero */}
       <section className="relative min-h-screen pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden flex items-center justify-center">
@@ -90,12 +90,12 @@ export default function Home() {
                 Rapid OS Core 3.0 Released
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+              <h1 className="text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
                 Transforming Ideas into <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-emerald-400">Scalable Digital Solutions.</span>
               </h1>
               
-              <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl font-medium">
+              <p className="text-xl text-slate-600 dark:text-white/80 mb-10 leading-relaxed max-w-xl font-medium">
                 We deliver AI-powered, secure, and scalable IT solutions including Web, Mobile, ERP, and Cloud services to help businesses grow and innovate.
               </p>
               
@@ -121,10 +121,10 @@ export default function Home() {
                   "Easy Upgrade"
                 ].map((text, i) => (
                   <div key={i} className="flex items-center gap-2.5 group">
-                    <div className="w-5 h-5 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                    <div className="w-5 h-5 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-slate-900 dark:text-white transition-colors duration-300">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">{text}</span>
+                    <span className="text-sm font-semibold text-gray-400 group-hover:text-slate-900 dark:text-white transition-colors duration-300">{text}</span>
                   </div>
                 ))}
               </div>
@@ -141,12 +141,12 @@ export default function Home() {
               <motion.div 
                 animate={{y: [-10, 10, -10]}} 
                 transition={{duration: 7, ease: "easeInOut", repeat: Infinity}} 
-                className="absolute right-0 top-12 w-[85%] bg-base-dark/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-8 z-10"
+                className="absolute right-0 top-12 w-[85%] bg-slate-100 dark:bg-[#060D1A]/90 backdrop-blur-2xl border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-8 z-10"
               >
                 <div className="flex justify-between items-center mb-10">
                   <div>
-                    <div className="text-slate-400 text-sm font-semibold mb-1 uppercase tracking-wider">Global Revenue</div>
-                    <div className="text-white text-3xl font-black tracking-tight font-mono">$1,459,203.00</div>
+                    <div className="text-slate-600 dark:text-white/80 text-sm font-semibold mb-1 uppercase tracking-wider">Global Revenue</div>
+                    <div className="text-slate-900 dark:text-white text-3xl font-black tracking-tight font-mono">$1,459,203.00</div>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center border border-brand-primary/20">
                     <BarChart3 className="w-6 h-6 text-brand-primary" />
@@ -165,14 +165,14 @@ export default function Home() {
               <motion.div 
                 animate={{y: [10, -10, 10]}} 
                 transition={{duration: 6, ease: "easeInOut", repeat: Infinity}} 
-                className="absolute left-[-5%] top-[280px] w-[60%] bg-surface-light/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] p-8 z-20"
+                className="absolute left-[-5%] top-[280px] w-[60%] bg-slate-50 dark:bg-[#061121]/95 backdrop-blur-3xl border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] p-8 z-20"
               >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
                     <Users className="w-6 h-6 text-emerald-400" />
                   </div>
                   <div>
-                    <div className="text-white font-bold text-lg">Active Nodes</div>
+                    <div className="text-slate-900 dark:text-white font-bold text-lg">Active Nodes</div>
                     <div className="text-emerald-400 text-xs font-bold tracking-widest flex items-center gap-1.5 uppercase mt-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Live Region Synced
                     </div>
@@ -181,12 +181,12 @@ export default function Home() {
                 <div className="space-y-5">
                   {[1, 2, 3].map((_, i) => (
                     <div key={i} className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-surface-lighter border border-white/5 flex items-center justify-center text-xs font-bold text-slate-500">0{i+1}</div>
+                      <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 flex items-center justify-center text-xs font-bold text-slate-500 dark:text-white/60">0{i+1}</div>
                       <div className="flex-1">
-                        <div className="w-full h-2.5 bg-surface-lighter rounded-full mb-2 overflow-hidden border border-white/5">
+                        <div className="w-full h-2.5 bg-slate-100 dark:bg-[#060D1A] rounded-full mb-2 overflow-hidden border border-slate-100 dark:border-white/5">
                            <div className="h-full bg-slate-600 rounded-full" style={{width: `${Math.max(40, 100 - i * 20)}%`}}></div>
                         </div>
-                        <div className="w-1/2 h-2.5 bg-surface-lighter rounded-full border border-white/5"></div>
+                        <div className="w-1/2 h-2.5 bg-slate-100 dark:bg-[#060D1A] rounded-full border border-slate-100 dark:border-white/5"></div>
                       </div>
                     </div>
                   ))}
@@ -206,13 +206,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-white font-bold text-base">Cluster Sync</div>
-                    <div className="text-slate-300 text-sm font-medium">Auto-scaling enabled</div>
+                    <div className="text-slate-900 dark:text-white font-bold text-base">Cluster Sync</div>
+                    <div className="text-slate-700 dark:text-white/90 text-sm font-medium">Auto-scaling enabled</div>
                   </div>
                 </div>
-                <div className="w-full h-1.5 bg-white/10 rounded-full border border-white/5 overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-200 dark:bg-[#040914] rounded-full border border-slate-100 dark:border-white/5 overflow-hidden">
                   <div className="w-[70%] h-full bg-brand-primary rounded-full relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white/40 animate-[translateX_2s_infinite]"></div>
+                    <div className="absolute inset-0 bg-white dark:bg-[#0A101C]/40 animate-[translateX_2s_infinite]"></div>
                   </div>
                 </div>
               </motion.div>
@@ -223,10 +223,10 @@ export default function Home() {
 
       {/* Floating Trust & Stats Bar */}
       <section className="relative z-20 -mt-20 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="bg-surface-light/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
+          <div className="bg-slate-50 dark:bg-[#061121]/90 backdrop-blur-2xl border border-slate-200 dark:border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-wrap justify-between items-center gap-8 gap-y-10">
            {stats.map((stat, idx) => (
              <div key={idx} className="flex-1 min-w-[200px] text-center md:text-left">
-               <div className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-lg">{stat.value}</div>
+               <div className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tight drop-shadow-lg">{stat.value}</div>
                <div className="text-xs font-bold text-brand-primary uppercase tracking-widest">{stat.label}</div>
              </div>
            ))}
@@ -234,18 +234,18 @@ export default function Home() {
       </section>
 
       {/* AI Network Banner */}
-      <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-base-darker rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+      <section className="relative py-24 mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-24 max-w-[1800px] 2xl:mx-auto bg-slate-200 dark:bg-[#040914] rounded-3xl overflow-hidden border border-slate-100 dark:border-white/5 shadow-2xl">
         {/* Intricate network background */}
         <NetworkBackground />
         
         {/* Gradient overlay for text readability */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[60%] z-0 bg-gradient-to-r from-[#040914] via-[#040914]/90 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[60%] z-0 bg-gradient-to-r from-slate-100 via-slate-100/90 to-transparent pointer-events-none"></div>
 
         <div className="relative z-10 max-w-4xl px-8 lg:px-16 text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight max-w-2xl">
             Artificial Intelligence Bringing You Closer to Customers
           </h2>
-          <p className="text-slate-300 text-sm md:text-base font-medium mb-10 leading-relaxed max-w-2xl">
+          <p className="text-slate-700 dark:text-white/90 text-sm md:text-base font-medium mb-10 leading-relaxed max-w-2xl">
             Unlock growth opportunities with AI-driven travel software that enhances customer engagement, boosts direct sales, and fosters loyalty through hyper-relevant experiences. Powered by Rapid's proprietary 'Sense' data center, our AI product suite delivers cutting-edge solutions for tangible results.
           </p>
           <Button variant="primary" className="px-8 py-3 text-sm font-bold transition-all rounded-full border-0">
@@ -257,11 +257,11 @@ export default function Home() {
       {/* Core Features - Ultra Clean Architecture */}
       <section className="py-32 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative">
           <div className="text-center max-w-3xl mx-auto mb-20 relative z-10">
-          <div className="inline-flex items-center justify-center p-3 bg-white/5 rounded-2xl mb-6 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-             <Cpu className="w-8 h-8 text-white" />
+          <div className="inline-flex items-center justify-center p-3 bg-slate-100 dark:bg-[#060D1A] rounded-2xl mb-6 border border-slate-200 dark:border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+             <Cpu className="w-8 h-8 text-slate-900 dark:text-white" />
           </div>
           <h2 className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4">Enterprise Architecture</h2>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
             Designed for teams that <br className="hidden md:block" />
             demand <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">absolute power.</span>
           </h3>
@@ -272,7 +272,7 @@ export default function Home() {
             <motion.div 
               whileHover={{ y: -8 }}
               key={idx} 
-              className="bg-surface-light border border-white/5 hover:border-brand-primary/30 rounded-3xl p-8 relative overflow-hidden group transition-all duration-300 shadow-xl"
+              className="bg-slate-50 dark:bg-[#061121] border border-slate-100 dark:border-white/5 hover:border-brand-primary/30 rounded-3xl p-8 relative overflow-hidden group transition-all duration-300 shadow-xl"
             >
               {/* Subtle top inner glow */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -280,8 +280,8 @@ export default function Home() {
               <div className="w-14 h-14 bg-brand-primary/5 rounded-2xl flex items-center justify-center mb-8 border border-brand-primary/10 group-hover:bg-brand-primary/20 group-hover:scale-110 transition-all duration-300">
                 {item.icon}
               </div>
-              <h4 className="text-xl font-bold text-white mb-4 tracking-wide">{item.title}</h4>
-              <p className="text-slate-400 leading-relaxed text-sm font-medium">
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-4 tracking-wide">{item.title}</h4>
+              <p className="text-slate-600 dark:text-white/80 leading-relaxed text-sm font-medium">
                 {item.description}
               </p>
             </motion.div>
@@ -290,12 +290,12 @@ export default function Home() {
       </section>
 
       {/* Enterprise Suite Solutions */}
-      <section className="py-24 bg-surface-dark relative border-t border-white/5 overflow-hidden">
+      <section className="py-24 bg-white dark:bg-[#0A101C] relative border-t border-slate-100 dark:border-white/5 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">Enterprise <span className="font-bold">suite solutions</span></h2>
-            <p className="text-slate-400 text-lg leading-relaxed max-w-4xl font-medium">
+            <h2 className="text-3xl md:text-4xl font-light text-slate-900 dark:text-white mb-6">Enterprise <span className="font-bold">suite solutions</span></h2>
+            <p className="text-slate-600 dark:text-white/80 text-lg leading-relaxed max-w-4xl font-medium">
               Enhance operational efficiencies, alleviate staff burnout, and provide a cohesive user experience with solutions that enable teams to document and access critical enterprise data, streamline workflows, and support data safety.
             </p>
           </div>
@@ -309,14 +309,14 @@ export default function Home() {
               { title: 'Global health & compliance', icon: <BarChart3 className="w-6 h-6 text-brand-primary" /> },
               { title: 'Virtual care and observation', icon: <Layers className="w-6 h-6 text-brand-primary" /> }
             ].map((sol, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-md border border-white/10 px-5 py-4 rounded-xl flex items-center justify-between cursor-pointer hover:bg-white/10 hover:border-brand-primary/40 transition-all duration-300 group shadow-lg">
+              <div key={i} className="bg-slate-100 dark:bg-[#060D1A] backdrop-blur-md border border-slate-200 dark:border-white/10 px-5 py-4 rounded-xl flex items-center justify-between cursor-pointer hover:bg-slate-200 dark:hover:bg-white/10 hover:border-brand-primary/40 transition-all duration-300 group shadow-lg">
                 <div className="flex items-center gap-4">
-                  <div className="bg-surface-lighter p-2.5 rounded-lg border border-white/5 group-hover:scale-110 transition-transform">
+                  <div className="bg-slate-100 dark:bg-[#060D1A] p-2.5 rounded-lg border border-slate-100 dark:border-white/5 group-hover:scale-110 transition-transform">
                     {sol.icon}
                   </div>
-                  <span className="text-white font-bold tracking-wide text-[15px]">{sol.title}</span>
+                  <span className="text-slate-900 dark:text-white font-bold tracking-wide text-[15px]">{sol.title}</span>
                 </div>
-                <ChevronDown className="w-5 h-5 text-slate-500 group-hover:text-white transition-colors" />
+                <ChevronDown className="w-5 h-5 text-slate-500 dark:text-white/60 group-hover:text-slate-900 dark:text-white transition-colors" />
               </div>
             ))}
           </div>
@@ -324,7 +324,7 @@ export default function Home() {
       </section>
 
       {/* Industries We Work - Advanced Side-by-Side Layout */}
-      <section className="py-32 relative border-t border-white/5 bg-base-darker overflow-hidden">
+      <section className="py-32 relative border-t border-slate-100 dark:border-white/5 bg-slate-200 dark:bg-[#040914] overflow-hidden">
         {/* Immersive background elements */}
         <div className="absolute left-[-10%] top-1/2 w-[800px] h-[800px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
         <div className="absolute right-0 top-0 w-1/3 h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
@@ -339,13 +339,13 @@ export default function Home() {
                   <div className="w-1.5 h-8 bg-brand-primary rounded-full"></div>
                   <h2 className="text-brand-primary font-bold tracking-[0.2em] uppercase text-xs">Industries We Work</h2>
                 </div>
-                <h3 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
+                <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
                   Helping Businesses <br />
-                  <span className="text-slate-500">By Popular Industry area</span>
+                  <span className="text-slate-500 dark:text-white/60">By Popular Industry area</span>
                 </h3>
               </div>
               
-              <p className="text-lg text-slate-400 font-medium leading-relaxed max-w-sm">
+              <p className="text-lg text-slate-600 dark:text-white/80 font-medium leading-relaxed max-w-sm">
                 Our suite of intelligent ERP modules are purpose-built to solve the unique operational complexities of diverse vertical markets.
               </p>
               
@@ -366,21 +366,21 @@ export default function Home() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="aspect-square bg-surface-dark rounded-[24px] border border-white/5 hover:border-brand-primary/30 hover:bg-brand-primary/[0.03] transition-all duration-300 p-6 flex flex-col items-center justify-center text-center group shadow-2xl"
+                    className="aspect-square bg-white dark:bg-[#0A101C] rounded-[24px] border border-slate-100 dark:border-white/5 hover:border-brand-primary/30 hover:bg-brand-primary/[0.03] transition-all duration-300 p-6 flex flex-col items-center justify-center text-center group shadow-2xl"
                   >
-                    <div className="w-16 h-16 rounded-2xl bg-surface-lighter border border-white/5 flex items-center justify-center text-brand-primary group-hover:text-white group-hover:bg-brand-primary transition-all duration-500 mb-5 relative">
+                    <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 flex items-center justify-center text-brand-primary group-hover:text-slate-900 dark:text-white group-hover:bg-brand-primary transition-all duration-500 mb-5 relative">
                       {/* Inner glow for icon box */}
                       <div className="absolute inset-0 rounded-2xl bg-brand-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                       <div className="relative z-10 scale-110">
                         {industry.icon}
                       </div>
                     </div>
-                    <h4 className="text-[15px] font-extrabold text-slate-200 group-hover:text-white transition-colors tracking-wide">
+                    <h4 className="text-[15px] font-extrabold text-slate-900 dark:text-white group-hover:text-slate-900 dark:text-white transition-colors tracking-wide">
                       {industry.title}
                     </h4>
                     
                     {/* Subtle bottom indicator */}
-                    <div className="mt-4 w-6 h-1 bg-white/5 rounded-full group-hover:w-12 group-hover:bg-brand-primary transition-all duration-300"></div>
+                    <div className="mt-4 w-6 h-1 bg-slate-100 dark:bg-[#060D1A] rounded-full group-hover:w-12 group-hover:bg-brand-primary transition-all duration-300"></div>
                   </motion.div>
                 ))}
               </div>
@@ -391,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* Our Partnership Logo Grid */}
-      <section className="py-32 relative bg-base-dark overflow-hidden border-y border-white/5">
+      <section className="py-32 relative bg-slate-100 dark:bg-[#060D1A] overflow-hidden border-y border-slate-100 dark:border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             
@@ -401,15 +401,15 @@ export default function Home() {
                 <Settings className="w-4 h-4 text-[#E63946]" />
                 <span className="text-[#E63946] text-xs font-bold uppercase tracking-widest">PARTNERSHIP</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">Our Partnership</h2>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-sm">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">Our Partnership</h2>
+              <p className="text-slate-600 dark:text-white/80 text-lg leading-relaxed max-w-sm">
                 We work with the world's leading brands to bring you certified service and genuine integrations for every solution we deliver.
               </p>
             </div>
 
             {/* Right Portion: Logo Grid with Internal Borders */}
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-white/10 p-[1px] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-slate-200 dark:bg-[#040914] p-[1px] rounded-2xl overflow-hidden shadow-2xl">
                 {[
                   { name: 'Ferrari' },
                   { name: 'Lamborghini' },
@@ -421,12 +421,12 @@ export default function Home() {
                   { name: 'Audi' },
                   { name: 'Volkswagen' }
                 ].map((brand, i) => (
-                  <div key={i} className="bg-surface-dark aspect-[4/3] flex flex-col items-center justify-center p-6 group hover:bg-white/5 transition-colors">
+                  <div key={i} className="bg-white dark:bg-[#0A101C] aspect-[4/3] flex flex-col items-center justify-center p-6 group hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">
                     {/* Placeholder for actual logo - using stylized typography for tech/car vibes */}
-                    <div className="w-14 h-14 mb-4 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:text-brand-primary group-hover:border-brand-primary/50 transition-colors">
+                    <div className="w-14 h-14 mb-4 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-900 dark:text-white/50 group-hover:text-brand-primary group-hover:border-brand-primary/50 transition-colors">
                       <Star className="w-6 h-6" />
                     </div>
-                    <span className="text-white text-sm font-semibold tracking-wide">
+                    <span className="text-slate-900 dark:text-white text-sm font-semibold tracking-wide">
                       {brand.name}
                     </span>
                   </div>
@@ -439,36 +439,36 @@ export default function Home() {
       </section>
 
       {/* Highly Polished Dark Testimonials */}
-      <section className="py-32 overflow-hidden relative bg-base-darker">
+      <section className="py-32 overflow-hidden relative bg-slate-200 dark:bg-[#040914]">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 text-center mb-20 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 text-white rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-white/10 shadow-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-[#060D1A] text-slate-900 dark:text-white rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-slate-200 dark:border-white/10 shadow-lg">
              <Star className="w-3.5 h-3.5 fill-brand-primary text-brand-primary" /> Client Success
           </div>
-          <h3 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Loved by industry leaders</h3>
+          <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Loved by industry leaders</h3>
         </div>
 
         {/* Seamless edge fading */}
-        <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-[#040914] to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-[#040914] to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-slate-100 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-slate-100 to-transparent z-20 pointer-events-none"></div>
 
         <div className="flex gap-8 px-8 animate-[scroll_50s_linear_infinite] w-max hover:[animation-play-state:paused]">
             {/* Duplicated for infinite scroll effect */}
             {[...testimonials, ...testimonials].map((testimonial, idx) => (
-              <div key={idx} className="w-[450px] flex-shrink-0 bg-surface-dark border border-white/5 p-12 rounded-3xl hover:border-white/20 transition-colors shadow-2xl relative overflow-hidden group">
+              <div key={idx} className="w-[450px] flex-shrink-0 bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 p-12 rounded-3xl hover:border-slate-300 dark:hover:border-white/20 transition-colors shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-full blur-[40px] group-hover:bg-brand-primary/10 transition-colors"></div>
-                <div className="text-white/10 mb-8 group-hover:text-white/20 transition-colors absolute top-10 right-10">
+                <div className="text-slate-900 dark:text-white/10 mb-8 group-hover:text-slate-900 dark:text-white/20 transition-colors absolute top-10 right-10">
                   <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.017 21L16.411 14.596H11.205V3H21V11.233L18.435 21H14.017ZM3.811 21L6.205 14.596H1V3H10.795V11.233L8.23 21H3.811Z"/>
                   </svg>
                 </div>
-                <p className="text-lg text-slate-300 leading-relaxed font-medium mb-12 relative z-10 italic">"{testimonial.text}"</p>
+                <p className="text-lg text-slate-700 dark:text-white/90 leading-relaxed font-medium mb-12 relative z-10 italic">"{testimonial.text}"</p>
                 <div className="flex items-center gap-5 relative z-10">
-                  <div className="w-16 h-16 bg-surface-lighter rounded-full overflow-hidden border-2 border-white/10 group-hover:border-brand-primary/50 transition-colors">
+                  <div className="w-16 h-16 bg-slate-100 dark:bg-[#060D1A] rounded-full overflow-hidden border-2 border-slate-200 dark:border-white/10 group-hover:border-brand-primary/50 transition-colors">
                      <img src={`https://picsum.photos/seed/${testimonial.name.replace(' ', '')}/100`} alt={testimonial.name} className="w-full h-full object-cover filter contrast-125" />
                   </div>
                   <div>
-                    <div className="font-bold text-white tracking-wide text-lg">{testimonial.name}</div>
-                    <div className="text-sm text-slate-500 font-medium tracking-wide mt-1">{testimonial.role}</div>
+                    <div className="font-bold text-slate-900 dark:text-white tracking-wide text-lg">{testimonial.name}</div>
+                    <div className="text-sm text-slate-500 dark:text-white/60 font-medium tracking-wide mt-1">{testimonial.role}</div>
                   </div>
                 </div>
               </div>
@@ -477,76 +477,76 @@ export default function Home() {
       </section>
 
       {/* Dynamic Pricing */}
-      <section className="py-32 relative bg-base-dark overflow-hidden border-t border-white/5">
+      <section className="py-32 relative bg-slate-100 dark:bg-[#060D1A] overflow-hidden border-t border-slate-100 dark:border-white/5">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 text-brand-primary rounded-full text-xs font-bold tracking-widest uppercase mb-6 border border-brand-primary/20">
              Transparent Value
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Choose Right Plan</h2>
-          <p className="text-slate-400 text-lg mb-16 font-medium">Simple & straightforward options with no hidden fees.</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Choose Right Plan</h2>
+          <p className="text-slate-600 dark:text-white/80 text-lg mb-16 font-medium">Simple & straightforward options with no hidden fees.</p>
           
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 text-left max-w-[1400px] mx-auto">
             {/* Basic Plan */}
-            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
-              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Basic</div>
-              <div className="text-slate-400 text-sm mb-8 font-medium">A simple start for everyone</div>
+            <div className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-slate-900 dark:text-white text-2xl mb-2 tracking-wide">Basic</div>
+              <div className="text-slate-600 dark:text-white/80 text-sm mb-8 font-medium">A simple start for everyone</div>
               <div className="mb-10 min-h-[80px]">
-                <span className="text-5xl font-extrabold text-white tracking-tight">$0</span>
-                <span className="text-slate-500 font-bold tracking-wide">/month</span>
+                <span className="text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">$0</span>
+                <span className="text-slate-500 dark:text-white/60 font-bold tracking-wide">/month</span>
               </div>
               <div className="space-y-5 mb-10">
                 {['Up to 5 users', 'Basic support', '10GB storage'].map((f, i) => (
-                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                   <div key={i} className="flex items-start gap-4 text-slate-700 dark:text-white/90 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
                 ))}
               </div>
               <Button variant="outline" className="w-full justify-center">Get Started</Button>
             </div>
 
             {/* Standard Plan */}
-            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
-              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Standard</div>
-              <div className="text-slate-400 text-sm mb-8 font-medium">For small businesses</div>
+            <div className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-slate-900 dark:text-white text-2xl mb-2 tracking-wide">Standard</div>
+              <div className="text-slate-600 dark:text-white/80 text-sm mb-8 font-medium">For small businesses</div>
               <div className="mb-10 min-h-[80px]">
-                <span className="text-5xl font-extrabold text-white tracking-tight">$99</span>
-                <span className="text-slate-500 font-bold tracking-wide">/month</span>
+                <span className="text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">$99</span>
+                <span className="text-slate-500 dark:text-white/60 font-bold tracking-wide">/month</span>
               </div>
               <div className="space-y-5 mb-10">
                 {['Up to 50 users', 'Priority support', '100GB storage', 'Standard analytics'].map((f, i) => (
-                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                   <div key={i} className="flex items-start gap-4 text-slate-700 dark:text-white/90 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
                 ))}
               </div>
               <Button variant="outline" className="w-full justify-center border-brand-primary/50 text-brand-primary hover:bg-brand-primary/10 hover:border-brand-primary">Free Selection</Button>
             </div>
 
             {/* Premium Plan (Highlighted) */}
-            <div className="bg-gradient-to-b from-brand-primary/10 to-[#0A101C] border border-brand-primary/40 p-10 rounded-[32px] relative overflow-hidden transform xl:-translate-y-4 shadow-[0_30px_80px_rgba(35,168,224,0.15)] ring-1 ring-brand-primary/50">
+            <div className="bg-gradient-to-b from-brand-primary/10 to-white border border-brand-primary/40 p-10 rounded-[32px] relative overflow-hidden transform xl:-translate-y-4 shadow-[0_30px_80px_rgba(35,168,224,0.15)] ring-1 ring-brand-primary/50">
               <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-brand-primary to-emerald-400"></div>
-              <div className="font-extrabold text-white text-2xl mb-2 flex justify-between items-center tracking-wide">
+              <div className="font-extrabold text-slate-900 dark:text-white text-2xl mb-2 flex justify-between items-center tracking-wide">
                 Premium <span className="bg-brand-primary text-white text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-black">Most Popular</span>
               </div>
-              <div className="text-slate-300 text-sm mb-8 font-medium">For growing enterprises</div>
+              <div className="text-slate-700 dark:text-white/90 text-sm mb-8 font-medium">For growing enterprises</div>
               <div className="mb-10 min-h-[80px]">
-                <span className="text-5xl font-extrabold text-white tracking-tight">$299</span>
-                <span className="text-slate-400 font-bold tracking-wide">/month</span>
+                <span className="text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">$299</span>
+                <span className="text-slate-600 dark:text-white/80 font-bold tracking-wide">/month</span>
               </div>
               <div className="space-y-5 mb-10">
                 {['Unlimited users', '24/7 dedicated support', '1TB storage', 'Advanced integrations', 'Custom reporting'].map((f, i) => (
-                   <div key={i} className="flex items-start gap-4 text-white text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" /> <span>{f}</span></div>
+                   <div key={i} className="flex items-start gap-4 text-slate-900 dark:text-white text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" /> <span>{f}</span></div>
                 ))}
               </div>
               <Button variant="primary" className="w-full justify-center shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)]">Start Free Trial</Button>
             </div>
 
             {/* Enterprise Plan */}
-            <div className="bg-surface-dark border border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
-              <div className="font-extrabold text-white text-2xl mb-2 tracking-wide">Enterprise</div>
-              <div className="text-slate-400 text-sm mb-8 font-medium">For global corporations</div>
+            <div className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 p-10 rounded-[32px] relative overflow-hidden group hover:border-brand-primary/20 transition-all duration-300 shadow-xl">
+              <div className="font-extrabold text-slate-900 dark:text-white text-2xl mb-2 tracking-wide">Enterprise</div>
+              <div className="text-slate-600 dark:text-white/80 text-sm mb-8 font-medium">For global corporations</div>
               <div className="mb-10 min-h-[80px] flex items-center">
-                <span className="text-4xl font-extrabold text-white tracking-tight">Custom</span>
+                <span className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Custom</span>
               </div>
               <div className="space-y-5 mb-10">
                 {['Unlimited everything', 'Dedicated success manager', 'On-premise option', 'SLA guarantees', 'Custom SSO'].map((f, i) => (
-                   <div key={i} className="flex items-start gap-4 text-slate-300 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
+                   <div key={i} className="flex items-start gap-4 text-slate-700 dark:text-white/90 text-[15px] font-semibold"><CheckCircle className="w-5 h-5 text-brand-primary/80 shrink-0 mt-0.5" /> <span>{f}</span></div>
                 ))}
               </div>
               <Button variant="outline" className="w-full justify-center">Contact Sales</Button>
@@ -555,35 +555,35 @@ export default function Home() {
 
           {/* Full Feature Comparison Table */}
           <div className="mt-32 max-w-[1400px] mx-auto text-left">
-            <h3 className="text-3xl font-bold text-white mb-10 text-center tracking-tight">Full Feature Comparison</h3>
-            <div className="overflow-x-auto rounded-3xl border border-white/10 bg-surface-dark shadow-2xl pb-4">
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center tracking-tight">Full Feature Comparison</h3>
+            <div className="overflow-x-auto rounded-3xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C] shadow-2xl pb-4">
               <table className="w-full min-w-[900px] text-left border-collapse">
                 <thead>
                   <tr>
-                    <th className="py-6 px-8 border-b border-white/10 bg-surface-dark/50 w-[40%]">
-                      <div className="text-slate-400 font-bold uppercase tracking-widest text-xs">Feature</div>
+                    <th className="py-6 px-8 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C]/50 w-[40%]">
+                      <div className="text-slate-600 dark:text-white/80 font-bold uppercase tracking-widest text-xs">Feature</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center">
-                      <div className="text-white font-bold text-lg">Basic</div>
+                    <th className="py-6 px-6 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C]/50 text-center">
+                      <div className="text-slate-900 dark:text-white font-bold text-lg">Basic</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center relative">
-                      <div className="text-white font-bold text-lg">Standard</div>
+                    <th className="py-6 px-6 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C]/50 text-center relative">
+                      <div className="text-slate-900 dark:text-white font-bold text-lg">Standard</div>
                     </th>
                     <th className="py-6 px-6 border-b border-brand-primary/30 bg-brand-primary/5 text-center relative whitespace-nowrap">
                       <div className="text-brand-primary font-bold text-lg">Premium</div>
                     </th>
-                    <th className="py-6 px-6 border-b border-white/10 bg-surface-dark/50 text-center">
-                      <div className="text-white font-bold text-lg">Enterprise</div>
+                    <th className="py-6 px-6 border-b border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C]/50 text-center">
+                      <div className="text-slate-900 dark:text-white font-bold text-lg">Enterprise</div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* Category 1 */}
                   <tr>
-                    <td colSpan={5} className="py-4 px-8 border-b border-white/5 bg-white/[0.02]">
+                    <td colSpan={5} className="py-4 px-8 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#0A101C]/[0.02]">
                       <div className="flex items-center gap-3">
                         <div className="w-1 h-6 bg-brand-primary rounded-full"></div>
-                        <h4 className="text-white font-bold text-lg tracking-wide">Core Functionality</h4>
+                        <h4 className="text-slate-900 dark:text-white font-bold text-lg tracking-wide">Core Functionality</h4>
                       </div>
                     </td>
                   </tr>
@@ -595,21 +595,21 @@ export default function Home() {
                     { name: 'Data export into CSV or PDF', b: true, s: true, p: true, e: true },
                     { name: 'Real-time Analytics Dashboard', b: true, s: true, p: true, e: true },
                   ].map((row, i) => (
-                    <tr key={`t1-${i}`} className="hover:bg-white/[0.02] transition-colors group">
-                      <td className="py-5 px-8 text-slate-300 font-medium text-[15px] border-b border-white/5 group-hover:text-white transition-colors">{row.name}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.b === 'boolean' ? (row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.b}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.s === 'boolean' ? (row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.s}</td>
-                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5 text-brand-primary font-semibold">{typeof row.p === 'boolean' ? (row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.p}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5 text-slate-400 font-semibold">{typeof row.e === 'boolean' ? (row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />) : row.e}</td>
+                    <tr key={`t1-${i}`} className="hover:bg-white dark:hover:bg-white/5 transition-colors group">
+                      <td className="py-5 px-8 text-slate-700 dark:text-white/90 font-medium text-[15px] border-b border-slate-100 dark:border-white/5 group-hover:text-slate-900 dark:text-white transition-colors">{row.name}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5 text-slate-600 dark:text-white/80 font-semibold">{typeof row.b === 'boolean' ? (row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />) : row.b}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5 text-slate-600 dark:text-white/80 font-semibold">{typeof row.s === 'boolean' ? (row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />) : row.s}</td>
+                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5 text-brand-primary font-semibold">{typeof row.p === 'boolean' ? (row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />) : row.p}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5 text-slate-600 dark:text-white/80 font-semibold">{typeof row.e === 'boolean' ? (row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />) : row.e}</td>
                     </tr>
                   ))}
                   
                   {/* Category 2 */}
                   <tr>
-                    <td colSpan={5} className="py-4 px-8 border-b border-white/5 bg-white/[0.02]">
+                    <td colSpan={5} className="py-4 px-8 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-[#0A101C]/[0.02]">
                       <div className="flex items-center gap-3">
                         <div className="w-1 h-6 bg-emerald-400 rounded-full"></div>
-                        <h4 className="text-white font-bold text-lg tracking-wide">Administration & Security</h4>
+                        <h4 className="text-slate-900 dark:text-white font-bold text-lg tracking-wide">Administration & Security</h4>
                       </div>
                     </td>
                   </tr>
@@ -621,12 +621,12 @@ export default function Home() {
                     { name: 'SSO (Single Sign-On)', b: false, s: false, p: false, e: true },
                     { name: 'HIPAA & SOC2 Compliance', b: false, s: false, p: false, e: true },
                   ].map((row, i) => (
-                    <tr key={`t2-${i}`} className="hover:bg-white/[0.02] transition-colors group">
-                      <td className="py-5 px-8 text-slate-300 font-medium text-[15px] border-b border-white/5 group-hover:text-white transition-colors">{row.name}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5">{row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5">{row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
-                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5">{row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
-                      <td className="py-5 px-6 text-center border-b border-white/5">{row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 mx-auto" />}</td>
+                    <tr key={`t2-${i}`} className="hover:bg-white dark:hover:bg-white/5 transition-colors group">
+                      <td className="py-5 px-8 text-slate-700 dark:text-white/90 font-medium text-[15px] border-b border-slate-100 dark:border-white/5 group-hover:text-slate-900 dark:text-white transition-colors">{row.name}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5">{row.b ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5">{row.s ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-brand-primary/10 bg-brand-primary/5">{row.p ? <CheckCircle className="w-5 h-5 text-brand-primary mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />}</td>
+                      <td className="py-5 px-6 text-center border-b border-slate-100 dark:border-white/5">{row.e ? <CheckCircle className="w-5 h-5 text-emerald-400 mx-auto" /> : <X className="w-5 h-5 text-slate-600 dark:text-white/80 mx-auto" />}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -637,7 +637,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Categorized FAQ Section */}
-      <section className="py-24 bg-base-darker relative overflow-hidden border-t border-white/5">
+      <section className="py-24 bg-slate-200 dark:bg-[#040914] relative overflow-hidden border-t border-slate-100 dark:border-white/5">
         <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-brand-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="max-w-[1800px] mx-auto md:py-10 py-6 px-4 lg:px-8 xl:px-12 2xl:px-16 flex flex-col lg:flex-row gap-16 items-start relative z-10">
           <div className="lg:w-1/3 w-full rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(35,168,224,0.1)] border border-brand-primary/10 shrink-0  group">
@@ -645,8 +645,8 @@ export default function Home() {
             <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1000" alt="Consulting" className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <div className="lg:w-2/3 w-full">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">Frequently Asked Questions</h2>
-            <p className="text-slate-400 text-lg mb-10 font-medium">Browse questions by topic or select a category below</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-slate-600 dark:text-white/80 text-lg mb-10 font-medium">Browse questions by topic or select a category below</p>
             
             <div className="flex flex-wrap gap-3 mb-12">
               {['All', 'About Rapid ERP', 'AI Platform', 'Products & Tools', 'Industries & Solutions', 'Implementation & Support'].map((cat, i) => (
@@ -655,8 +655,8 @@ export default function Home() {
                   onClick={() => { setActiveFaqCategory(cat); setOpenFaq(null); }}
                   className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border ${
                     activeFaqCategory === cat 
-                      ? 'bg-brand-primary border-brand-primary text-white shadow-[0_0_20px_rgba(35,168,224,0.3)]' 
-                      : 'bg-white/5 border-white/10 text-slate-300 hover:border-brand-primary/50 hover:text-brand-primary bg-backdrop-blur-md'
+                      ? 'bg-brand-primary border-brand-primary text-slate-900 dark:text-white shadow-[0_0_20px_rgba(35,168,224,0.3)]' 
+                      : 'bg-slate-100 dark:bg-[#060D1A] border-slate-200 dark:border-white/10 text-slate-700 dark:text-white/90 hover:border-brand-primary/50 hover:text-brand-primary bg-backdrop-blur-md'
                   }`}
                 >
                   {cat}
@@ -666,24 +666,24 @@ export default function Home() {
 
             <div className="space-y-4 mb-12">
               {filteredFaqs.map((faq, i) => (
-                <div key={i} className="bg-surface-dark border border-white/5 rounded-2xl hover:border-brand-primary/30 transition-colors group overflow-hidden">
+                <div key={i} className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 rounded-2xl hover:border-brand-primary/30 transition-colors group overflow-hidden">
                   <button 
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full py-6 px-8 text-left flex justify-between items-center focus:outline-none"
                   >
-                    <span className="text-white font-bold text-lg group-hover:text-brand-primary transition-colors">{faq.q}</span>
+                    <span className="text-slate-900 dark:text-white font-bold text-lg group-hover:text-brand-primary transition-colors">{faq.q}</span>
                     <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-colors flex-shrink-0 ml-4 ${
                       openFaq === i 
                         ? 'border-brand-primary bg-brand-primary/10' 
-                        : 'border-white/10 group-hover:border-brand-primary/50 group-hover:bg-brand-primary/5'
+                        : 'border-slate-200 dark:border-white/10 group-hover:border-brand-primary/50 group-hover:bg-brand-primary/5'
                     }`}>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaq === i ? 'text-brand-primary rotate-180' : 'text-slate-400 group-hover:text-brand-primary'}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openFaq === i ? 'text-brand-primary rotate-180' : 'text-slate-600 dark:text-white/80 group-hover:text-brand-primary'}`} />
                     </div>
                   </button>
                   <AnimatePresence>
                     {openFaq === i && (
                       <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-                        <div className="px-8 pb-8 pt-0 text-slate-400 leading-relaxed text-[15px] font-medium max-w-4xl">
+                        <div className="px-8 pb-8 pt-0 text-slate-600 dark:text-white/80 leading-relaxed text-[15px] font-medium max-w-4xl">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -692,7 +692,7 @@ export default function Home() {
                 </div>
               ))}
               {filteredFaqs.length === 0 && (
-                 <div className="py-12 text-center text-slate-500 font-medium">No questions found for this category.</div>
+                 <div className="py-12 text-center text-slate-500 dark:text-white/60 font-medium">No questions found for this category.</div>
               )}
             </div>
 
@@ -700,25 +700,25 @@ export default function Home() {
             <div className="relative max-w-4xl">
               <div className="absolute left-6 top-1/2 -translate-y-1/2 flex items-center gap-2 font-black text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-purple-400 text-sm tracking-widest uppercase pointer-events-none">
                 <div className="w-4 h-4 rounded-full bg-gradient-to-r from-brand-primary to-purple-400 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-base-darker"></div>
+                  <div className="w-2 h-2 rounded-full bg-slate-200 dark:bg-[#040914]"></div>
                 </div>
                 AI
               </div>
-              <input type="text" placeholder="Ask me anything..." className="w-full pl-24 pr-8 py-5 rounded-full border border-white/10 bg-surface-dark/80 focus:bg-surface-dark focus:border-brand-primary/50 outline-none text-white placeholder:text-slate-500 font-medium shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(35,168,224,0.1)] transition-all text-lg backdrop-blur-md" />
+              <input type="text" placeholder="Ask me anything..." className="w-full pl-24 pr-8 py-5 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0A101C]/80 focus:bg-white dark:bg-[#0A101C] focus:border-brand-primary/50 outline-none text-slate-900 dark:text-white placeholder:text-slate-500 dark:text-white/60 font-medium shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_50px_rgba(35,168,224,0.1)] transition-all text-lg backdrop-blur-md" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Tech Powered CTA Banner */}
-      <section className="py-24 bg-base-darker relative px-4 lg:px-8 xl:px-12 2xl:px-16 w-full max-w-[1800px] mx-auto">
-        <div className="bg-gradient-to-r from-[#0E3A82] to-[#8042B8] rounded-[40px] p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl border border-white/10">
+      <section className="py-24 bg-slate-200 dark:bg-[#040914] relative px-4 lg:px-8 xl:px-12 2xl:px-16 w-full max-w-[1800px] mx-auto">
+        <div className="bg-gradient-to-r from-[#0E3A82] to-[#8042B8] rounded-[40px] p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl border border-slate-200 dark:border-white/10">
           
           <div className="md:w-[55%] z-10 text-left mb-10 md:mb-0">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-10 leading-[1.1] tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-10 leading-[1.1] tracking-tight">
               Tech-Powered Success Awaits. Empower Your Digital Journey.
             </h2>
-            <Button variant="outline" className="bg-white hover:bg-slate-50 text-base-darker border-transparent font-bold px-10 py-5 rounded-[20px] shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300 text-lg w-max">
+            <Button variant="outline" className="bg-white dark:bg-[#0A101C] hover:bg-slate-50 dark:hover:bg-white/5 text-base-darker border-transparent font-bold px-10 py-5 rounded-[20px] shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 transition-all duration-300 text-lg w-max">
               Schedule a Call <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
@@ -726,7 +726,7 @@ export default function Home() {
           <div className="md:w-[45%] relative z-10 flex justify-center md:justify-end">
              {/* Using an unsplash image for the person with a laptop */}
              <div className="relative">
-               <div className="absolute inset-0 bg-white/20 blur-3xl rounded-full scale-110"></div>
+               <div className="absolute inset-0 bg-slate-300 blur-3xl rounded-full scale-110"></div>
                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Professional with laptop" className="w-[400px] h-[400px] object-cover rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.4)] ring-8 ring-white/10 relative z-10" />
              </div>
           </div>

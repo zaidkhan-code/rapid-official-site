@@ -132,7 +132,7 @@ export default function Industries() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-slate-100 dark:bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-slate-900 dark:text-white"
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center">
@@ -149,10 +149,10 @@ export default function Industries() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary"></span>
               Vertical Solutions
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Tailored software for complex industries.
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl">
               Discover how Rapid ERP transforms sector-specific challenges into sustainable growth strategies.
             </p>
           </motion.div>
@@ -163,14 +163,14 @@ export default function Industries() {
       <section className="py-24 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 w-full relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-brand-primary font-bold tracking-wider uppercase text-sm mb-3">Explore Domains</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
             Select an industry below.
           </h3>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Sidebar */}
-          <div className="w-full lg:w-72 flex-shrink-0 bg-surface-light border border-white/5 rounded-3xl p-4 shadow-sm relative z-20 lg:sticky lg:top-32">
+          <div className="w-full lg:w-72 flex-shrink-0 bg-slate-50 dark:bg-[#061121] border border-slate-100 dark:border-white/5 rounded-3xl p-4 shadow-sm relative z-20 lg:sticky lg:top-32">
             <div className="flex flex-col space-y-1">
               {industriesList.map((ind) => {
                 const isActive = activeIndustry === ind.id;
@@ -181,7 +181,7 @@ export default function Industries() {
                     className={`flex items-center gap-3 px-4 py-4 rounded-2xl text-sm font-bold transition-all text-left relative ${
                       isActive 
                         ? 'text-brand-primary bg-brand-primary/10 shadow-sm ring-1 ring-brand-primary/40' 
-                        : 'text-slate-400 hover:text-white hover:bg-surface-lighter'
+                        : 'text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                     }`}
                   >
                     {isActive && (
@@ -191,7 +191,7 @@ export default function Industries() {
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
-                    <div className={`${isActive ? 'text-brand-primary scale-110' : 'text-slate-400'} transition-transform`}>
+                    <div className={`${isActive ? 'text-brand-primary scale-110' : 'text-slate-600 dark:text-white/80'} transition-transform`}>
                        {ind.icon}
                     </div>
                     {ind.name}
@@ -210,45 +210,45 @@ export default function Industries() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="bg-surface-light rounded-3xl border border-white/5 p-8 lg:p-12 shadow-xl shadow-black/20"
+                className="bg-slate-50 dark:bg-[#061121] rounded-3xl border border-slate-100 dark:border-white/5 p-8 lg:p-12 shadow-xl shadow-black/20"
               >
                 <div className="flex items-center gap-6 mb-8">
                   <div className="p-4 bg-brand-primary/10 text-brand-primary rounded-2xl">
                     {activeData.icon}
                   </div>
-                  <h3 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">{activeData.title} <span className="text-slate-500 font-light hidden sm:inline-block">/</span> Software</h3>
+                  <h3 className="text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">{activeData.title} <span className="text-slate-500 dark:text-white/60 font-light hidden sm:inline-block">/</span> Software</h3>
                 </div>
                 
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-3xl">
+                <p className="text-lg text-slate-600 dark:text-white/80 mb-12 leading-relaxed max-w-3xl">
                   {activeData.description}
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-12">
-                  <div className="bg-surface-light rounded-3xl p-8 border border-white/5">
-                    <h4 className="font-bold text-white mb-6 flex items-center gap-2">Key Capabilities</h4>
+                  <div className="bg-slate-50 dark:bg-[#061121] rounded-3xl p-8 border border-slate-100 dark:border-white/5">
+                    <h4 className="font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">Key Capabilities</h4>
                     <ul className="space-y-4">
                       {activeData.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                           <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm font-semibold text-slate-300">{feature}</span>
+                          <span className="text-sm font-semibold text-slate-700 dark:text-white/90">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   
-                  <div className="bg-brand-dark border border-white/5 rounded-3xl p-8 text-white relative overflow-hidden">
+                  <div className="bg-slate-50 dark:bg-[#061121] border border-slate-100 dark:border-white/5 rounded-3xl p-8 text-slate-900 dark:text-white relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/20 rounded-full blur-[60px]"></div>
-                    <h4 className="font-bold text-white mb-6 flex items-center gap-2">Core Benefits</h4>
+                    <h4 className="font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">Core Benefits</h4>
                     <ul className="space-y-4 relative z-10">
                       {activeData.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start gap-3">
                           <CheckCircle2 className="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-sm font-medium text-slate-300">{benefit}</span>
+                          <span className="text-sm font-medium text-slate-700 dark:text-white/90">{benefit}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-10 relative z-10">
-                       <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-brand-primary transition-colors">
+                       <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white hover:text-brand-primary transition-colors">
                           Schedule a Demo <ArrowRight className="w-4 h-4" />
                        </Link>
                     </div>
@@ -261,10 +261,10 @@ export default function Industries() {
       </section>
 
       {/* CTA Layer */}
-      <section className="py-24 bg-transparent border-t border-white/5 relative z-10">
+      <section className="py-24 bg-transparent border-t border-slate-100 dark:border-white/5 relative z-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Not seeing your industry?</h2>
-            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Not seeing your industry?</h2>
+            <p className="text-lg text-slate-600 dark:text-white/80 mb-8 max-w-2xl mx-auto">
               Our architecture is infinitely adaptable. Speak with our engineers to discover how we can forge a custom solution for your exact workflow.
             </p>
             <Link to="/contact" className="inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-secondary transition-all shadow-lg hover:shadow-brand-primary/30">

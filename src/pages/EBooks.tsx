@@ -36,9 +36,9 @@ export default function EBooks() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-darker min-h-screen font-sans"
+      className="flex flex-col bg-slate-200 dark:bg-[#040914] min-h-screen font-sans"
     >
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-white/5">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
@@ -52,10 +52,10 @@ export default function EBooks() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(40,168,224,0.8)]"></span>
               Downloads
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Whitepapers & e-Books
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Deep-dive literature covering the architecture and strategy behind modern enterprise transformation.
             </p>
           </motion.div>
@@ -71,23 +71,23 @@ export default function EBooks() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-surface-dark border border-white/5 rounded-[40px] p-10 flex flex-col justify-between hover:border-brand-primary/30 transition-all group overflow-hidden relative shadow-2xl"
+              className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 rounded-[40px] p-10 flex flex-col justify-between hover:border-brand-primary/30 transition-all group overflow-hidden relative shadow-2xl"
             >
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${book.gradient} blur-[50px] rounded-full pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
               
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-8">
-                  <div className="p-5 bg-white/5 rounded-3xl group-hover:scale-110 transition-transform duration-500">
+                  <div className="p-5 bg-slate-100 dark:bg-[#060D1A] rounded-3xl group-hover:scale-110 transition-transform duration-500">
                     {book.icon}
                   </div>
-                  <span className="text-xs font-bold text-slate-500 border border-white/10 px-3 py-1.5 rounded-full uppercase tracking-widest">
+                  <span className="text-xs font-bold text-slate-500 dark:text-white/60 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-full uppercase tracking-widest">
                     {book.pages}
                   </span>
                 </div>
                 
                 <p className="text-brand-primary font-bold text-sm tracking-widest uppercase mb-2">{book.category}</p>
-                <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors">{book.title}</h2>
-                <p className="text-slate-400 leading-relaxed mb-10">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-brand-primary transition-colors">{book.title}</h2>
+                <p className="text-slate-600 dark:text-white/80 leading-relaxed mb-10">
                   {book.description}
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function EBooks() {
                 <Button variant="primary" className="w-full py-4 rounded-2xl flex items-center justify-center gap-2 group-hover:shadow-[0_10px_30px_rgba(40,168,224,0.3)] transition-all">
                   Download PDF <Download className="w-4 h-4" />
                 </Button>
-                <button className="text-slate-500 hover:text-white text-sm font-bold transition-colors flex items-center justify-center gap-2">
+                <button className="text-slate-500 dark:text-white/60 hover:text-slate-900 dark:text-white text-sm font-bold transition-colors flex items-center justify-center gap-2">
                   Learn More <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

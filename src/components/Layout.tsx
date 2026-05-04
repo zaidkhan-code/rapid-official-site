@@ -1,11 +1,12 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Search, Globe, ChevronDown, ChevronUp, ChevronRight, Package, Activity, Zap, Shield, Warehouse, BrainCircuit, Cloud, Layout as LayoutIcon, Smartphone, PenTool, Server, Database, Scan, Fingerprint, Cpu, ShieldCheck, Infinity, Info, Briefcase, Award, HelpCircle, Truck, Car, Hotel, Landmark, Pill, Scissors, GraduationCap, Factory, Droplets, BookOpen, FileText, Book, PlayCircle, Newspaper, Handshake, ShoppingBag, Users, User, ArrowRight, MessageCircle, ArrowLeft, LogOut } from 'lucide-react';
+import { Menu, X, Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Search, Globe, ChevronDown, ChevronUp, ChevronRight, Package, Activity, Zap, Shield, Warehouse, BrainCircuit, Cloud, Layout as LayoutIcon, Smartphone, PenTool, Server, Database, Scan, Fingerprint, Cpu, ShieldCheck, Infinity, Info, Briefcase, Award, HelpCircle, Truck, Car, Hotel, Landmark, Pill, Scissors, GraduationCap, Factory, Droplets, BookOpen, FileText, Book, PlayCircle, Newspaper, Handshake, ShoppingBag, Users, User, ArrowRight, MessageCircle, ArrowLeft, LogOut, Sun, Moon } from 'lucide-react';
 import { useState, useEffect, ReactNode, useRef } from 'react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/Button';
 import { Input } from './ui/Input';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Logo = () => (
   <div className="flex items-center">
@@ -37,7 +38,7 @@ const MegaMenuContainer = ({ children, activeMenu, menuName, onClose, width = "w
         width
       )}
     >
-      <div className="bg-surface-dark/95 backdrop-blur-3xl rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/10 overflow-hidden p-8 md:p-12 relative w-full">
+      <div className="bg-white dark:bg-[#0A101C]/95 dark:bg-[#0A101C]/95 backdrop-blur-3xl rounded-[32px] shadow-[0_40px_100px_rgba(0,0,0,0.1)] border border-slate-200 dark:border-white/10 overflow-hidden p-8 md:p-12 relative w-full">
         {children}
       </div>
     </motion.div>
@@ -48,19 +49,19 @@ const MegaMenuItem = ({ icon: Icon, name, desc, path, isNew, onClose }: { icon: 
   <Link 
     to={path}
     onClick={onClose}
-    className="group flex items-start gap-5 p-4 -m-4 rounded-3xl hover:bg-white/5 transition-all duration-300"
+    className="group flex items-start gap-5 p-4 -m-4 rounded-3xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300"
   >
-    <div className="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:bg-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+    <div className="mt-1 flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-slate-900 dark:text-white transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:bg-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
       <Icon className="w-5 h-5" />
     </div>
     <div className="flex-1">
       <div className="flex items-center gap-3 mb-1">
-        <span className="font-extrabold text-[15px] text-white transition-colors tracking-tight">{name}</span>
+        <span className="font-extrabold text-[15px] text-slate-900 dark:text-white transition-colors tracking-tight">{name}</span>
         {isNew && (
           <span className="px-2 py-0.5 rounded-md bg-brand-primary/20 text-brand-primary text-[10px] font-extrabold uppercase tracking-widest leading-none">New</span>
         )}
       </div>
-      <p className="text-sm text-slate-400 leading-relaxed font-medium group-hover:text-slate-300 transition-colors">{desc}</p>
+      <p className="text-sm text-slate-600 dark:text-white/80 leading-relaxed font-medium group-hover:text-slate-700 dark:group-hover:text-white/90 transition-colors">{desc}</p>
     </div>
   </Link>
 );
@@ -271,6 +272,7 @@ export default function Layout() {
   const [name, setName] = useState('');
   
   const { user, login, logout, register } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   
   useEffect(() => {
     if (user && isUserMenuOpen && authView !== 'erp-account') {
@@ -342,14 +344,14 @@ export default function Layout() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col font-sans text-slate-800 bg-slate-50 selection:bg-brand-primary/20 selection:text-brand-primary">
+    <div className="min-h-screen flex flex-col font-sans text-slate-800 dark:text-white/90 bg-slate-50 dark:bg-[#061121] selection:bg-brand-primary/20 selection:text-brand-primary">
       {/* Navbar */}
       <header 
         className={cn(
           "fixed top-0 w-full z-50 transition-all duration-300",
           scrolled 
-            ? "bg-brand-dark/95 backdrop-blur-md py-4 shadow-xl border-b border-brand-primary/10" 
-            : "bg-brand-dark py-6 border-b border-transparent"
+            ? "bg-white dark:bg-[#0A101C]/95 dark:bg-[#0A101C]/95 backdrop-blur-md py-4 shadow-xl border-b border-brand-primary/10" 
+            : "bg-slate-50 dark:bg-[#061121] py-6 border-b border-transparent"
         )}
       >
         {/* Subtle Header Glow */}
@@ -374,7 +376,7 @@ export default function Layout() {
                     onClick={() => setActiveMenu(activeMenu === link.name ? null : link.name)}
                     className={cn(
                       "px-4 py-2 text-[14px] font-bold flex items-center cursor-pointer gap-1 transition-all duration-200",
-                      activeMenu === link.name ? "text-brand-primary" : "text-white/80 hover:text-white"
+                      activeMenu === link.name ? "text-brand-primary" : "text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white"
                     )}
                   >
                     {link.name}
@@ -413,12 +415,12 @@ export default function Layout() {
                       <input 
                         type="text" 
                         placeholder="Search..."
-                        className="bg-transparent border-b border-brand-primary/40 focus:border-brand-primary text-white text-sm outline-none w-full px-2 py-1 transition-colors"
+                        className="bg-transparent border-b border-brand-primary/40 focus:border-brand-primary text-slate-900 dark:text-white text-sm outline-none w-full px-2 py-1 transition-colors"
                         autoFocus
                       />
                       <button 
                         onClick={() => setIsSearchOpen(false)}
-                        className="text-white/40 hover:text-white ml-1"
+                        className="text-slate-900 dark:text-white/40 hover:text-slate-900 dark:text-white ml-1"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -428,7 +430,7 @@ export default function Layout() {
                 {!isSearchOpen && (
                   <button 
                     onClick={() => setIsSearchOpen(true)}
-                    className="text-white/80 hover:text-white p-2"
+                    className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-2"
                   >
                     <Search className="w-5 h-5" strokeWidth={2.5} />
                   </button>
@@ -437,8 +439,20 @@ export default function Layout() {
               
               <div>
                 <button 
+                  onClick={toggleTheme}
+                  className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-2 transition-colors relative w-9 h-9 flex items-center justify-center"
+                  aria-label="Toggle theme"
+                >
+                  <Sun className="w-5 h-5 absolute inset-0 m-auto rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" strokeWidth={2.5}/>
+                  <Moon className="w-5 h-5 absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" strokeWidth={2.5} />
+                  <span className="sr-only">Toggle theme</span>
+                </button>
+              </div>
+
+              <div>
+                <button 
                   onClick={() => { setIsLangOpen(true); setIsUserMenuOpen(false); setIsSearchOpen(false); }}
-                  className={cn("text-white/80 hover:text-white p-2 transition-colors", isLangOpen && "text-white")}
+                  className={cn("text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-2 transition-colors", isLangOpen && "text-slate-900 dark:text-white")}
                 >
                   <Globe className="w-5 h-5" strokeWidth={2.5} />
                 </button>
@@ -447,7 +461,7 @@ export default function Layout() {
               <div>
                 <button 
                   onClick={() => { setIsUserMenuOpen(true); setIsLangOpen(false); setIsSearchOpen(false); }}
-                  className={cn("text-white/80 hover:text-white p-2 transition-colors", isUserMenuOpen && "text-white")}
+                  className={cn("text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-2 transition-colors", isUserMenuOpen && "text-slate-900 dark:text-white")}
                 >
                   <User className="w-5 h-5" strokeWidth={2.5} />
                 </button>
@@ -455,10 +469,19 @@ export default function Layout() {
             </div>
 
             {/* Mobile menu button */}
-            <div className="lg:hidden flex items-center">
+            <div className="lg:hidden flex items-center gap-2">
+              <button 
+                onClick={toggleTheme}
+                className="text-slate-900 dark:text-white hover:text-brand-primary focus:outline-none p-2 relative w-10 h-10 flex items-center justify-center"
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-6 w-6 absolute inset-0 m-auto rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" strokeWidth={2.5}/>
+                <Moon className="h-6 w-6 absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" strokeWidth={2.5} />
+                <span className="sr-only">Toggle theme</span>
+              </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white hover:text-brand-primary focus:outline-none p-2"
+                className="text-slate-900 dark:text-white hover:text-brand-primary focus:outline-none p-2"
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -473,7 +496,7 @@ export default function Layout() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden bg-brand-dark shadow-2xl overflow-hidden absolute w-full left-0 border-t border-white/5"
+              className="lg:hidden bg-slate-50 dark:bg-[#061121] shadow-2xl overflow-hidden absolute w-full left-0 border-t border-slate-100 dark:border-white/5"
             >
               <div className="px-6 py-8 space-y-4">
                 {navLinks.map((link) => (
@@ -483,14 +506,14 @@ export default function Layout() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       "block px-4 py-3 rounded-xl text-lg font-bold transition-colors",
-                      location.pathname === link.path ? "text-brand-primary" : "text-white/60"
+                      location.pathname === link.path ? "text-brand-primary" : "text-slate-500 dark:text-white/60"
                     )}
                   >
                     {link.name}
                   </Link>
                 ))}
                 <div className="pt-6">
-                  <button className="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold bg-white/5 text-white border border-white/10 hover:bg-white/10 transition-colors">
+                  <button className="w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold bg-slate-100 dark:bg-[#060D1A] text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                     <Fingerprint className="w-6 h-6 text-brand-primary" />
                     <span>Client Login</span>
                   </button>
@@ -507,7 +530,7 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-surface-light text-slate-300 py-16 border-t border-brand-primary/10">
+      <footer className="bg-slate-50 dark:bg-[#061121] text-slate-700 dark:text-white/90 py-16 border-t border-brand-primary/10">
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             
@@ -516,16 +539,16 @@ export default function Layout() {
               <div className="mb-6 inline-block">
                 <Logo />
               </div>
-              <p className="text-sm text-slate-400 mb-8 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-white/80 mb-8 leading-relaxed">
                 Rapid ERP, our software stands as a symbol of precision, quality, and trust for all your enterprise needs.
               </p>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 text-sm font-bold text-white">
+                <div className="flex items-center gap-3 text-sm font-bold text-slate-900 dark:text-white">
                   <span className="mr-1">Follow us :</span>
                   <div className="flex gap-2">
-                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-white transition-all"><Facebook className="w-3.5 h-3.5" /></a>
-                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-white transition-all"><Instagram className="w-3.5 h-3.5" /></a>
-                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-white transition-all"><Twitter className="w-3.5 h-3.5" /></a>
+                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-slate-900 dark:text-white transition-all"><Facebook className="w-3.5 h-3.5" /></a>
+                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-slate-900 dark:text-white transition-all"><Instagram className="w-3.5 h-3.5" /></a>
+                    <a href="#" className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary hover:text-slate-900 dark:text-white transition-all"><Twitter className="w-3.5 h-3.5" /></a>
                   </div>
                 </div>
                 {/* Decorative Underline */}
@@ -556,68 +579,68 @@ export default function Layout() {
             {/* Column 2: Platform */}
             <div>
               <div className="mb-6">
-                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
+                <h3 className="text-slate-900 dark:text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
                   PLATFORM
                 </h3>
               </div>
-              <ul className="space-y-3 font-medium text-slate-400 text-sm">
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-white transition-colors">Digital ERP Core</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-white transition-colors">POS Ecosystem</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-white transition-colors">Cloud Transformation</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-white transition-colors">Financial Automation</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/industries" className="hover:text-white transition-colors">Industry Verticals</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/technology" className="hover:text-white transition-colors">Our Technology</Link></li>
+              <ul className="space-y-3 font-medium text-slate-600 dark:text-white/80 text-sm">
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-slate-900 dark:text-white transition-colors">Digital ERP Core</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/products" className="hover:text-slate-900 dark:text-white transition-colors">POS Ecosystem</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-slate-900 dark:text-white transition-colors">Cloud Transformation</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/solutions" className="hover:text-slate-900 dark:text-white transition-colors">Financial Automation</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/industries" className="hover:text-slate-900 dark:text-white transition-colors">Industry Verticals</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/technology" className="hover:text-slate-900 dark:text-white transition-colors">Our Technology</Link></li>
               </ul>
             </div>
 
             {/* Column 3: Resources */}
             <div>
               <div className="mb-6">
-                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
+                <h3 className="text-slate-900 dark:text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
                   RESOURCES
                 </h3>
               </div>
-              <ul className="space-y-3 font-medium text-slate-400 text-sm">
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/blog" className="hover:text-white transition-colors">Insights Blog</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/ebooks" className="hover:text-white transition-colors">Whitepapers</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/video-library" className="hover:text-white transition-colors">Video Library</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/press-releases" className="hover:text-white transition-colors">Press Releases</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/faq" className="hover:text-white transition-colors">FAQ Center</Link></li>
+              <ul className="space-y-3 font-medium text-slate-600 dark:text-white/80 text-sm">
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/blog" className="hover:text-slate-900 dark:text-white transition-colors">Insights Blog</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/case-studies" className="hover:text-slate-900 dark:text-white transition-colors">Case Studies</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/ebooks" className="hover:text-slate-900 dark:text-white transition-colors">Whitepapers</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/video-library" className="hover:text-slate-900 dark:text-white transition-colors">Video Library</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/press-releases" className="hover:text-slate-900 dark:text-white transition-colors">Press Releases</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/faq" className="hover:text-slate-900 dark:text-white transition-colors">FAQ Center</Link></li>
               </ul>
             </div>
 
             {/* Column 4: Company */}
             <div>
               <div className="mb-6">
-                <h3 className="text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
+                <h3 className="text-slate-900 dark:text-white font-bold tracking-wider uppercase text-[13px] inline-block pb-2 border-b-2 border-brand-primary">
                   COMPANY
                 </h3>
               </div>
-              <ul className="space-y-3 font-medium text-slate-400 text-sm mb-8">
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/about" className="hover:text-white transition-colors">About Rapid</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/leadership" className="hover:text-white transition-colors">Leadership Team</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/partners" className="hover:text-white transition-colors">Partner Ecosystem</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/career" className="hover:text-white transition-colors">Global Careers</Link></li>
-                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link></li>
+              <ul className="space-y-3 font-medium text-slate-600 dark:text-white/80 text-sm mb-8">
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/about" className="hover:text-slate-900 dark:text-white transition-colors">About Rapid</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/leadership" className="hover:text-slate-900 dark:text-white transition-colors">Leadership Team</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/partners" className="hover:text-slate-900 dark:text-white transition-colors">Partner Ecosystem</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/career" className="hover:text-slate-900 dark:text-white transition-colors">Global Careers</Link></li>
+                <li className="flex items-center gap-2 group"><ChevronRight className="w-3.5 h-3.5 text-brand-primary transition-transform group-hover:translate-x-1" /><Link to="/contact" className="hover:text-slate-900 dark:text-white transition-colors">Contact Support</Link></li>
               </ul>
 
-              <div className="flex flex-col gap-2 p-4 rounded-2xl bg-white/5 border border-white/5">
+              <div className="flex flex-col gap-2 p-4 rounded-2xl bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5">
                 <span className="text-[10px] font-black uppercase text-brand-primary">Global Support</span>
-                <span className="text-white font-bold text-sm tracking-tight">+1 (800) RAPID-ERP</span>
+                <span className="text-slate-900 dark:text-white font-bold text-sm tracking-tight">+1 (800) RAPID-ERP</span>
               </div>
             </div>
           </div>
           
           <div className="pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="text-sm font-medium text-slate-500 italic">&copy; {new Date().getFullYear()} <span className="text-brand-primary font-bold">Rapid ERP</span>. All rights reserved.</div>
+              <div className="text-sm font-medium text-slate-500 dark:text-white/60 italic">&copy; {new Date().getFullYear()} <span className="text-brand-primary font-bold">Rapid ERP</span>. All rights reserved.</div>
           
             </div>
             
-            <div className="flex gap-6 text-[11px] font-black uppercase tracking-widest text-slate-600">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <div className="flex gap-6 text-[11px] font-black uppercase tracking-widest text-slate-600 dark:text-white/80">
+              <a href="#" className="hover:text-slate-900 dark:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-slate-900 dark:text-white transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
@@ -632,28 +655,28 @@ export default function Layout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeLangModal}
-              className="absolute inset-0 bg-base-darker/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-200 dark:bg-[#040914]/90 backdrop-blur-sm"
             ></motion.div>
             
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative w-full max-w-md bg-surface-dark border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-full max-w-md bg-white dark:bg-[#0A101C] border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
-              <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
+              <div className="px-6 py-5 border-b border-slate-100 dark:border-white/5 flex justify-between items-center bg-slate-100 dark:bg-[#060D1A]">
                 <div className="flex items-center gap-3">
                   {selectedRegion && (
-                    <button onClick={() => setSelectedRegion(null)} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                    <button onClick={() => setSelectedRegion(null)} className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                       <ArrowLeft className="w-5 h-5" />
                     </button>
                   )}
-                  <span className="font-bold text-white text-lg tracking-wide flex items-center gap-2">
+                  <span className="font-bold text-slate-900 dark:text-white text-lg tracking-wide flex items-center gap-2">
                     <Globe className="w-5 h-5 text-brand-primary" />
                     {selectedRegion ? selectedRegion : 'Select your region'}
                   </span>
                 </div>
-                <button onClick={closeLangModal} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                <button onClick={closeLangModal} className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -671,7 +694,7 @@ export default function Layout() {
                         <button 
                           key={i} 
                           onClick={() => setSelectedRegion(region)}
-                          className="flex items-center justify-between w-full px-5 py-4 text-left text-[15px] text-slate-300 font-bold hover:bg-brand-primary/10 hover:text-brand-primary rounded-2xl transition-all group border border-transparent hover:border-brand-primary/20"
+                          className="flex items-center justify-between w-full px-5 py-4 text-left text-[15px] text-slate-700 dark:text-white/90 font-bold hover:bg-brand-primary/10 hover:text-brand-primary rounded-2xl transition-all group border border-transparent hover:border-brand-primary/20"
                         >
                           {region}
                           <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
@@ -690,7 +713,7 @@ export default function Layout() {
                         <button 
                           key={i} 
                           onClick={closeLangModal}
-                          className="flex items-center justify-between w-full px-5 py-3 text-left text-[15px] text-slate-300 font-medium hover:bg-brand-primary/10 hover:text-white rounded-xl transition-all group"
+                          className="flex items-center justify-between w-full px-5 py-3 text-left text-[15px] text-slate-700 dark:text-white/90 font-medium hover:bg-brand-primary/10 hover:text-slate-900 dark:text-white rounded-xl transition-all group"
                         >
                           {lang}
                         </button>
@@ -699,8 +722,8 @@ export default function Layout() {
                   )}
                 </AnimatePresence>
               </div>
-              <div className="px-6 py-5 bg-base-dark border-t border-white/5 text-center">
-                <span className="text-[13px] font-medium text-slate-500">
+              <div className="px-6 py-5 bg-slate-100 dark:bg-[#060D1A] border-t border-slate-100 dark:border-white/5 text-center">
+                <span className="text-[13px] font-medium text-slate-500 dark:text-white/60">
                   {selectedRegion ? 'Select your language to continue.' : 'Choose your country to view localized content.'}
                 </span>
               </div>
@@ -718,28 +741,28 @@ export default function Layout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeUserModal}
-              className="absolute inset-0 bg-base-darker/90 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-200 dark:bg-[#040914]/90 backdrop-blur-sm"
             ></motion.div>
             
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="relative w-full max-w-sm bg-surface-dark border border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+              className="relative w-full max-w-sm bg-white dark:bg-[#0A101C] border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.5)] overflow-hidden"
             >
-              <div className="px-6 py-5 border-b border-white/5 flex justify-between items-center bg-white/5">
+              <div className="px-6 py-5 border-b border-slate-100 dark:border-white/5 flex justify-between items-center bg-slate-100 dark:bg-[#060D1A]">
                 <div className="flex items-center gap-3">
                   {authView !== 'menu' && (
-                    <button onClick={() => setAuthView('menu')} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                    <button onClick={() => setAuthView('menu')} className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                       <ArrowLeft className="w-5 h-5" />
                     </button>
                   )}
-                  <span className="font-bold text-white text-lg tracking-wide flex items-center gap-2">
+                  <span className="font-bold text-slate-900 dark:text-white text-lg tracking-wide flex items-center gap-2">
                     <User className="w-5 h-5 text-brand-primary" />
                     {authView === 'menu' ? 'Account Access' : authView === 'erp-signin' ? 'Sign In' : 'Create Account'}
                   </span>
                 </div>
-                <button onClick={closeUserModal} className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+                <button onClick={closeUserModal} className="text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -756,12 +779,12 @@ export default function Layout() {
                     >
                       {/* Cloud Account section */}
                       <div>
-                        <span className="block text-[11px] font-black text-slate-500 mb-4 uppercase tracking-widest pl-1">Cloud Account</span>
+                        <span className="block text-[11px] font-black text-slate-500 dark:text-white/60 mb-4 uppercase tracking-widest pl-1">Cloud Account</span>
                         <div className="flex flex-col gap-3">
-                          <Button variant="outline" className="w-full justify-center py-6 text-[15px] border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white">
+                          <Button variant="outline" className="w-full justify-center py-6 text-[15px] border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 bg-slate-100 dark:bg-[#060D1A] hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white">
                             Sign in to Cloud
                           </Button>
-                          <Button variant="ghost" className="w-full justify-center text-slate-400 hover:text-white">
+                          <Button variant="ghost" className="w-full justify-center text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white">
                             Sign Up for Free Tier
                           </Button>
                         </div>
@@ -771,12 +794,12 @@ export default function Layout() {
                       
                       {/* Rapid ERP Account section */}
                       <div>
-                        <span className="block text-[11px] font-black text-slate-500 mb-4 uppercase tracking-widest pl-1">Rapid ERP Account</span>
+                        <span className="block text-[11px] font-black text-slate-500 dark:text-white/60 mb-4 uppercase tracking-widest pl-1">Rapid ERP Account</span>
                         <div className="flex flex-col gap-3">
                           <Button onClick={() => setAuthView('erp-signin')} variant="primary" className="w-full justify-center shadow-[0_0_20px_rgba(35,168,224,0.3)] hover:shadow-[0_0_30px_rgba(35,168,224,0.5)] py-6 text-[15px]">
                             Sign In
                           </Button>
-                          <Button onClick={() => setAuthView('erp-register')} variant="outline" className="w-full justify-center py-6 text-[15px] border-white/10 hover:border-white/20 bg-transparent hover:bg-white/5 text-white">
+                          <Button onClick={() => setAuthView('erp-register')} variant="outline" className="w-full justify-center py-6 text-[15px] border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-900 dark:text-white">
                             Create an Account
                           </Button>
                         </div>
@@ -800,7 +823,7 @@ export default function Layout() {
                         Sign In Securely
                       </Button>
                       <div className="text-center">
-                        <button className="text-[13px] text-brand-primary hover:text-white transition-colors">Forgot your password?</button>
+                        <button className="text-[13px] text-brand-primary hover:text-slate-900 dark:text-white transition-colors">Forgot your password?</button>
                       </div>
                     </motion.div>
                   )}
@@ -822,7 +845,7 @@ export default function Layout() {
                         Create Account
                       </Button>
                       <div className="text-center">
-                        <span className="text-[13px] text-slate-500">By creating an account, you agree to our <button className="text-brand-primary hover:text-white">Terms</button>.</span>
+                        <span className="text-[13px] text-slate-500 dark:text-white/60">By creating an account, you agree to our <button className="text-brand-primary hover:text-slate-900 dark:text-white">Terms</button>.</span>
                       </div>
                     </motion.div>
                   )}
@@ -840,14 +863,14 @@ export default function Layout() {
                       </div>
                       
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-1">{user.name}</h3>
-                        <p className="text-slate-400 text-sm">{user.email}</p>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{user.name}</h3>
+                        <p className="text-slate-600 dark:text-white/80 text-sm">{user.email}</p>
                       </div>
                       
-                      <div className="h-[1px] bg-white/5 my-6"></div>
+                      <div className="h-[1px] bg-slate-100 dark:bg-[#060D1A] my-6"></div>
                       
                       <div className="flex flex-col gap-3">
-                        <Button variant="outline" className="w-full justify-center py-4 bg-white/5 border-white/10 hover:bg-white/10 text-white" onClick={() => { closeUserModal(); navigate('/dashboard'); }}>
+                        <Button variant="outline" className="w-full justify-center py-4 bg-slate-100 dark:bg-[#060D1A] border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white" onClick={() => { closeUserModal(); navigate('/dashboard'); }}>
                           Go to Dashboard
                         </Button>
                         <Button variant="ghost" className="w-full justify-center py-4 text-red-400 hover:text-red-300 hover:bg-red-500/10" onClick={() => { logout(); closeUserModal(); }}>

@@ -53,9 +53,9 @@ export default function VideoLibrary() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-darker min-h-screen font-sans"
+      className="flex flex-col bg-slate-200 dark:bg-[#040914] min-h-screen font-sans"
     >
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-white/5">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
@@ -69,10 +69,10 @@ export default function VideoLibrary() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(40,168,224,0.8)]"></span>
               Media Center
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Video Library
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Watch product demos, technical deep-dives, and executive interviews detailing the future of enterprise ERP.
             </p>
           </motion.div>
@@ -82,16 +82,16 @@ export default function VideoLibrary() {
       <section className="py-24 w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
           <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-white/60 w-5 h-5" />
             <input 
               type="text" 
               placeholder="Search videos..." 
-              className="w-full pl-12 pr-4 py-3 bg-surface-dark border border-white/5 rounded-xl text-white outline-none focus:border-brand-primary transition-colors"
+              className="w-full pl-12 pr-4 py-3 bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 rounded-xl text-slate-900 dark:text-white outline-none focus:border-brand-primary transition-colors"
             />
           </div>
           <div className="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto no-scrollbar">
             {["All", "Demos", "Webinars", "Technical", "Interviews"].map(cat => (
-              <button key={cat} className="px-6 py-2 rounded-full border border-white/10 text-sm font-bold text-slate-400 hover:text-white hover:border-brand-primary transition-all whitespace-nowrap">
+              <button key={cat} className="px-6 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-600 dark:text-white/80 hover:text-slate-900 dark:text-white hover:border-brand-primary transition-all whitespace-nowrap">
                 {cat}
               </button>
             ))}
@@ -108,28 +108,28 @@ export default function VideoLibrary() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 border border-white/5 shadow-2xl">
+              <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 border border-slate-100 dark:border-white/5 shadow-2xl">
                 <img 
                   src={vid.thumbnail} 
                   alt={vid.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-primary/90 text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(40,168,224,0.5)]">
+                  <div className="w-16 h-16 rounded-full bg-brand-primary/90 text-slate-900 dark:text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(40,168,224,0.5)]">
                     <Play className="w-6 h-6 fill-current" />
                   </div>
                 </div>
-                <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-2 text-xs font-bold text-white">
+                <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md rounded-lg flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
                   <Clock className="w-3.5 h-3.5" />
                   {vid.duration}
                 </div>
-                <div className="absolute top-4 left-4 px-3 py-1 bg-brand-primary/90 rounded-lg text-[10px] uppercase font-black tracking-widest text-white shadow-lg">
+                <div className="absolute top-4 left-4 px-3 py-1 bg-brand-primary/90 rounded-lg text-[10px] uppercase font-black tracking-widest text-slate-900 dark:text-white shadow-lg">
                   {vid.category}
                 </div>
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">{vid.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed line-clamp-2">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-primary transition-colors">{vid.title}</h3>
+              <p className="text-slate-600 dark:text-white/80 text-sm leading-relaxed line-clamp-2">
                 {vid.description}
               </p>
             </motion.div>

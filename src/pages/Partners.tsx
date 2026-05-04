@@ -30,9 +30,9 @@ export default function Partners() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-darker min-h-screen font-sans"
+      className="flex flex-col bg-slate-200 dark:bg-[#040914] min-h-screen font-sans"
     >
-      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-white/5">
+      <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center justify-center border-b border-slate-100 dark:border-white/5">
         <NetworkBackground />
 
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 relative z-10 text-center">
@@ -46,10 +46,10 @@ export default function Partners() {
               <span className="flex h-2 w-2 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(40,168,224,0.8)]"></span>
               Global Ecosystem
             </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
               Our Partners
             </h1>
-            <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-white/80 leading-relaxed max-w-2xl mx-auto">
               Join a world-class network of innovators, implementers, and infrastructure giants shaping the future of ERP.
             </p>
           </motion.div>
@@ -65,25 +65,25 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-surface-dark border border-white/5 rounded-[40px] p-10 hover:border-brand-primary/30 transition-all group flex flex-col h-full shadow-2xl"
+              className="bg-white dark:bg-[#0A101C] border border-slate-100 dark:border-white/5 rounded-[40px] p-10 hover:border-brand-primary/30 transition-all group flex flex-col h-full shadow-2xl"
             >
-              <div className="p-5 bg-white/5 rounded-3xl w-fit group-hover:scale-110 transition-transform duration-500 mb-8">
+              <div className="p-5 bg-slate-100 dark:bg-[#060D1A] rounded-3xl w-fit group-hover:scale-110 transition-transform duration-500 mb-8">
                 {tier.icon}
               </div>
               
-              <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors leading-tight">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-brand-primary transition-colors leading-tight">
                 {tier.title}
               </h2>
               
-              <p className="text-slate-400 leading-relaxed mb-10 flex-grow">
+              <p className="text-slate-600 dark:text-white/80 leading-relaxed mb-10 flex-grow">
                 {tier.description}
               </p>
               
-              <div className="space-y-4 pt-8 border-t border-white/5">
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-4">Featured Partners</p>
+              <div className="space-y-4 pt-8 border-t border-slate-100 dark:border-white/5">
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-white/60 mb-4">Featured Partners</p>
                 <div className="flex flex-wrap gap-3">
                   {tier.partners.map(p => (
-                    <span key={p} className="px-4 py-2 bg-white/5 border border-white/5 rounded-full text-xs font-bold text-slate-300">
+                    <span key={p} className="px-4 py-2 bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 rounded-full text-xs font-bold text-slate-700 dark:text-white/90">
                       {p}
                     </span>
                   ))}
@@ -94,45 +94,45 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="py-24 bg-surface-dark relative border-y border-white/5 overflow-hidden">
+      <section className="py-24 bg-white dark:bg-[#0A101C] relative border-y border-slate-100 dark:border-white/5 overflow-hidden">
         <div className="max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 2xl:px-16 flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8 border-l-4 border-brand-primary pl-8">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-8 border-l-4 border-brand-primary pl-8">
               Become a Rapid Partner Today
             </h2>
-            <p className="text-xl text-slate-400 mb-10 leading-relaxed">
+            <p className="text-xl text-slate-600 dark:text-white/80 mb-10 leading-relaxed">
               Unlock new revenue streams, gain exclusive engineering access, and empower your clients with the world's most agile ERP architecture.
             </p>
             <div className="flex flex-wrap gap-6">
               <button className="px-8 py-4 bg-brand-primary text-white rounded-xl font-bold hover:shadow-[0_10px_30px_rgba(40,168,224,0.4)] transition-all">
                 Apply for Partnership
               </button>
-              <Link to="/contact" className="px-8 py-4 border border-white/10 text-white rounded-xl font-bold hover:bg-white/5 transition-all flex items-center gap-2">
+              <Link to="/contact" className="px-8 py-4 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-white/5 transition-all flex items-center gap-2">
                 Consult with Ecosystem Team <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
           
           <div className="lg:w-1/2 grid grid-cols-2 gap-6 w-full">
-            <div className="bg-white/5 border border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
+            <div className="bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
                 <Handshake className="w-10 h-10 text-brand-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-white mb-2">Referral Program</h4>
-                <p className="text-xs text-slate-500">Earn incentives for high-impact leads.</p>
+                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Referral Program</h4>
+                <p className="text-xs text-slate-500 dark:text-white/60">Earn incentives for high-impact leads.</p>
             </div>
-            <div className="bg-white/5 border border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
+            <div className="bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
                 <Zap className="w-10 h-10 text-brand-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-white mb-2">Reseller Network</h4>
-                <p className="text-xs text-slate-500">Provide localized sales and delivery.</p>
+                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Reseller Network</h4>
+                <p className="text-xs text-slate-500 dark:text-white/60">Provide localized sales and delivery.</p>
             </div>
-            <div className="bg-white/5 border border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
+            <div className="bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
                 <ShieldCheck className="w-10 h-10 text-brand-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-white mb-2">Service Partner</h4>
-                <p className="text-xs text-slate-500">Deploy and maintain Rapid solutions.</p>
+                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Service Partner</h4>
+                <p className="text-xs text-slate-500 dark:text-white/60">Deploy and maintain Rapid solutions.</p>
             </div>
-            <div className="bg-white/5 border border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
+            <div className="bg-slate-100 dark:bg-[#060D1A] border border-slate-100 dark:border-white/5 p-8 rounded-3xl flex flex-col items-center text-center group hover:bg-brand-primary/5 transition-all">
                 <MessageSquare className="w-10 h-10 text-brand-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="font-bold text-white mb-2">Partner Portal</h4>
-                <p className="text-xs text-slate-500">Access exclusive technical literature.</p>
+                <h4 className="font-bold text-slate-900 dark:text-white mb-2">Partner Portal</h4>
+                <p className="text-xs text-slate-500 dark:text-white/60">Access exclusive technical literature.</p>
             </div>
           </div>
         </div>

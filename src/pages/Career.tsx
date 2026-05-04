@@ -51,7 +51,7 @@ const SectionTitle = ({ title, rightAction }: { title: string, rightAction?: Rea
   <div className="flex justify-between items-end mb-8">
     <div className="flex items-center gap-3">
       <div className="w-1.5 h-6 bg-brand-primary rounded-full"></div>
-      <h2 className="text-2xl font-black text-white tracking-tight leading-none">{title}</h2>
+      <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">{title}</h2>
     </div>
     {rightAction}
   </div>
@@ -77,7 +77,7 @@ export default function Career() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col bg-base-dark min-h-screen font-sans selection:bg-brand-primary/30 selection:text-white"
+      className="flex flex-col bg-slate-100 dark:bg-[#060D1A] min-h-screen font-sans selection:bg-brand-primary/30 selection:text-slate-900 dark:text-white"
     >
       {/* Dark Theme Header */}
       <section className="relative pt-32 pb-48 lg:pt-40 lg:pb-56 overflow-hidden flex items-center justify-center">
@@ -90,8 +90,8 @@ export default function Career() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <h1 className="text-4xl lg:text-5xl font-black text-white mb-6">Career</h1>
-            <p className="text-base lg:text-lg text-slate-300 leading-relaxed font-medium">
+            <h1 className="text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6">Career</h1>
+            <p className="text-base lg:text-lg text-slate-700 dark:text-white/90 leading-relaxed font-medium">
               There are many variations of passag of Lorem Ipsum available, but the majority<br className="hidden md:block"/>
               have sufferedThere are many variations of passag of Lorem Ipsum available.
             </p>
@@ -109,19 +109,19 @@ export default function Career() {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-surface-light rounded-2xl shadow-sm border border-white/5 flex flex-col hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
+              className="bg-slate-50 dark:bg-[#061121] rounded-2xl shadow-sm border border-slate-100 dark:border-white/5 flex flex-col hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
             >
               <div className="p-8 pb-10 flex flex-col items-start flex-grow">
-                 <span className="text-[11px] font-bold tracking-widest text-slate-400 mb-4">{job.location}</span>
-                 <h3 className="text-xl font-bold text-white mb-8 group-hover:text-brand-primary transition-colors">{job.title}</h3>
+                 <span className="text-[11px] font-bold tracking-widest text-slate-600 dark:text-white/80 mb-4">{job.location}</span>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 group-hover:text-brand-primary transition-colors">{job.title}</h3>
                  <Link to={`/career/${job.id}`}>
-                   <Button variant="outline" size="sm" className="text-[10px] border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">
+                   <Button variant="outline" size="sm" className="text-[10px] border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-slate-900 dark:text-white">
                      APPLY NOW
                    </Button>
                  </Link>
               </div>
-              <div className="border-t border-white/5 p-5 px-8 flex items-center">
-                 <span className="text-[11px] font-bold tracking-widest text-slate-400">VACANCIES <span className="text-white ml-3">{job.vacancies}</span></span>
+              <div className="border-t border-slate-100 dark:border-white/5 p-5 px-8 flex items-center">
+                 <span className="text-[11px] font-bold tracking-widest text-slate-600 dark:text-white/80">VACANCIES <span className="text-slate-900 dark:text-white ml-3">{job.vacancies}</span></span>
               </div>
             </motion.div>
           ))}
@@ -139,13 +139,13 @@ export default function Career() {
                whileInView={{ y: 0, opacity: 1 }}
                viewport={{ once: true }}
                transition={{ delay: idx * 0.1 }}
-               className="bg-surface-light p-8 rounded-2xl shadow-sm border border-white/5 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
+               className="bg-slate-50 dark:bg-[#061121] p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-white/5 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-primary/10 transition-all duration-300 group"
             >
                <div className={`w-14 h-14 rounded-xl ${step.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                  <step.icon className={`w-7 h-7 ${step.color}`} strokeWidth={1.5} />
                </div>
-               <h3 className="font-bold text-white text-lg mb-3 group-hover:text-brand-primary transition-colors">{step.title}</h3>
-               <p className="text-xs text-slate-400 leading-relaxed font-medium">
+               <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-3 group-hover:text-brand-primary transition-colors">{step.title}</h3>
+               <p className="text-xs text-slate-600 dark:text-white/80 leading-relaxed font-medium">
                  {step.desc}
                </p>
             </motion.div>
@@ -172,7 +172,7 @@ export default function Career() {
              return (
                <div 
                  key={idx} 
-                 className={`w-full bg-surface-light rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-primary shadow-sm shadow-brand-primary/10' : 'border-white/5 hover:border-white/20'}`}
+                 className={`w-full bg-slate-50 dark:bg-[#061121] rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen ? 'border-brand-primary shadow-sm shadow-brand-primary/10' : 'border-slate-100 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20'}`}
                >
                  <button 
                    onClick={() => {
@@ -184,13 +184,13 @@ export default function Career() {
                    }}
                    className="w-full flex items-center justify-between p-6 text-left"
                  >
-                   <span className={`text-sm lg:text-base font-bold transition-colors ${isOpen ? 'text-brand-primary' : 'text-white'}`}>
+                   <span className={`text-sm lg:text-base font-bold transition-colors ${isOpen ? 'text-brand-primary' : 'text-slate-900 dark:text-white'}`}>
                      {faq.question}
                    </span>
                    {isOpen ? (
                      <ChevronUp className="w-5 h-5 text-brand-primary" />
                    ) : (
-                     <ChevronDown className="w-5 h-5 text-slate-400" />
+                     <ChevronDown className="w-5 h-5 text-slate-600 dark:text-white/80" />
                    )}
                  </button>
                  <AnimatePresence initial={false}>
@@ -203,8 +203,8 @@ export default function Career() {
                        transition={{ duration: 0.3, ease: "easeInOut" }}
                        className="overflow-hidden"
                      >
-                       <div className="px-6 pb-6 text-sm font-medium leading-relaxed text-slate-400">
-                         <div className="pt-4 border-t border-white/5">{faq.answer}</div>
+                       <div className="px-6 pb-6 text-sm font-medium leading-relaxed text-slate-600 dark:text-white/80">
+                         <div className="pt-4 border-t border-slate-100 dark:border-white/5">{faq.answer}</div>
                        </div>
                      </motion.div>
                    )}
